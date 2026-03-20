@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PBuilders — Comunidade de IA na Paraíba</title>
+  <meta name="description" content="Comunidade presencial de builders de IA em Campina Grande, Paraíba. Encontros pra quem constrói projetos, produtos e soluções reais com Inteligência Artificial.">
+  <meta name="keywords" content="IA, inteligência artificial, comunidade, builders, Paraíba, Campina Grande, meetup, Claude Code, Codex, Gemini, tecnologia">
+  <meta name="author" content="PBuilders">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://pbuilders.ai/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pbuilders.ai/">
+  <meta property="og:title" content="PBuilders — Comunidade de Builders de IA na Paraíba">
+  <meta property="og:description" content="Encontros presenciais em Campina Grande pra quem constrói com IA. Devs, advogados, founders, estudantes. Qualquer ferramenta, qualquer nível.">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="PBuilders">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PBuilders — Comunidade de Builders de IA na Paraíba">
+  <meta name="twitter:description" content="Encontros presenciais em Campina Grande pra quem constrói com IA. Devs, advogados, founders, estudantes.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F5EDE4;
+      --bg-card: #FFFDF9;
+      --bg-card-hover: #FFF8F0;
+      --text: #1A1A1A;
+      --text-muted: #6B6B6B;
+      --sunset-1: #E87A3A;
+      --sunset-2: #D45A1F;
+      --sunset-3: #C04318;
+      --sunset-4: #E87A3A;
+      --gold: #F0A050;
+      --gradient-sunset: linear-gradient(135deg, #F0A050, #E87A3A, #D45A1F);
+      --gradient-warm: linear-gradient(135deg, #F0A050, #E87A3A);
+      --card-border: #E8DDD3;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ANIMATED SUN */
+    .sun-glow {
+      position: fixed;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(232,122,58,0.08) 0%, rgba(240,160,80,0.04) 40%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .sun-glow-left {
+      position: fixed;
+      bottom: -300px;
+      left: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(232,122,58,0.05) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245,237,228,0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 2px solid var(--sunset-1);
+      padding: 0.75rem calc((100% - 1200px) / 2 + 2rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .nav-logo-wordmark {
+      font-size: 1.6rem;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-logo-wordmark .pb {
+      background: var(--gradient-sunset);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.8rem;
+      border-radius: 999px;
+      transition: all 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+      background: var(--text);
+    }
+
+    .nav-btn-enter {
+      background: var(--gradient-sunset) !important;
+      color: #fff !important;
+      -webkit-text-fill-color: #fff;
+      border-radius: 999px;
+      padding: 0.4rem 1.2rem !important;
+    }
+
+    .nav-btn-enter:hover {
+      opacity: 0.85;
+    }
+
+    .nav-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+      background: var(--gradient-sunset);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      max-width: 600px;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* HERO */
+    .hero-wrapper {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, var(--bg) 0%, #F0E4D8 50%, var(--bg) 100%);
+    }
+
+    .hero-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,122,58,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    #hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 5rem;
+      text-align: left;
+      padding-top: 6rem;
+      padding-bottom: 4rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(232,122,58,0.1);
+      border: 1px solid rgba(232,122,58,0.2);
+      border-radius: 999px;
+      padding: 0.4rem 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--sunset-1);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero-badge-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--sunset-2);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title .gradient-text {
+      background: var(--gradient-sunset);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin: 0 0 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: flex-start;
+    }
+
+    .hero-visual-full {
+      width: 100%;
+      max-width: 750px;
+      margin: 0 -4rem 0 auto;
+    }
+
+    .btn {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0 1.5rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: 2px solid transparent;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+    }
+
+    .btn-primary {
+      background: var(--gradient-sunset);
+      color: #fff;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.85;
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--text);
+    }
+
+    .btn-outline:hover {
+      background: var(--text);
+      color: #fff;
+    }
+
+    /* HERO VISUAL */
+    .hero-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-laptop {
+      width: 100%;
+      max-width: 480px;
+      position: relative;
+    }
+
+    .hero-screen {
+      background: var(--gradient-sunset);
+      border-radius: 16px;
+      padding: 3px;
+      box-shadow: 0 20px 60px rgba(232,122,58,0.2), 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    .hero-screen-inner {
+      background: #1A1A1A;
+      border-radius: 13px;
+      overflow: hidden;
+    }
+
+    .terminal-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 16px;
+      background: #111;
+    }
+
+    .terminal-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .terminal-dot.red { background: #FF5F57; }
+    .terminal-dot.yellow { background: #FEBC2E; }
+    .terminal-dot.green { background: #28C840; }
+
+    .hero-screen-content {
+      padding: 1.5rem 1.5rem 2rem;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-screen-content::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(240,160,80,0.15), transparent 70%);
+      pointer-events: none;
+    }
+
+    .screen-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.05em;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    .screen-title .pb {
+      background: var(--gradient-warm);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .screen-subtitle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: #666;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .screen-cmd {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: #555;
+      position: relative;
+    }
+
+    .term-line {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: #ccc;
+      text-align: left;
+      margin-bottom: 0.4rem;
+      opacity: 0;
+      animation: term-appear 0.3s forwards;
+    }
+
+    .term-delay-1 { animation-delay: 0.6s; }
+    .term-delay-2 { animation-delay: 1.2s; }
+    .term-delay-3 { animation-delay: 1.8s; }
+    .term-delay-4 { animation-delay: 2.4s; }
+    .term-delay-5 { animation-delay: 3.2s; }
+    .term-delay-6 { animation-delay: 3.8s; }
+    .term-delay-7 { animation-delay: 4.6s; }
+
+    @keyframes term-appear {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .term-line .prompt { color: var(--sunset-1); }
+    .term-line .flag { color: var(--gold); }
+    .term-success { color: #28C840; }
+    .term-muted { color: #555; }
+
+    .term-output {
+      margin-top: 0.3rem;
+      line-height: 1.8;
+    }
+
+    .term-label {
+      color: var(--sunset-1);
+      min-width: 80px;
+      display: inline-block;
+    }
+
+    .term-label::after {
+      content: ':';
+      color: #555;
+      margin-right: 0.5rem;
+    }
+
+    .term-value { color: #ccc; }
+
+    .term-line .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 16px;
+      background: var(--sunset-1);
+      margin-left: 4px;
+      vertical-align: text-bottom;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .hero-laptop-base {
+      width: 60%;
+      height: 14px;
+      margin: 0 auto;
+      background: linear-gradient(to bottom, #D4C4B0, #C0B09C);
+      border-radius: 0 0 8px 8px;
+      position: relative;
+    }
+
+    .hero-laptop-base::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30%;
+      height: 4px;
+      background: #B8A898;
+      border-radius: 0 0 4px 4px;
+    }
+
+    /* CARDS */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+
+    .card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(255,107,53,0.15);
+      transform: translateY(-2px);
+    }
+
+    .card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--gradient-sunset);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      font-size: 1.2rem;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* AGENDA */
+    .event-card {
+      background: var(--bg-card);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      transition: all 0.3s;
+    }
+
+    .event-card:hover {
+      border-color: rgba(255,107,53,0.15);
+    }
+
+    .event-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .event-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: var(--gradient-sunset);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .event-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--sunset-1);
+      border: 1.5px solid rgba(255,107,53,0.3);
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .event-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .event-desc {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      max-width: 800px;
+    }
+
+    .event-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .event-detail-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .event-detail-value {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .event-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: var(--gradient-sunset);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .event-link:hover { opacity: 0.8; }
+
+    /* FOTOS */
+    .placeholder-card {
+      background: var(--bg-card);
+      border: 2px dashed var(--card-border);
+      border-radius: 16px;
+      padding: 3rem 2rem;
+    }
+
+    .placeholder-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .placeholder-card p + p { margin-top: 0.75rem; }
+
+    /* FAQ */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+
+    .faq-card {
+      background: var(--bg-card);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s;
+    }
+
+    .faq-card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(255,107,53,0.15);
+    }
+
+    .faq-question {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .faq-answer {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* TECH MARQUEE */
+    .tech-marquee-wrapper {
+      overflow: hidden;
+      padding: 2.5rem 2rem;
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .tech-marquee-wrapper::before,
+    .tech-marquee-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .tech-marquee-wrapper::before {
+      left: 0;
+      background: linear-gradient(90deg, var(--bg), transparent);
+    }
+
+    .tech-marquee-wrapper::after {
+      right: 0;
+      background: linear-gradient(270deg, var(--bg), transparent);
+    }
+
+    .tech-marquee {
+      display: flex;
+      gap: 3rem;
+      animation: marquee 20s linear infinite;
+      width: max-content;
+    }
+
+    .tech-marquee:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .tech-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .tech-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .tech-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--text-muted);
+    }
+
+/* DIVIDER */
+    .section-divider {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(232,122,58,0.25), rgba(212,90,31,0.15), transparent);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 3rem 2rem 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .footer-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-text {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .footer-links a, .footer-links li {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover { color: var(--sunset-1); }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--card-border);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-made {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 0.75rem 1.25rem; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(245,237,228,0.97);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 1rem;
+        border-bottom: 2px solid var(--sunset-1);
+      }
+
+      .nav-links.open { display: flex; }
+      .nav-menu-btn { display: block; }
+      section { padding: 3rem 1.25rem; }
+
+      #hero {
+        grid-template-columns: 1fr;
+        padding-top: 3rem;
+        text-align: center;
+        gap: 2rem;
+      }
+      .hero-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .hero-visual-full {
+        display: none;
+      }
+      .hero-ctas {
+        justify-content: center;
+      }
+      .hero-title {
+        font-size: 2.8rem;
+      }
+      .hero-desc {
+        font-size: 1rem;
+      }
+      .cards-grid { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr 1fr; }
+      .footer-content { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 600px) {
+      .faq-grid { grid-template-columns: 1fr; }
+      .event-header { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "PBuilders",
+    "url": "https://pbuilders.ai",
+    "description": "Comunidade presencial de builders de IA em Campina Grande, Paraíba.",
+    "email": "pbuildersai@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Campina Grande",
+      "addressRegion": "PB",
+      "addressCountry": "BR"
+    },
+    "sameAs": [
+      "https://instagram.com/pbuilders.ai"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- AMBIENT GLOW -->
+  <div class="sun-glow"></div>
+  <div class="sun-glow-left"></div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <span class="nav-logo-wordmark"><span class="pb">PB</span>uilders</span>
+    </a>
+    <button class="nav-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#agenda">Agenda</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contato">Contato</a></li>
+      <li><a href="https://chat.whatsapp.com/CglzX193Ge7GyWSVa8UCA9" target="_blank" class="nav-btn-enter">Entrar</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero-wrapper">
+    <section id="hero">
+      <div class="hero-text">
+        <h1 class="hero-title">Comunidade de <span class="gradient-text">builders de IA</span> da Paraíba</h1>
+        <p class="hero-desc">Comunidade pra quem constrói projetos, produtos e soluções reais usando Inteligência Artificial. Não só devs — advogados, médicos, founders, estudantes. Todo mundo que constrói é bem-vindo.</p>
+        <div class="hero-ctas">
+          <a href="#agenda" class="btn btn-primary">Ver Agenda</a>
+          <a href="https://chat.whatsapp.com/CglzX193Ge7GyWSVa8UCA9" target="_blank" class="btn btn-primary">Entrar no WhatsApp</a>
+        </div>
+      </div>
+      <div class="hero-visual-full">
+        <div class="hero-laptop">
+          <div class="hero-screen">
+            <div class="hero-screen-inner">
+              <div class="terminal-bar">
+                <div class="terminal-dot red"></div>
+                <div class="terminal-dot yellow"></div>
+                <div class="terminal-dot green"></div>
+              </div>
+              <div class="hero-screen-content">
+                <div class="term-line"><span class="prompt">$</span> pbuilders <span class="flag">init</span> --local campina-grande</div>
+                <div class="term-line term-delay-1"><span class="term-success">✓</span> Comunidade inicializada</div>
+                <div class="term-line term-delay-2"><span class="term-success">✓</span> 3 speakers confirmados</div>
+                <div class="term-line term-delay-3"><span class="term-success">✓</span> Venue: PTHI, Campina Grande</div>
+                <div class="term-line term-delay-4"><span class="term-muted">...</span></div>
+                <div class="term-line term-delay-5"><span class="prompt">$</span> pbuilders <span class="flag">status</span></div>
+                <div class="term-line term-delay-6 term-output">
+                  <span class="term-label">builders</span> <span class="term-value">crescendo</span><br>
+                  <span class="term-label">próximo</span> <span class="term-value">primeiro meetup</span><br>
+                  <span class="term-label">stack</span> <span class="term-value">qualquer uma, o bizu é construir</span>
+                </div>
+                <div class="term-line term-delay-7"><span class="prompt">$</span> <span class="cursor"></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-laptop-base"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- SOBRE -->
+  <section id="sobre">
+    <p class="section-label">Sobre</p>
+    <h2 class="section-title">Um ponto de encontro para construir com IA</h2>
+    <p class="section-desc">A PBuilders organiza encontros presenciais em Campina Grande para quem quer transformar experimentação em produtos e protótipos reais.</p>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon">&#9997;</div>
+        <h3 class="card-title">Para quem é</h3>
+        <p class="card-text">Devs, advogados, founders, estudantes e qualquer pessoa curiosa em usar IA no mundo real.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#9881;</div>
+        <h3 class="card-title">Como funciona</h3>
+        <p class="card-text">Talks curtas com demo ao vivo, lightning talks abertas e networking. Sem slide deck de 50 páginas.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">&#9889;</div>
+        <h3 class="card-title">O que você ganha</h3>
+        <p class="card-text">Aprendizado aplicado, feedback de quem tá construindo e conexões pra tirar ideias do papel.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECNOLOGIAS MARQUEE -->
+  <div class="tech-marquee-wrapper">
+    <div class="tech-marquee">
+      <div class="tech-item">
+        <div class="tech-icon" style="background: linear-gradient(135deg, #D97757, #C45A3A);">C</div>
+        <span class="tech-name">Claude Code</span>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon" style="background: linear-gradient(135deg, #1A1A1A, #333);">O</div>
+        <span class="tech-name">OpenClaw</span>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon" style="background: linear-gradient(135deg, #10A37F, #0D8C6D);">C</div>
+        <span class="tech-name">Codex</span>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon" style="background: linear-gradient(135deg, #4285F4, #3367D6);">G</div>
+        <span class="tech-name">Gemini</span>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon" style="background: linear-gradient(135deg, #6B48FF, #5035CC);">V</div>
+        <span class="tech-name">v0</span>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon" style="background: linear-gradient(135deg, #FF6B35, #E55A2B);">B</div>
+        <span class="tech-name">Bolt</span>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon" style="background: linear-gradient(135deg, #00D4AA, #00B894);">L</div>
+        <span class="tech-name">Lovable</span>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon" style="background: linear-gradient(135deg, #0EA5E9, #0284C7);">C</div>
+        <span class="tech-name">Cursor</span>
+      </div>
+      <!-- duplicados pro loop infinito -->
+      <div class="tech-item">
+        <div class="tech-icon" style="background: linear-gradient(135deg, #D97757, #C45A3A);">C</div>
+        <span class="tech-name">Claude Code</span>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon" style="background: linear-gradient(135deg, #1A1A1A, #333);">O</div>
+        <span class="tech-name">OpenClaw</span>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon" style="background: linear-gradient(135deg, #10A37F, #0D8C6D);">C</div>
+        <span class="tech-name">Codex</span>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon" style="background: linear-gradient(135deg, #4285F4, #3367D6);">G</div>
+        <span class="tech-name">Gemini</span>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon" style="background: linear-gradient(135deg, #6B48FF, #5035CC);">V</div>
+        <span class="tech-name">v0</span>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon" style="background: linear-gradient(135deg, #FF6B35, #E55A2B);">B</div>
+        <span class="tech-name">Bolt</span>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon" style="background: linear-gradient(135deg, #00D4AA, #00B894);">L</div>
+        <span class="tech-name">Lovable</span>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon" style="background: linear-gradient(135deg, #0EA5E9, #0284C7);">C</div>
+        <span class="tech-name">Cursor</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- AGENDA -->
+  <section id="agenda">
+    <p class="section-label">Agenda</p>
+    <h2 class="section-title">Próximos encontros</h2>
+    <p class="section-desc">A agenda é atualizada com novas edições ao longo do ano.</p>
+    <div class="event-card">
+      <div class="event-header">
+        <span class="event-date">Em breve</span>
+        <span class="event-badge">Inscrições abertas</span>
+      </div>
+      <h3 class="event-title">Primeiro encontro PBuilders</h3>
+      <p class="event-desc">Vamos reunir builders, devs, advogados, founders e pessoas curiosas sobre IA aplicada para uma noite de demos, trocas práticas e networking em Campina Grande.</p>
+      <div class="event-details">
+        <div>
+          <p class="event-detail-label">Horário</p>
+          <p class="event-detail-value">19h às 22h</p>
+        </div>
+        <div>
+          <p class="event-detail-label">Local</p>
+          <p class="event-detail-value">Campina Grande, PB (a confirmar)</p>
+        </div>
+        <div>
+          <p class="event-detail-label">Formato</p>
+          <p class="event-detail-value">Demos + networking</p>
+        </div>
+      </div>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfNSz_ANhxgshqo-qRU5k7mTb1A_X7xu926i_JuPttQ9y9oOg/viewform" target="_blank" class="event-link">Inscreva-se →</a>
+    </div>
+  </section>
+
+
+  <div class="section-divider"></div>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <p class="section-label">FAQ</p>
+    <h2 class="section-title">Perguntas frequentes</h2>
+    <p class="section-desc">Dúvidas comuns sobre inscrição, formato e participação nos encontros.</p>
+    <div class="faq-grid">
+      <div class="faq-card">
+        <h3 class="faq-question">Como faço minha inscrição?</h3>
+        <p class="faq-answer">As vagas são divulgadas por evento na seção Agenda. Quando a lista abre, você pode solicitar convite no link de cada encontro.</p>
+      </div>
+      <div class="faq-card">
+        <h3 class="faq-question">O evento é pago?</h3>
+        <p class="faq-answer">A proposta é manter os encontros gratuitos. Caso exista alguma edição especial paga, isso será sinalizado com antecedência.</p>
+      </div>
+      <div class="faq-card">
+        <h3 class="faq-question">Preciso ser sênior para participar?</h3>
+        <p class="faq-answer">Não. O evento recebe desde iniciantes até equipes experientes. O foco é compartilhar práticas reais de construção com IA.</p>
+      </div>
+      <div class="faq-card">
+        <h3 class="faq-question">Preciso levar notebook?</h3>
+        <p class="faq-answer">Para encontros práticos, sim. Para talks, não é obrigatório. A agenda sempre informa o formato de cada sessão.</p>
+      </div>
+      <div class="faq-card">
+        <h3 class="faq-question">Os encontros serão gravados?</h3>
+        <p class="faq-answer">Algumas sessões podem ter registro. Quando houver gravação, isso será comunicado no início do evento.</p>
+      </div>
+      <div class="faq-card">
+        <h3 class="faq-question">Vai ter certificado?</h3>
+        <p class="faq-answer">Nesta fase, não emitimos certificado. O objetivo principal é aprender construindo e conectar builders da comunidade.</p>
+      </div>
+      <div class="faq-card">
+        <h3 class="faq-question">Como faço para palestrar?</h3>
+        <p class="faq-answer">Use a seção Contato para enviar seu tema, experiência e formato de apresentação.</p>
+      </div>
+      <div class="faq-card">
+        <h3 class="faq-question">Quais são as regras de convivência?</h3>
+        <p class="faq-answer">Esperamos respeito entre participantes, sem assédio, discriminação ou ataques pessoais. Critique ideias com objetividade e mantenha um ambiente colaborativo.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="section-divider"></div>
+
+  <!-- CONTATO -->
+  <section id="contato">
+    <p class="section-label">Contato</p>
+    <h2 class="section-title">Quer palestrar no PBuilders?</h2>
+    <p class="section-desc">Envie sua proposta no formulário oficial e a organização entra em contato.</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfZMKfnepNleDMPtr5eYQa4XlD39H1SEbWk4cMAIvtiCYvkiQ/viewform" target="_blank" class="btn btn-primary">Quero ser Speaker</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div>
+        <p class="footer-title">PBuilders</p>
+        <p class="footer-text">Comunidade de builders na Paraíba para projetos, protótipos e soluções reais usando Inteligência Artificial.</p>
+      </div>
+      <div>
+        <p class="footer-title">Navegação</p>
+        <ul class="footer-links">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#agenda">Agenda</a></li>
+              <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-title">Contato</p>
+        <ul class="footer-links">
+          <li><a href="https://chat.whatsapp.com/CglzX193Ge7GyWSVa8UCA9" target="_blank">Entrar no grupo de WhatsApp</a></li>
+          <li><a href="https://instagram.com/pbuilders.ai" target="_blank">@pbuilders.ai</a></li>
+          <li><a href="mailto:pbuildersai@gmail.com">pbuildersai@gmail.com</a></li>
+          <li>Campina Grande, PB, Brasil</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 PBuilders. Todos os direitos reservados.</span>
+      <span class="footer-made">Feito na Paraíba &#127774;</span>
+    </div>
+  </footer>
+
+  <!-- Active nav highlight -->
+  <script>
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const top = section.offsetTop - 100;
+        if (scrollY >= top) current = section.getAttribute('id');
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+      });
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.remove('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
