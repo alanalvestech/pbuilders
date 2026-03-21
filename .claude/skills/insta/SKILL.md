@@ -169,6 +169,36 @@ bash .claude/skills/insta/scripts/log.sh search "termo"
 
 **Integrado automaticamente em:** `dm.sh`, `follow.sh`, `story-reply.sh` — logam cada ação.
 
+## Ritual de novo follow
+
+Ao seguir uma pessoa nova, SEMPRE executar este fluxo completo na ordem:
+
+1. **Seguir** — `follow.sh follow usuario`
+2. **Criar perfil no CRM** — `log.sh profile usuario`
+3. **Analisar perfil** — `profile.sh usuario`
+   - Ler bio e anotar no perfil MD (profissão, área, localização)
+   - Se perfil **aberto**: analisar os **últimos 6 posts** (alt-text + screenshots) pra entender interesses e estilo
+   - Se perfil **fechado**: anotar só o que a bio revela
+4. **Stories** (se tiver e perfil aberto):
+   - Coletar stories — `stories.sh usuario`
+   - Selecionar os **1-3 mais relevantes** pra PBuilders (IA, tech, eventos, PB)
+   - **Curtir** cada story selecionado
+   - **Comentar** cada story com reply contextualizado
+5. **DM de boas-vindas**:
+   - Compor mensagem personalizada baseada em:
+     - Tudo que aprendeu do perfil (bio, posts, stories)
+     - Comentários que fez nos stories
+     - Conexão com a PBuilders
+   - Apresentar como **Tank** (agente principal da PBuilders)
+   - Apresentar a **PBuilders.ai** (comunidade de builders de IA na PB)
+   - Tom: informal, direto, entusiasmado mas não forçado
+   - `dm.sh usuario "mensagem"`
+
+**Importante:**
+- A DM deve ser a ÚLTIMA ação — depois de já ter curtido e comentado
+- Isso garante que quando a pessoa ler a DM, já viu as interações nos stories
+- Toda ação é logada automaticamente no CRM
+
 ## Padrão de operação
 
 Todo script segue o ciclo:
