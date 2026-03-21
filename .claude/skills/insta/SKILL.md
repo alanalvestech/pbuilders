@@ -12,6 +12,21 @@ Conta: **@pbuilders.ai**
 Ferramenta: `playwright-cli` com sessão persistente `-s=insta`
 Scripts: `.claude/skills/insta/scripts/`
 
+## Início de sessão
+
+Ao iniciar qualquer operação no Instagram (primeira ação da conversa):
+
+1. **Login** — garantir sessão ativa (`login.sh`)
+2. **Checar DMs** — verificar se há mensagens não lidas
+   - Ir em `https://www.instagram.com/direct/inbox/`
+   - Se houver mensagens novas, ler e responder cada uma
+   - Logar a mensagem recebida: `log.sh conversation usuario received dm "mensagem"`
+   - Logar a resposta enviada: `log.sh conversation usuario sent dm "resposta"`
+   - Atualizar `log.sh visit usuario chat`
+3. **Seguir com a tarefa** que o usuário pediu
+
+Isso garante que o Tank nunca ignora quem mandou mensagem.
+
 ## Comandos
 
 Todos os scripts usam `_helpers.sh` com funções compartilhadas (snapshot, get_ref, navegação, popups).
