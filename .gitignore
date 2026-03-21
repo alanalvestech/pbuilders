@@ -1,2 +1,4 @@
 .wrangler/
 .DS_Store
+.env
+.playwright-cli/

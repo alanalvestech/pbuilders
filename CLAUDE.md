@@ -7,8 +7,10 @@ Comunidade presencial de builders de IA em Campina Grande/PB. O "PB" de Paraíba
 ```
 pbuilders/
 ├── CLAUDE.md              # Este arquivo
+├── .claude/skills/insta/  # Skill /insta (automação Instagram)
 ├── agents/
-│   └── bia-copywriter.md  # Persona: Head de Copy & Social Media
+│   ├── bia-copywriter.md  # Persona: Head de Copy & Social Media
+│   └── instagram-ops.md   # Playbook: como operar o Instagram via CLI
 ├── brand.md               # Identidade, voz, tom, visual
 ├── content/
 │   ├── strategy.md        # Regras de conteúdo
@@ -18,6 +20,9 @@ pbuilders/
 ├── growth/
 │   ├── comunidades.md     # Mapeamento de comunidades na PB
 │   └── pessoas.md         # Stakeholders e pessoas-chave
+├── scripts/
+│   ├── insta-keychain.sh  # Credenciais via Keychain + Touch ID
+│   └── insta-login.sh     # Login automático no Instagram
 └── site/                  # Código do site (deploy automático)
     ├── index.html
     ├── wrangler.toml
@@ -60,6 +65,14 @@ Funil:
 Personas especializadas em `agents/`. Cada arquivo define uma persona com prompt base, frameworks e princípios. Ao precisar de copy, conteúdo ou textos de marketing, invocar a persona como agente seguindo o prompt base do arquivo.
 
 - **Bia** (`agents/bia-copywriter.md`) — Copy & Social Media. Usar pra bios, captions, posts, qualquer texto público.
+
+## Operações Instagram
+
+Skill `/insta` disponível em `.claude/skills/insta/`. Usar pra qualquer operação no Instagram da @pbuilders.ai.
+
+Comandos: `/insta login`, `/insta follow @conta`, `/insta unfollow @conta`, `/insta post`, `/insta dm`, `/insta like`, `/insta bio`, `/insta notifications`.
+
+Credenciais no macOS Keychain com Touch ID. Playbook detalhado em `agents/instagram-ops.md`.
 
 ## Contexto
 
