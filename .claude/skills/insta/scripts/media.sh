@@ -38,14 +38,31 @@ ACTION="${1:?Uso: bash media.sh <url|stories|highlights|profile> [usuario_ou_dir
 # ── Helpers ───────────────────────────────────────────────
 
 login_flag() {
-  # Usa sessão salva se existir
+  # 1. Usa sessão salva se existir (não pede Touch ID)
   local SESSION_DIR="$HOME/.config/instaloader"
   if ls "$SESSION_DIR"/session-* &>/dev/null 2>&1; then
     local USER=$(ls "$SESSION_DIR"/session-* | head -1 | sed 's/.*session-//')
     echo "--login=$USER"
-  else
-    echo ""
+    return
   fi
+
+  # 2. Se não tem sessão, faz login via Keychain (Touch ID) e salva sessão
+  local KEYCHAIN="$SCRIPT_DIR/keychain.sh"
+  if [ -f "$KEYCHAIN" ]; then
+    local INSTA_USER=$("$KEYCHAIN" get-user 2>/dev/null)
+    local INSTA_PASS=$("$KEYCHAIN" get-pass 2>/dev/null)
+    if [ -n "$INSTA_USER" ] && [ -n "$INSTA_PASS" ]; then
+      echo "→ Fazendo login no instaloader via Keychain (Touch ID)..." >&2
+      # Login + salvar sessão. A senha só existe em memória neste processo.
+      instaloader --login="$INSTA_USER" -p "$INSTA_PASS" --no-pictures 2>/dev/null <<< "" || true
+      unset INSTA_PASS
+      echo "--login=$INSTA_USER"
+      return
+    fi
+  fi
+
+  # 3. Sem credenciais — roda sem login (limitado)
+  echo ""
 }
 
 # ── Stories ────────────────────────────────────────────────
