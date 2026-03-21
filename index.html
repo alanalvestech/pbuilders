@@ -11,7 +11,11 @@
   <link rel="canonical" href="https://pbuilders.ai/">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -40,17 +44,17 @@
       --bg-card-hover: #FFF8F0;
       --text: #1A1A1A;
       --text-muted: #6B6B6B;
-      --sunset-1: #E87A3A;
-      --sunset-2: #D45A1F;
-      --sunset-3: #C04318;
-      --sunset-4: #E87A3A;
-      --gold: #F0A050;
-      --gradient-sunset: linear-gradient(135deg, #F0A050, #E87A3A, #D45A1F);
-      --gradient-warm: linear-gradient(135deg, #F0A050, #E87A3A);
+      --sunset-1: #AB4C31;
+      --sunset-2: #963F29;
+      --sunset-3: #7F3325;
+      --sunset-4: #AB4C31;
+      --gold: #C4673E;
+      --gradient-sunset: linear-gradient(135deg, #C4673E, #AB4C31, #963F29);
+      --gradient-warm: linear-gradient(135deg, #C4673E, #AB4C31);
       --card-border: #E8DDD3;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * { margin: 0; padding: 0; box-sizing: border-box; cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><text y='24' font-size='24'>🧱</text></svg>") 4 4, auto; }
     html { scroll-behavior: smooth; }
 
     body {
@@ -102,23 +106,24 @@
     .nav-logo {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.15rem;
       text-decoration: none;
       color: var(--text);
     }
 
+    .nav-logo-icon {
+      height: 1.8rem;
+      width: auto;
+      display: block;
+      image-rendering: pixelated;
+    }
+
     .nav-logo-wordmark {
-      font-size: 1.6rem;
+      font-size: 1.1rem;
       font-weight: 700;
       line-height: 1;
       letter-spacing: -0.01em;
-    }
-
-    .nav-logo-wordmark .pb {
-      background: var(--gradient-sunset);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      align-self: flex-end;
     }
 
     .nav-links {
@@ -539,15 +544,16 @@
     }
 
     .card-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
       background: var(--gradient-sunset);
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 1.25rem;
-      font-size: 1.2rem;
+      font-size: 1.6rem;
+      box-shadow: 0 4px 12px rgba(171, 76, 49, 0.3);
     }
 
     .card-title {
@@ -795,8 +801,8 @@
     .footer-content {
       max-width: 1200px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
+      display: flex;
+      justify-content: space-between;
       gap: 3rem;
     }
 
@@ -924,6 +930,8 @@
     ]
   }
   </script>
+  <!-- Analytics -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="66de1586-7a2e-4f88-903f-541b436eb403"></script>
 </head>
 <body>
 
@@ -934,14 +942,15 @@
   <!-- NAV -->
   <nav>
     <a href="#" class="nav-logo">
-      <span class="nav-logo-wordmark"><span class="pb">PB</span>uilders</span>
+      <img src="logo-pb.png" alt="PB" class="nav-logo-icon">
+      <span class="nav-logo-wordmark">uilders</span>
     </a>
     <button class="nav-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
     <ul class="nav-links">
       <li><a href="#sobre">Sobre</a></li>
       <li><a href="#agenda">Agenda</a></li>
       <li><a href="#faq">FAQ</a></li>
-      <li><a href="#contato">Contato</a></li>
+      <li><a href="#footer">Contato</a></li>
       <li><a href="https://chat.whatsapp.com/BccvWkbT7nC3WpnNXgoSe2" target="_blank" class="nav-btn-enter">Entrar</a></li>
     </ul>
   </nav>
@@ -951,10 +960,10 @@
     <section id="hero">
       <div class="hero-text">
         <h1 class="hero-title">Comunidade de <span class="gradient-text">builders de IA</span> da Paraíba</h1>
-        <p class="hero-desc">Comunidade pra quem constrói projetos, produtos e soluções reais usando Inteligência Artificial. Não só devs — advogados, médicos, founders, estudantes. Todo mundo que constrói é bem-vindo.</p>
+        <p class="hero-desc">Comunidade pra quem constrói projetos, produtos e soluções reais usando Inteligência Artificial. Não só devs — advogados, médicos, designers, professores, founders, marketeiros, estudantes. Todo mundo que constrói é bem-vindo.</p>
         <div class="hero-ctas">
-          <a href="#agenda" class="btn btn-primary">Ver Agenda</a>
           <a href="https://chat.whatsapp.com/BccvWkbT7nC3WpnNXgoSe2" target="_blank" class="btn btn-primary">Entrar no WhatsApp</a>
+          <a href="#agenda" class="btn btn-outline">Ver Agenda</a>
         </div>
       </div>
       <div class="hero-visual-full">
@@ -967,18 +976,14 @@
                 <div class="terminal-dot green"></div>
               </div>
               <div class="hero-screen-content">
-                <div class="term-line"><span class="prompt">$</span> pbuilders <span class="flag">init</span> --local campina-grande</div>
-                <div class="term-line term-delay-1"><span class="term-success">✓</span> Comunidade inicializada</div>
-                <div class="term-line term-delay-2"><span class="term-success">✓</span> 3 speakers confirmados</div>
-                <div class="term-line term-delay-3"><span class="term-success">✓</span> Venue: PTHI, Campina Grande</div>
-                <div class="term-line term-delay-4"><span class="term-muted">...</span></div>
-                <div class="term-line term-delay-5"><span class="prompt">$</span> pbuilders <span class="flag">status</span></div>
-                <div class="term-line term-delay-6 term-output">
-                  <span class="term-label">builders</span> <span class="term-value">crescendo</span><br>
-                  <span class="term-label">próximo</span> <span class="term-value">primeiro meetup</span><br>
-                  <span class="term-label">stack</span> <span class="term-value">qualquer uma, o bizu é construir</span>
-                </div>
-                <div class="term-line term-delay-7"><span class="prompt">$</span> <span class="cursor"></span></div>
+                <div class="term-line"><span class="prompt">&gt;</span> Crie uma comunidade de IA em Campina Grande</div>
+                <div class="term-line term-delay-1"><span class="term-muted">...</span></div>
+                <div class="term-line term-delay-2"><span class="term-success">✓</span> Comunidade criada: <span class="flag">PBuilders</span></div>
+                <div class="term-line term-delay-3"><span class="term-success">✓</span> Local: PTHI, Campina Grande</div>
+                <div class="term-line term-delay-4"><span class="term-success">✓</span> Público: devs, advogados, designers, professores, founders</div>
+                <div class="term-line term-delay-5"><span class="term-success">✓</span> Stack: qualquer uma, o bizu é construir</div>
+                <div class="term-line term-delay-6"><span class="term-muted">...</span></div>
+                <div class="term-line term-delay-7"><span class="prompt">&gt;</span> <span class="cursor"></span></div>
               </div>
             </div>
           </div>
@@ -1038,7 +1043,7 @@
         <span class="tech-name">v0</span>
       </div>
       <div class="tech-item">
-        <div class="tech-icon" style="background: linear-gradient(135deg, #FF6B35, #E55A2B);">B</div>
+        <div class="tech-icon" style="background: linear-gradient(135deg, #AB4C31, #963F29);">B</div>
         <span class="tech-name">Bolt</span>
       </div>
       <div class="tech-item">
@@ -1048,6 +1053,14 @@
       <div class="tech-item">
         <div class="tech-icon" style="background: linear-gradient(135deg, #0EA5E9, #0284C7);">C</div>
         <span class="tech-name">Cursor</span>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon" style="background: linear-gradient(135deg, #1A1A1A, #333);">O</div>
+        <span class="tech-name">OpenAI</span>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon" style="background: linear-gradient(135deg, #10A37F, #0D8C6D);">C</div>
+        <span class="tech-name">ChatGPT</span>
       </div>
       <!-- duplicados pro loop infinito -->
       <div class="tech-item">
@@ -1071,7 +1084,7 @@
         <span class="tech-name">v0</span>
       </div>
       <div class="tech-item">
-        <div class="tech-icon" style="background: linear-gradient(135deg, #FF6B35, #E55A2B);">B</div>
+        <div class="tech-icon" style="background: linear-gradient(135deg, #AB4C31, #963F29);">B</div>
         <span class="tech-name">Bolt</span>
       </div>
       <div class="tech-item">
@@ -1081,6 +1094,14 @@
       <div class="tech-item">
         <div class="tech-icon" style="background: linear-gradient(135deg, #0EA5E9, #0284C7);">C</div>
         <span class="tech-name">Cursor</span>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon" style="background: linear-gradient(135deg, #1A1A1A, #333);">O</div>
+        <span class="tech-name">OpenAI</span>
+      </div>
+      <div class="tech-item">
+        <div class="tech-icon" style="background: linear-gradient(135deg, #10A37F, #0D8C6D);">C</div>
+        <span class="tech-name">ChatGPT</span>
       </div>
     </div>
   </div>
@@ -1163,35 +1184,30 @@
   <div class="section-divider"></div>
 
   <!-- CONTATO -->
-  <section id="contato">
-    <p class="section-label">Contato</p>
-    <h2 class="section-title">Quer palestrar no PBuilders?</h2>
-    <p class="section-desc">Envie sua proposta no formulário oficial e a organização entra em contato.</p>
+  <section id="speaker" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+    <p class="section-label">Speaker</p>
+    <h2 class="section-title" style="max-width: none;">Quer palestrar no PBuilders?</h2>
+    <p class="section-desc" style="max-width: none;">Envie sua proposta no formulário oficial e a organização entra em contato.</p>
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSfZMKfnepNleDMPtr5eYQa4XlD39H1SEbWk4cMAIvtiCYvkiQ/viewform" target="_blank" class="btn btn-primary">Quero ser Speaker</a>
   </section>
 
   <!-- FOOTER -->
-  <footer>
+  <footer id="footer">
     <div class="footer-content">
       <div>
         <p class="footer-title">PBuilders</p>
         <p class="footer-text">Comunidade de builders na Paraíba para projetos, protótipos e soluções reais usando Inteligência Artificial.</p>
       </div>
       <div>
-        <p class="footer-title">Navegação</p>
+        <p class="footer-title">Redes Sociais</p>
         <ul class="footer-links">
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#agenda">Agenda</a></li>
-              <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contato">Contato</a></li>
+          <li><a href="https://instagram.com/pbuilders.ai" target="_blank">Instagram</a></li>
         </ul>
       </div>
       <div>
         <p class="footer-title">Contato</p>
         <ul class="footer-links">
           <li><a href="https://chat.whatsapp.com/BccvWkbT7nC3WpnNXgoSe2" target="_blank">Entrar no grupo de WhatsApp</a></li>
-          <li><a href="https://instagram.com/pbuilders.ai" target="_blank">@pbuilders.ai</a></li>
-          <li><a href="mailto:pbuildersai@gmail.com">pbuildersai@gmail.com</a></li>
           <li>Campina Grande, PB, Brasil</li>
         </ul>
       </div>
