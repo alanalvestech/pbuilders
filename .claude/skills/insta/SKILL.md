@@ -131,6 +131,43 @@ Requer `instaloader` (`pip install instaloader`). Login: `instaloader --login=pb
 | `notifications.sh` | Ler notificações |
 | `profile.sh` | Analisar perfil de um usuário |
 | `media.sh` | Baixar mídias (fotos, vídeos, stories, highlights) via instaloader |
+| `log.sh` | CRM/logging — registra conversas, follows, perfis e busca histórico |
+
+### `/insta log <comando> [args]`
+Sistema de CRM que registra todas as interações do Tank.
+
+```bash
+# Registrar mensagem (DM, story reply, etc)
+bash .claude/skills/insta/scripts/log.sh conversation usuario sent dm "mensagem"
+bash .claude/skills/insta/scripts/log.sh conversation usuario sent story_reply "mensagem"
+bash .claude/skills/insta/scripts/log.sh conversation usuario sent story_like "Curtiu story"
+bash .claude/skills/insta/scripts/log.sh conversation usuario received dm "resposta"
+
+# Registrar follow/unfollow
+bash .claude/skills/insta/scripts/log.sh follow usuario [manual|auto|reciprocal] ["notas"]
+bash .claude/skills/insta/scripts/log.sh unfollow usuario
+
+# Registrar visita (atualiza última visita no following.csv)
+bash .claude/skills/insta/scripts/log.sh visit usuario story
+bash .claude/skills/insta/scripts/log.sh visit usuario profile
+bash .claude/skills/insta/scripts/log.sh visit usuario chat
+
+# Atualizar perfil
+bash .claude/skills/insta/scripts/log.sh profile usuario "Nome" "Valor"
+
+# Consultar dados
+bash .claude/skills/insta/scripts/log.sh read usuario
+bash .claude/skills/insta/scripts/log.sh list-following
+bash .claude/skills/insta/scripts/log.sh list-conversations
+bash .claude/skills/insta/scripts/log.sh search "termo"
+```
+
+**Dados em:** `.claude/skills/insta/data/`
+- `conversations/*.csv` — histórico por pessoa
+- `profiles/*.md` — análise de perfil por pessoa
+- `following.csv` — lista de quem segue + últimas visitas (story, profile, chat)
+
+**Integrado automaticamente em:** `dm.sh`, `follow.sh`, `story-reply.sh` — logam cada ação.
 
 ## Padrão de operação
 

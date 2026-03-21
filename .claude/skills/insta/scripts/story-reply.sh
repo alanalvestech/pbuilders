@@ -74,6 +74,7 @@ LIKE_REF=$(get_button_ref "Like" "$SNAP")
 if [ -n "$LIKE_REF" ]; then
   insta_click "$LIKE_REF" > /dev/null
   ok "Story curtido"
+  bash "$SCRIPT_DIR/log.sh" conversation "$USER" sent story_like "Curtiu story (pattern: $PATTERN)"
   sleep 0.5
 fi
 
@@ -119,6 +120,7 @@ SEND_REF=$(get_button_ref "Send" "$SNAP")
 if [ -n "$SEND_REF" ]; then
   insta_click "$SEND_REF" > /dev/null
   ok "Reply enviado para story de @$USER"
+  bash "$SCRIPT_DIR/log.sh" conversation "$USER" sent story_reply "$MESSAGE"
 else
   fail "Botão Send não encontrado"
   exit 1

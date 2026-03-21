@@ -57,10 +57,12 @@ fi
 insta_click "$SEND_REF" > /dev/null
 sleep 1
 
-# 6. Verificar
+# 6. Verificar e logar
 SNAP=$(insta_snapshot)
 if cat "$SNAP" | grep -q "You sent"; then
   ok "DM enviada para @$USER"
+  # Logar conversa
+  bash "$SCRIPT_DIR/log.sh" conversation "$USER" sent dm "$MESSAGE"
 else
   warn "DM pode não ter sido enviada — verificar manualmente"
 fi

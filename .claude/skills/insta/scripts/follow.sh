@@ -51,6 +51,7 @@ for RAW_USER in "$@"; do
         SNAP=$(insta_snapshot)
         if cat "$SNAP" | grep -q 'button "Following'; then
           ok "@$USER — seguido"
+          bash "$SCRIPT_DIR/log.sh" follow "$USER" manual
         else
           warn "@$USER — clicou Follow mas não confirmou"
         fi
@@ -76,6 +77,7 @@ for RAW_USER in "$@"; do
       if [ -n "$UNFOLLOW_REF" ]; then
         insta_click "$UNFOLLOW_REF" > /dev/null
         ok "@$USER — deixou de seguir"
+        bash "$SCRIPT_DIR/log.sh" unfollow "$USER"
       else
         fail "@$USER — botão Unfollow não encontrado no menu"
       fi
