@@ -7,6 +7,8 @@ Comunidade presencial de builders de IA em Campina Grande/PB. O "PB" de Paraíba
 ```
 pbuilders/
 ├── CLAUDE.md              # Este arquivo
+├── agents/
+│   └── bia-copywriter.md  # Persona: Head de Copy & Social Media
 ├── brand.md               # Identidade, voz, tom, visual
 ├── content/
 │   ├── strategy.md        # Regras de conteúdo
@@ -53,9 +55,15 @@ Funil:
 - Mensagens de commit em português
 - Antes de criar conteúdo ou textos públicos, ler `brand.md` (voz, tom, palavras banidas)
 
+## Agents (Personas)
+
+Personas especializadas em `agents/`. Cada arquivo define uma persona com prompt base, frameworks e princípios. Ao precisar de copy, conteúdo ou textos de marketing, invocar a persona como agente seguindo o prompt base do arquivo.
+
+- **Bia** (`agents/bia-copywriter.md`) — Copy & Social Media. Usar pra bios, captions, posts, qualquer texto público.
+
 ## Contexto
 
-- Antes de escrever qualquer texto público (posts, bio, copy), consultar `brand.md`
+- Antes de escrever qualquer texto público (posts, bio, copy), consultar `brand.md` e invocar a Bia (`agents/bia-copywriter.md`)
 - Antes de planejar eventos, consultar `eventos/`
 - Antes de estratégia de crescimento, consultar `growth/`
 - Antes de criar conteúdo, consultar `content/strategy.md`
