@@ -1,8 +1,8 @@
 ---
 name: insta
-description: Automação do Instagram @pbuilders.ai — login, seguir, unfollow, postar, DM, curtir, stories, perfil. Usar quando o usuário pedir qualquer operação no Instagram.
+description: Automação do Instagram @pbuilders.ai — login, seguir, unfollow, postar, DM, curtir, stories, perfil, download de mídia. Usar quando o usuário pedir qualquer operação no Instagram.
 disable-model-invocation: true
-argument-hint: "[login|follow|unfollow|post|dm|like|stories|bio|notifications|profile] [args...]"
+argument-hint: "[login|follow|unfollow|post|dm|like|stories|bio|notifications|profile|media] [args...]"
 allowed-tools: Bash, Read, Grep, Glob
 ---
 
@@ -94,6 +94,26 @@ bash .claude/skills/insta/scripts/profile.sh usuario
 ```
 Retorna dados do perfil + screenshot em `/tmp/profile_usuario.png`.
 
+### `/insta media <url|stories|highlights|profile> [args]`
+Baixa mídias do Instagram via `instaloader`.
+```bash
+# Post ou reel individual
+bash .claude/skills/insta/scripts/media.sh https://www.instagram.com/p/ABC123/
+
+# Stories de um usuário
+bash .claude/skills/insta/scripts/media.sh stories usuario
+
+# Highlights de um usuário
+bash .claude/skills/insta/scripts/media.sh highlights usuario
+
+# Todos os posts de um perfil
+bash .claude/skills/insta/scripts/media.sh profile usuario
+
+# Com diretório customizado
+bash .claude/skills/insta/scripts/media.sh stories usuario /tmp/meus-downloads
+```
+Requer `instaloader` (`pip install instaloader`). Login: `instaloader --login=pbuilders.ai`.
+
 ## Scripts
 
 | Script | Responsabilidade |
@@ -110,6 +130,7 @@ Retorna dados do perfil + screenshot em `/tmp/profile_usuario.png`.
 | `bio.sh` | Editar bio do perfil |
 | `notifications.sh` | Ler notificações |
 | `profile.sh` | Analisar perfil de um usuário |
+| `media.sh` | Baixar mídias (fotos, vídeos, stories, highlights) via instaloader |
 
 ## Padrão de operação
 
