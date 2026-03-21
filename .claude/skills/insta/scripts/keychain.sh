@@ -1,6 +1,12 @@
 #!/bin/bash
 # Gerenciamento de credenciais Instagram via macOS Keychain
 # Requer Touch ID para qualquer operação
+#
+# Uso:
+#   bash keychain.sh save       — Salvar credenciais (interativo)
+#   bash keychain.sh get-user   — Recuperar username (Touch ID)
+#   bash keychain.sh get-pass   — Recuperar password (Touch ID)
+#   bash keychain.sh delete     — Remover credenciais
 
 SERVICE="instagram-pbuilders"
 set -e
@@ -12,11 +18,9 @@ case "$1" in
     read -s -p "Password: " PASSWORD
     echo ""
 
-    # Remove entrada antiga se existir
     security delete-generic-password -s "$SERVICE-user" 2>/dev/null || true
     security delete-generic-password -s "$SERVICE-pass" 2>/dev/null || true
 
-    # Salva com flag -T "" que restringe acesso (macOS pede autorização)
     security add-generic-password -s "$SERVICE-user" -a "pbuilders" -w "$USERNAME" -T ""
     security add-generic-password -s "$SERVICE-pass" -a "pbuilders" -w "$PASSWORD" -T ""
 
@@ -25,12 +29,10 @@ case "$1" in
     ;;
 
   get-user)
-    # Pede Touch ID automaticamente por causa do -T ""
     security find-generic-password -s "$SERVICE-user" -w 2>/dev/null
     ;;
 
   get-pass)
-    # Pede Touch ID automaticamente por causa do -T ""
     security find-generic-password -s "$SERVICE-pass" -w 2>/dev/null
     ;;
 

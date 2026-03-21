@@ -6,24 +6,34 @@ Comunidade presencial de builders de IA em Campina Grande/PB. O "PB" de Paraíba
 
 ```
 pbuilders/
-├── CLAUDE.md              # Este arquivo
-├── .claude/skills/insta/  # Skill /insta (automação Instagram)
+├── CLAUDE.md                    # Este arquivo
+├── .claude/skills/insta/        # Skill /insta (automação Instagram)
+│   ├── SKILL.md                 # Documento da skill
+│   └── scripts/                 # Scripts bash modulares
+│       ├── _helpers.sh          # Funções compartilhadas
+│       ├── keychain.sh          # Credenciais via Keychain + Touch ID
+│       ├── login.sh             # Login automático
+│       ├── follow.sh            # Follow / unfollow / check
+│       ├── dm.sh                # Enviar DMs
+│       ├── like.sh              # Curtir posts
+│       ├── post.sh              # Publicar posts
+│       ├── stories.sh           # Coletar dados de stories
+│       ├── story-reply.sh       # Curtir e responder stories
+│       ├── bio.sh               # Editar bio
+│       ├── notifications.sh     # Ler notificações
+│       └── profile.sh           # Analisar perfil de usuário
 ├── agents/
-│   ├── bia-copywriter.md  # Persona: Head de Copy & Social Media
-│   └── instagram-ops.md   # Playbook: como operar o Instagram via CLI
-├── brand.md               # Identidade, voz, tom, visual
+│   └── bia-copywriter.md        # Persona: Head de Copy & Social Media
+├── brand.md                     # Identidade, voz, tom, visual
 ├── content/
-│   ├── strategy.md        # Regras de conteúdo
-│   └── posts/             # Postagens
+│   ├── strategy.md              # Regras de conteúdo
+│   └── posts/                   # Postagens
 ├── eventos/
-│   └── primeiro.md        # Planejamento do kickoff
+│   └── primeiro.md              # Planejamento do kickoff
 ├── growth/
-│   ├── comunidades.md     # Mapeamento de comunidades na PB
-│   └── pessoas.md         # Stakeholders e pessoas-chave
-├── scripts/
-│   ├── insta-keychain.sh  # Credenciais via Keychain + Touch ID
-│   └── insta-login.sh     # Login automático no Instagram
-└── site/                  # Código do site (deploy automático)
+│   ├── comunidades.md           # Mapeamento de comunidades na PB
+│   └── pessoas.md               # Stakeholders e pessoas-chave
+└── site/                        # Código do site (deploy automático)
     ├── index.html
     ├── wrangler.toml
     └── assets (favicons, logo, og-image)
@@ -68,11 +78,11 @@ Personas especializadas em `agents/`. Cada arquivo define uma persona com prompt
 
 ## Operações Instagram
 
-Skill `/insta` disponível em `.claude/skills/insta/`. Usar pra qualquer operação no Instagram da @pbuilders.ai.
+Skill `/insta` em `.claude/skills/insta/`. Cada operação tem um script bash dedicado em `scripts/`.
 
-Comandos: `/insta login`, `/insta follow @conta`, `/insta unfollow @conta`, `/insta post`, `/insta dm`, `/insta like`, `/insta bio`, `/insta notifications`.
+Comandos: `/insta login`, `/insta follow`, `/insta unfollow`, `/insta check`, `/insta post`, `/insta dm`, `/insta like`, `/insta stories`, `/insta bio`, `/insta notifications`, `/insta profile`.
 
-Credenciais no macOS Keychain com Touch ID. Playbook detalhado em `agents/instagram-ops.md`.
+Credenciais no macOS Keychain com Touch ID. Scripts usam `playwright-cli -s=insta`.
 
 ## Contexto
 
