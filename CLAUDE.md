@@ -84,6 +84,10 @@ Comandos: `/insta login`, `/insta follow`, `/insta unfollow`, `/insta check`, `/
 
 Credenciais no macOS Keychain com Touch ID. Scripts usam `playwright-cli -s=insta`.
 
+## Restrições de Marca
+
+- **NUNCA** mencionar "PTHI" (Parque Tecnológico Horizontes de Inovação) em nenhum material público (site, posts, copy, bio) sem aprovação explícita do Alan. O nome pode existir em docs internos (growth/, eventos/) como referência, mas não sai pro público.
+
 ## Contexto
 
 - Antes de escrever qualquer texto público (posts, bio, copy), consultar `brand.md` e invocar a Bia (`agents/bia-copywriter.md`)
