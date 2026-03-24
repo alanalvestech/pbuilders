@@ -25,10 +25,11 @@ Inspirado no modelo BuildersSP, adaptado pra realidade de CG.
 - Já tem relação via palestra (06/04)
 - Carlos Rueda pode facilitar
 
-### Opção 2: Sebrae CG
+### Opção 2: Sebrae CG ← **CONFIRMADO por Carlos Rueda (24/03)**
 - Espaço de eventos do Sebrae
 - Carlos Rueda é Head de Inovação lá
 - Infraestrutura pronta (projetor, cadeiras, internet)
+- Rueda vai divulgar em todo o ecossistema
 
 ### Opção 3: Coworking local
 - Avaliar espaços em CG que tenham boa internet e projetor
@@ -39,7 +40,7 @@ Maio ou junho 2026. Depois da palestra no PTHI (06/04) pra usar o momento e os c
 
 ## Checklist de Execução
 
-- [ ] Confirmar venue com Carlos Rueda
+- [x] Confirmar venue com Carlos Rueda (Sebrae CG — confirmado 24/03)
 - [ ] Definir data
 - [ ] Criar perfis nas redes (@pbuilders)
 - [ ] Montar arte de divulgação
