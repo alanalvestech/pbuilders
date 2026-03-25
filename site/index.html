@@ -790,6 +790,31 @@
       background: linear-gradient(90deg, transparent, rgba(232,122,58,0.25), rgba(212,90,31,0.15), transparent);
     }
 
+    /* PARCEIROS */
+    .partners-grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .partner-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+    .partner-logo:hover {
+      opacity: 1;
+    }
+    .partner-logo img {
+      max-height: 80px;
+      max-width: 200px;
+      object-fit: contain;
+    }
+
     /* FOOTER */
     footer {
       border-top: 1px solid var(--card-border);
@@ -1188,6 +1213,22 @@
     <h2 class="section-title" style="max-width: none;">Quer palestrar no PBuilders?</h2>
     <p class="section-desc" style="max-width: none;">Envie sua proposta no formulário oficial e a organização entra em contato.</p>
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSfZMKfnepNleDMPtr5eYQa4XlD39H1SEbWk4cMAIvtiCYvkiQ/viewform" target="_blank" class="btn btn-primary">Quero ser Speaker</a>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- PARCEIROS -->
+  <section id="parceiros" style="text-align: center;">
+    <p class="section-label">Parceiros</p>
+    <h2 class="section-title">Quem apoia a PBuilders</h2>
+    <div class="partners-grid">
+      <a href="https://www.instagram.com/carlos_arueda/" target="_blank" class="partner-logo">
+        <img src="/logo-carlos-rueda.png" alt="Carlos Rueda Consultoria">
+      </a>
+      <a href="https://www.instagram.com/einovcg/" target="_blank" class="partner-logo">
+        <img src="/logo-einovcg.png" alt="E.INOV CG — Ecossistema de Inovação de Campina Grande">
+      </a>
+    </div>
   </section>
 
   <!-- FOOTER -->
