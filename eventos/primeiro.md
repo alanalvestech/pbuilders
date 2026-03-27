@@ -2,21 +2,37 @@
 
 ## Formato
 
-Inspirado no modelo BuildersSP, adaptado pra realidade de CG.
+Workshop mão na massa de 4 horas. Cada participante sai com a ferramenta instalada e um projeto feito.
 
-### Agenda Modelo (2h30 total)
+### Agenda (4h total)
 
-1. **Abertura** (10 min) — O que é PBuilders, por que existe, o que esperar
-2. **Talk 1** (20 min) — Case real de alguém construindo com IA (Alan pode abrir com AgentZap ou outro case)
-3. **Talk 2** (20 min) — Convidado mostrando o que construiu
-4. **Demo aberta** (30 min) — 3-5 pessoas mostram o que estão fazendo (5-7 min cada, formato lightning talk)
-5. **Networking** (60-90 min) — Café, cerveja, conversa livre
+**Bloco 1 — Contexto (30 min)**
+- O que é IA agêntica vs. chatbot (10 min)
+- Demo ao vivo: Alan buildando algo com Claude Code em tempo real (20 min)
 
-### Regras das Talks
-- Máximo 20 min
-- Tem que ter demo ao vivo ou código real
-- Sem slide deck corporativo
-- Pode dar errado ao vivo, faz parte
+**Bloco 2 — Setup (30 min)**
+- Cada pessoa instala Claude Code ou OpenCode na própria máquina
+- Configurar API key (keys temporárias distribuídas ou cada um usa a dele)
+- Primeiro comando: "me explica esse projeto"
+
+**Bloco 3 — Mão na massa (90 min)**
+- Desafio guiado: cada pessoa escolhe 1 dos 3 projetos:
+  - **Landing page** — descreve o negócio, agente builda o site
+  - **Automação** — script que resolve um problema real do dia a dia
+  - **Análise** — passa um CSV/planilha e pede insights
+- Alan circula ajudando e tirando dúvidas
+
+**Bloco 4 — Show & Tell (30 min)**
+- 5-6 pessoas mostram o que fizeram
+- Votação do melhor projeto
+
+**Bloco 5 — Networking (60 min)**
+- Café, troca de contato, grupo do WhatsApp
+
+### Custo de API
+- ~R$5-10 por pessoa usando OpenCode com API key compartilhada
+- Total estimado pra 30 pessoas: R$150-300
+- Se aprovado como Claude Ambassador: API credits gratuitos da Anthropic
 
 ## Venue
 
