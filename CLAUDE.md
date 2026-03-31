@@ -26,13 +26,16 @@ pbuilders/
 │   └── bia-copywriter.md        # Persona: Head de Copy & Social Media
 ├── brand.md                     # Identidade, voz, tom, visual
 ├── content/
-│   ├── whatsapp/                # Posts e strategy do grupo WhatsApp
+│   ├── whatsapp/                # Posts do grupo WhatsApp
 │   │   ├── strategy.md
-│   │   └── YYYY-MM-DD-slug.md
-│   └── instagram/               # Posts e strategy do Instagram
+│   │   └── YYYY-MM-DD/          # Pasta por dia (vários posts/dia)
+│   │       └── slug.md
+│   └── instagram/               # Posts do Instagram
 │       ├── strategy.md
-│       ├── YYYY-MM-DD-slug.md
-│       └── carousels/           # Templates HTML de carrosséis
+│       ├── templates/           # Templates HTML reutilizáveis
+│       └── YYYY-MM-DD/          # Pasta por dia de publicação
+│           ├── carousel.html    # Carrossel do dia
+│           └── caption.md       # Caption + hashtags
 ├── eventos/
 │   └── primeiro.md              # Planejamento do kickoff
 ├── growth/
