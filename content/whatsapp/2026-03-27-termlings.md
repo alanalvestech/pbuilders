@@ -2,6 +2,7 @@
 status: ready
 sent_at:
 type: curadoria
+canal: whatsapp
 ---
 
 Alguém aqui já rodou uma startup com agente de IA como membro do time de verdade?

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PBuilders — Logo Terminal</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #2a2a2a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+      padding: 3rem;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .label { color: #888; font-size: 14px; margin-bottom: -1.5rem; }
+    .row { display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; justify-content: center; }
+    .preview { padding: 48px 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; }
+    .preview.light { background: #F5EDE4; }
+    .preview.dark { background: #1A1A1A; }
+    .preview.black { background: #000; }
+
+    /* ===== VERSÃO 1: Terminal prompt ===== */
+    .logo-v1 {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 800;
+      font-size: 72px;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: baseline;
+      gap: 0;
+      user-select: none;
+    }
+    .logo-v1 .prompt {
+      color: #AB4C31;
+      margin-right: 8px;
+    }
+    .logo-v1 .pb { }
+    .logo-v1 .uilders {
+      font-weight: 500;
+      font-size: 72px;
+    }
+    .logo-v1.on-light .pb { color: #1A1A1A; }
+    .logo-v1.on-light .uilders { color: #1A1A1A; }
+    .logo-v1.on-dark .pb { color: #F5EDE4; }
+    .logo-v1.on-dark .uilders { color: #F5EDE4; }
+
+    /* Cursor blink */
+    .cursor {
+      display: inline-block;
+      width: 3px;
+      height: 0.85em;
+      background: #AB4C31;
+      margin-left: 4px;
+      animation: blink 1s step-end infinite;
+      vertical-align: baseline;
+      position: relative;
+      top: 0.05em;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    /* ===== VERSÃO 2: Brackets/Code ===== */
+    .logo-v2 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 72px;
+      font-weight: 700;
+      display: flex;
+      align-items: baseline;
+      user-select: none;
+    }
+    .logo-v2 .bracket { color: #AB4C31; font-weight: 400; }
+    .logo-v2 .slash { color: #C4673E; font-weight: 400; }
+    .logo-v2.on-light .text { color: #1A1A1A; }
+    .logo-v2.on-dark .text { color: #F5EDE4; }
+
+    /* ===== VERSÃO 3: Function call ===== */
+    .logo-v3 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 64px;
+      user-select: none;
+      display: flex;
+      align-items: baseline;
+    }
+    .logo-v3 .fn { font-weight: 400; }
+    .logo-v3 .name { font-weight: 800; }
+    .logo-v3 .paren { font-weight: 400; }
+    .logo-v3.on-light .fn { color: #AB4C31; }
+    .logo-v3.on-light .name { color: #1A1A1A; }
+    .logo-v3.on-light .paren { color: #6B6B6B; }
+    .logo-v3.on-dark .fn { color: #C4673E; }
+    .logo-v3.on-dark .name { color: #F5EDE4; }
+    .logo-v3.on-dark .paren { color: #666; }
+
+    /* ===== VERSÃO 4: PB como tag HTML ===== */
+    .logo-v4 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 68px;
+      user-select: none;
+    }
+    .logo-v4 .angle { font-weight: 400; }
+    .logo-v4 .tag { font-weight: 800; }
+    .logo-v4.on-light .angle { color: #AB4C31; }
+    .logo-v4.on-light .tag { color: #1A1A1A; }
+    .logo-v4.on-dark .angle { color: #C4673E; }
+    .logo-v4.on-dark .tag { color: #F5EDE4; }
+
+    /* ===== VERSÃO 5: > PB_ minimal ===== */
+    .logo-v5 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 80px;
+      font-weight: 800;
+      user-select: none;
+      letter-spacing: -0.02em;
+    }
+    .logo-v5 .chevron { color: #AB4C31; font-weight: 500; }
+    .logo-v5.on-light .letters { color: #1A1A1A; }
+    .logo-v5.on-dark .letters { color: #F5EDE4; }
+    .logo-v5 .underscore { color: #AB4C31; }
+
+    /* ===== VERSÃO 6: ./PBuilders ===== */
+    .logo-v6 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 56px;
+      user-select: none;
+    }
+    .logo-v6 .path { font-weight: 400; }
+    .logo-v6 .name { font-weight: 800; }
+    .logo-v6.on-light .path { color: #AB4C31; }
+    .logo-v6.on-light .name { color: #1A1A1A; }
+    .logo-v6.on-dark .path { color: #C4673E; }
+    .logo-v6.on-dark .name { color: #F5EDE4; }
+
+    /* ===== Avatars ===== */
+    .avatar {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .avatar.light { background: #F5EDE4; }
+    .avatar.dark { background: #1A1A1A; }
+    .avatar .logo-mini {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 800;
+      font-size: 36px;
+      letter-spacing: -0.03em;
+    }
+    .avatar .logo-mini .c { color: #AB4C31; }
+    .avatar.light .logo-mini .t { color: #1A1A1A; }
+    .avatar.dark .logo-mini .t { color: #F5EDE4; }
+  </style>
+</head>
+<body>
+
+  <!-- V1: > PBuilders| -->
+  <p class="label">V1 — Terminal prompt</p>
+  <div class="row">
+    <div class="preview light">
+      <div class="logo-v1 on-light">
+        <span class="prompt">&gt;</span><span class="pb">P</span><span class="uilders">Builders</span><span class="cursor"></span>
+      </div>
+    </div>
+    <div class="preview dark">
+      <div class="logo-v1 on-dark">
+        <span class="prompt">&gt;</span><span class="pb">P</span><span class="uilders">Builders</span><span class="cursor"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- V2: {PBuilders} -->
+  <p class="label">V2 — Brackets</p>
+  <div class="row">
+    <div class="preview light">
+      <div class="logo-v2 on-light">
+        <span class="bracket">{</span><span class="text">PBuilders</span><span class="bracket">}</span>
+      </div>
+    </div>
+    <div class="preview dark">
+      <div class="logo-v2 on-dark">
+        <span class="bracket">{</span><span class="text">PBuilders</span><span class="bracket">}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- V3: fn PBuilders() -->
+  <p class="label">V3 — Function</p>
+  <div class="row">
+    <div class="preview light">
+      <div class="logo-v3 on-light">
+        <span class="fn">fn </span><span class="name">PBuilders</span><span class="paren">()</span>
+      </div>
+    </div>
+    <div class="preview dark">
+      <div class="logo-v3 on-dark">
+        <span class="fn">fn </span><span class="name">PBuilders</span><span class="paren">()</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- V4: <PBuilders/> -->
+  <p class="label">V4 — HTML tag</p>
+  <div class="row">
+    <div class="preview light">
+      <div class="logo-v4 on-light">
+        <span class="angle">&lt;</span><span class="tag">PBuilders</span><span class="angle">/&gt;</span>
+      </div>
+    </div>
+    <div class="preview dark">
+      <div class="logo-v4 on-dark">
+        <span class="angle">&lt;</span><span class="tag">PBuilders</span><span class="angle">/&gt;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- V5: > PB_ (só o ícone) -->
+  <p class="label">V5 — Chevron minimal (ícone)</p>
+  <div class="row">
+    <div class="preview light">
+      <div class="logo-v5 on-light">
+        <span class="chevron">&gt; </span><span class="letters">PB</span><span class="underscore">_</span>
+      </div>
+    </div>
+    <div class="preview dark">
+      <div class="logo-v5 on-dark">
+        <span class="chevron">&gt; </span><span class="letters">PB</span><span class="underscore">_</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- V6: ./PBuilders -->
+  <p class="label">V6 — Path</p>
+  <div class="row">
+    <div class="preview light">
+      <div class="logo-v6 on-light">
+        <span class="path">./</span><span class="name">PBuilders</span>
+      </div>
+    </div>
+    <div class="preview dark">
+      <div class="logo-v6 on-dark">
+        <span class="path">./</span><span class="name">PBuilders</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Avatars -->
+  <p class="label">Avatars (V5 como ícone)</p>
+  <div class="row">
+    <div class="avatar light">
+      <span class="logo-mini"><span class="c">&gt;</span><span class="t">PB</span><span class="c">_</span></span>
+    </div>
+    <div class="avatar dark">
+      <span class="logo-mini"><span class="c">&gt;</span><span class="t">PB</span><span class="c">_</span></span>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PBuilders — Squad do Futuro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F5EDE4;
+      --text: #1A1A1A;
+      --text-muted: #6B6B6B;
+      --sunset-1: #AB4C31;
+      --gold: #C4673E;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: #2a2a2a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .slide {
+      width: 1080px;
+      height: 1080px;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide-header {
+      position: absolute;
+      top: 48px;
+      left: 80px;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .slide-header span { color: var(--sunset-1); }
+
+    .slide-page {
+      position: absolute;
+      top: 48px;
+      right: 80px;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .swipe-hint {
+      position: absolute;
+      bottom: 48px;
+      right: 80px;
+      font-size: 18px;
+      color: var(--text-muted);
+    }
+
+    .slide h1 {
+      font-size: 68px;
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--text);
+      letter-spacing: -0.03em;
+    }
+    .slide h1 .highlight { color: var(--sunset-1); }
+    .slide h2 {
+      font-size: 44px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+    .slide p {
+      font-size: 30px;
+      line-height: 1.5;
+      color: var(--text-muted);
+      margin-top: 24px;
+    }
+    .slide p.large {
+      font-size: 36px;
+      color: var(--text);
+      line-height: 1.4;
+    }
+    .slide ul {
+      list-style: none;
+      margin-top: 24px;
+    }
+    .slide ul li {
+      font-size: 30px;
+      line-height: 1.7;
+      color: var(--text);
+      padding-left: 32px;
+      position: relative;
+    }
+    .slide ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 16px;
+      width: 12px;
+      height: 12px;
+      background: var(--sunset-1);
+      border-radius: 50%;
+    }
+
+    .slide.dark { background: var(--text); }
+    .slide.dark h1, .slide.dark h2 { color: var(--bg); }
+    .slide.dark p { color: #999; }
+    .slide.dark p.large { color: var(--bg); }
+    .slide.dark .highlight { color: var(--gold); }
+    .slide.dark .slide-header { color: var(--bg); }
+    .slide.dark .slide-header span { color: var(--gold); }
+    .slide.dark .slide-page,
+    .slide.dark .swipe-hint { color: #666; }
+    .slide.dark ul li { color: var(--bg); }
+    .slide.dark ul li::before { background: var(--gold); }
+
+    .slide .cta {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 20px 48px;
+      background: var(--sunset-1);
+      color: white;
+      font-size: 28px;
+      font-weight: 600;
+      border-radius: 12px;
+    }
+    .slide.dark .cta { background: var(--gold); }
+
+    /* Comparativo visual */
+    .compare {
+      display: flex;
+      gap: 40px;
+      margin-top: 32px;
+    }
+    .compare-box {
+      flex: 1;
+      padding: 32px;
+      border-radius: 16px;
+    }
+    .compare-box.old {
+      background: rgba(0,0,0,0.05);
+    }
+    .compare-box.new {
+      background: var(--sunset-1);
+      color: white;
+    }
+    .compare-box h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .compare-box.new h3 { color: white; }
+    .compare-box p {
+      font-size: 24px;
+      margin-top: 8px;
+      line-height: 1.4;
+    }
+    .compare-box.new p { color: rgba(255,255,255,0.85); }
+
+    .big-number {
+      font-size: 140px;
+      font-weight: 700;
+      color: var(--sunset-1);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .slide.dark .big-number { color: var(--gold); }
+
+    .vs {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      margin-top: 24px;
+    }
+    .vs-item {
+      text-align: center;
+    }
+    .vs-item .num {
+      font-size: 100px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .vs-item .label {
+      font-size: 24px;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+    .vs-arrow {
+      font-size: 48px;
+      color: var(--sunset-1);
+    }
+    .slide.dark .vs-item .label { color: #999; }
+    .slide.dark .vs-arrow { color: var(--gold); }
+
+    .slide-label {
+      text-align: center;
+      color: #888;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      margin-top: -0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SLIDE 1 — Capa -->
+  <div class="slide dark">
+    <div class="slide-header"><span>P</span>Builders</div>
+    <div class="slide-page">1/7</div>
+    <h1>O squad do futuro<br>tem <span class="highlight">2 pessoas.</span></h1>
+    <p>E o mercado ainda não sabe formar nenhuma delas.</p>
+    <span class="swipe-hint">→ desliza</span>
+  </div>
+  <p class="slide-label">Slide 1 — Capa</p>
+
+  <!-- SLIDE 2 — O modelo atual -->
+  <div class="slide">
+    <div class="slide-header"><span>P</span>Builders</div>
+    <div class="slide-page">2/7</div>
+    <h2>O modelo que a gente conhece:</h2>
+    <div class="vs">
+      <div class="vs-item">
+        <div class="num" style="color: var(--text-muted);">6-8</div>
+        <div class="label">pessoas por squad</div>
+      </div>
+    </div>
+    <p>Product Manager, Tech Lead, Dev Backend, Dev Frontend, QA, Data Analyst, Designer UX, Scrum Master.</p>
+    <p>Muita cerimônia. Muita dependência. Muitos silos.</p>
+  </div>
+  <p class="slide-label">Slide 2 — Hoje</p>
+
+  <!-- SLIDE 3 — A mudança -->
+  <div class="slide dark">
+    <div class="slide-header"><span>P</span>Builders</div>
+    <div class="slide-page">3/7</div>
+    <h2>O que tá mudando:</h2>
+    <ul>
+      <li>Agentes já escrevem código</li>
+      <li>Agentes já fazem testes</li>
+      <li>Agentes já geram documentação</li>
+      <li>Agentes já fazem QA e review</li>
+      <li>Agentes já fazem deploy</li>
+    </ul>
+    <p>Funções inteiras estão migrando de humanos pra sistemas.</p>
+  </div>
+  <p class="slide-label">Slide 3 — Mudança</p>
+
+  <!-- SLIDE 4 — O novo modelo -->
+  <div class="slide">
+    <div class="slide-header"><span>P</span>Builders</div>
+    <div class="slide-page">4/7</div>
+    <h2>O squad do futuro:</h2>
+    <div class="vs">
+      <div class="vs-item">
+        <div class="num" style="color: var(--text-muted);">8</div>
+        <div class="label">pessoas</div>
+      </div>
+      <div class="vs-arrow">→</div>
+      <div class="vs-item">
+        <div class="num" style="color: var(--sunset-1);">2</div>
+        <div class="label">orquestradores</div>
+      </div>
+    </div>
+    <p class="large" style="margin-top: 40px;">Produto + Arquitetura como funções humanas. O resto? Agentes em paralelo.</p>
+  </div>
+  <p class="slide-label">Slide 4 — Futuro</p>
+
+  <!-- SLIDE 5 — O paradoxo -->
+  <div class="slide dark">
+    <div class="slide-header"><span>P</span>Builders</div>
+    <div class="slide-page">5/7</div>
+    <h2>O problema:</h2>
+    <h1>Esse perfil<br><span class="highlight">não existe</span><br>no mercado.</h1>
+    <p>Nenhum programa forma. Nenhuma trilha reconhece. Nenhuma métrica mede. Não se recruta esse perfil. Se constrói.</p>
+  </div>
+  <p class="slide-label">Slide 5 — Paradoxo</p>
+
+  <!-- SLIDE 6 — O que muda -->
+  <div class="slide">
+    <div class="slide-header"><span>P</span>Builders</div>
+    <div class="slide-page">6/7</div>
+    <h2>O orquestrador precisa saber:</h2>
+    <ul>
+      <li>Decompor problemas em workflows autônomos</li>
+      <li>Definir o que o agente decide sozinho</li>
+      <li>Identificar quando o agente errou</li>
+      <li>Corrigir o sistema, não só o output</li>
+    </ul>
+    <p>Isso não é "saber usar Copilot". É uma competência nova.</p>
+  </div>
+  <p class="slide-label">Slide 6 — Competências</p>
+
+  <!-- SLIDE 7 — CTA -->
+  <div class="slide dark">
+    <div class="slide-header"><span>P</span>Builders</div>
+    <div class="slide-page">7/7</div>
+    <h1>A empresa que<br>chegar primeiro<br>não vai ganhar<br>pela <span class="highlight">tecnologia.</span></h1>
+    <p>Vai ganhar pelo investimento nas pessoas que todo mundo negligenciou.</p>
+    <p style="margin-top: 40px; color: var(--gold);">Você já começou a construir esse perfil?</p>
+  </div>
+  <p class="slide-label">Slide 7 — CTA</p>
+
+</body>
+</html>

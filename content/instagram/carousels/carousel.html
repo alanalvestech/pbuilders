@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PBuilders — Carrossel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F5EDE4;
+      --text: #1A1A1A;
+      --text-muted: #6B6B6B;
+      --sunset-1: #AB4C31;
+      --gold: #C4673E;
+      --gradient-sunset: linear-gradient(135deg, #C4673E, #AB4C31, #963F29);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: #2a2a2a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    /* Cada slide = 1080x1080 (padrão Instagram) */
+    .slide {
+      width: 1080px;
+      height: 1080px;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Header com logo em todo slide */
+    .slide-header {
+      position: absolute;
+      top: 48px;
+      left: 80px;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .slide-header span {
+      color: var(--sunset-1);
+    }
+
+    /* Indicador de página */
+    .slide-page {
+      position: absolute;
+      top: 48px;
+      right: 80px;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    /* Swipe hint */
+    .swipe-hint {
+      position: absolute;
+      bottom: 48px;
+      right: 80px;
+      font-size: 18px;
+      color: var(--text-muted);
+    }
+
+    /* Tipografia dos slides */
+    .slide h1 {
+      font-size: 72px;
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--text);
+      letter-spacing: -0.03em;
+    }
+    .slide h1 .highlight {
+      color: var(--sunset-1);
+    }
+    .slide h2 {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+    }
+    .slide p {
+      font-size: 32px;
+      line-height: 1.5;
+      color: var(--text-muted);
+      margin-top: 24px;
+    }
+    .slide ul {
+      list-style: none;
+      margin-top: 24px;
+    }
+    .slide ul li {
+      font-size: 32px;
+      line-height: 1.6;
+      color: var(--text);
+      padding-left: 32px;
+      position: relative;
+    }
+    .slide ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 16px;
+      width: 12px;
+      height: 12px;
+      background: var(--sunset-1);
+      border-radius: 50%;
+    }
+
+    /* Slide escuro (variação) */
+    .slide.dark {
+      background: var(--text);
+    }
+    .slide.dark h1, .slide.dark h2 {
+      color: var(--bg);
+    }
+    .slide.dark p {
+      color: #999;
+    }
+    .slide.dark .highlight {
+      color: var(--gold);
+    }
+    .slide.dark .slide-header {
+      color: var(--bg);
+    }
+    .slide.dark .slide-header span {
+      color: var(--gold);
+    }
+    .slide.dark .slide-page,
+    .slide.dark .swipe-hint {
+      color: #666;
+    }
+    .slide.dark ul li {
+      color: var(--bg);
+    }
+    .slide.dark ul li::before {
+      background: var(--gold);
+    }
+
+    /* Slide CTA */
+    .slide .cta {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 20px 48px;
+      background: var(--sunset-1);
+      color: white;
+      font-size: 28px;
+      font-weight: 600;
+      border-radius: 12px;
+    }
+    .slide.dark .cta {
+      background: var(--gold);
+    }
+
+    /* Label de slide (para referência) */
+    .slide-label {
+      text-align: center;
+      color: #888;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      margin-top: -1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SLIDE 1 — Capa / Hook -->
+  <div class="slide">
+    <div class="slide-header"><span>P</span>Builders</div>
+    <div class="slide-page">1/5</div>
+    <h1>Você tá usando IA<br>como se fosse<br><span class="highlight">Google?</span></h1>
+    <p>Desliza pra ver o que muda quando você inverte a lógica.</p>
+    <span class="swipe-hint">→ desliza</span>
+  </div>
+  <p class="slide-label">Slide 1 — Capa</p>
+
+  <!-- SLIDE 2 — O problema -->
+  <div class="slide">
+    <div class="slide-header"><span>P</span>Builders</div>
+    <div class="slide-page">2/5</div>
+    <h2>O que 95% das pessoas fazem:</h2>
+    <ul>
+      <li>"Como fazer X?"</li>
+      <li>"Me dá um template de Y"</li>
+      <li>"Resuma esse texto"</li>
+    </ul>
+    <p>Isso é pesquisa. A IA responde, mas de forma genérica.</p>
+  </div>
+  <p class="slide-label">Slide 2 — Problema</p>
+
+  <!-- SLIDE 3 — A virada -->
+  <div class="slide dark">
+    <div class="slide-header"><span>P</span>Builders</div>
+    <div class="slide-page">3/5</div>
+    <h2>A virada:</h2>
+    <h1>Parar de <span class="highlight">perguntar</span><br>e começar a <span class="highlight">contar.</span></h1>
+  </div>
+  <p class="slide-label">Slide 3 — Virada</p>
+
+  <!-- SLIDE 4 — Como fazer -->
+  <div class="slide">
+    <div class="slide-header"><span>P</span>Builders</div>
+    <div class="slide-page">4/5</div>
+    <h2>Conte pra IA:</h2>
+    <ul>
+      <li>Seus desafios reais</li>
+      <li>Seus números</li>
+      <li>O que já tentou</li>
+      <li>Onde travou</li>
+    </ul>
+    <p>Aí a resposta muda completamente.</p>
+  </div>
+  <p class="slide-label">Slide 4 — Solução</p>
+
+  <!-- SLIDE 5 — CTA -->
+  <div class="slide dark">
+    <div class="slide-header"><span>P</span>Builders</div>
+    <div class="slide-page">5/5</div>
+    <h1>IA não é<br>buscador.<br><span class="highlight">É parceira.</span></h1>
+    <p>Trata ela como tal.</p>
+    <div class="cta">Entra no grupo → pbuilders.ai</div>
+  </div>
+  <p class="slide-label">Slide 5 — CTA</p>
+
+</body>
+</html>

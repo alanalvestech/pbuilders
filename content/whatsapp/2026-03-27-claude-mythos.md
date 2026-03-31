@@ -2,6 +2,7 @@
 status: sent
 sent_at: 2026-03-27
 type: curadoria
+canal: whatsapp
 ---
 
 A Anthropic vazou sem querer o próximo modelo deles — e derrubou $14,5 bilhões em valor de mercado de empresas de cibersegurança num dia só.

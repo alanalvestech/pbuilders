@@ -26,8 +26,13 @@ pbuilders/
 │   └── bia-copywriter.md        # Persona: Head de Copy & Social Media
 ├── brand.md                     # Identidade, voz, tom, visual
 ├── content/
-│   ├── strategy.md              # Regras de conteúdo
-│   └── posts/                   # Postagens
+│   ├── whatsapp/                # Posts e strategy do grupo WhatsApp
+│   │   ├── strategy.md
+│   │   └── YYYY-MM-DD-slug.md
+│   └── instagram/               # Posts e strategy do Instagram
+│       ├── strategy.md
+│       ├── YYYY-MM-DD-slug.md
+│       └── carousels/           # Templates HTML de carrosséis
 ├── eventos/
 │   └── primeiro.md              # Planejamento do kickoff
 ├── growth/
@@ -93,4 +98,6 @@ Credenciais no macOS Keychain com Touch ID. Scripts usam `playwright-cli -s=inst
 - Antes de escrever qualquer texto público (posts, bio, copy), consultar `brand.md` e invocar a Bia (`agents/bia-copywriter.md`)
 - Antes de planejar eventos, consultar `eventos/`
 - Antes de estratégia de crescimento, consultar `growth/`
-- Antes de criar conteúdo, consultar `content/strategy.md`
+- Antes de criar conteúdo WhatsApp, consultar `content/whatsapp/strategy.md`
+- Antes de criar conteúdo Instagram, consultar `content/instagram/strategy.md`
+- Posts salvos em `content/whatsapp/` ou `content/instagram/` conforme o canal
