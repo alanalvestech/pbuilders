@@ -7,29 +7,17 @@ Comunidade presencial de builders de IA em Campina Grande/PB. O "PB" de Paraíba
 ```
 pbuilders/
 ├── CLAUDE.md                    # Este arquivo
-├── .claude/skills/insta/        # Skill /insta (automação Instagram)
-│   ├── SKILL.md                 # Documento da skill
-│   └── scripts/                 # Scripts bash modulares
-│       ├── _helpers.sh          # Funções compartilhadas
-│       ├── keychain.sh          # Credenciais via Keychain + Touch ID
-│       ├── login.sh             # Login automático
-│       ├── follow.sh            # Follow / unfollow / check
-│       ├── dm.sh                # Enviar DMs
-│       ├── like.sh              # Curtir posts
-│       ├── post.sh              # Publicar posts
-│       ├── stories.sh           # Coletar dados de stories
-│       ├── story-reply.sh       # Curtir e responder stories
-│       ├── bio.sh               # Editar bio
-│       ├── notifications.sh     # Ler notificações
-│       └── profile.sh           # Analisar perfil de usuário
-├── agents/
-│   └── bia-copywriter.md        # Persona: Head de Copy & Social Media
+├── .claude/
+│   ├── agents/
+│   │   └── bia-copywriter.md    # Persona: Head de Copy & Social Media
+│   └── skills/insta/            # Skill /insta (automação Instagram)
+│       ├── SKILL.md
+│       └── scripts/             # Scripts bash modulares
 ├── brand.md                     # Identidade, voz, tom, visual
 ├── content/
 │   ├── whatsapp/                # Posts do grupo WhatsApp
 │   │   ├── strategy.md
-│   │   └── YYYY-MM-DD/          # Pasta por dia (vários posts/dia)
-│   │       └── slug.md
+│   │   └── YYYY-MM-DD.md        # Um arquivo por dia (vários posts no mesmo .md)
 │   └── instagram/               # Posts do Instagram
 │       ├── strategy.md
 │       ├── templates/           # Templates HTML reutilizáveis
