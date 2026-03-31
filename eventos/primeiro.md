@@ -50,14 +50,20 @@ Workshop mão na massa de 4 horas. Cada participante sai com a ferramenta instal
 ### Opção 3: Coworking local
 - Avaliar espaços em CG que tenham boa internet e projetor
 
-## Data Sugerida
+## Data Confirmada
 
-Maio ou junho 2026. Depois da palestra no PTHI (06/04) pra usar o momento e os contatos feitos lá.
+**25 de abril de 2026** — inscrições gratuitas abertas.
+
+Cobertura de imprensa: [Santo Tech (30/03/2026)](https://santotech.com.br/campina-grande-esta-construindo-com-inteligencia-artificial-e-voce-pode-fazer-parte/)
+
+Apoio institucional confirmado: E.InovCG (Ecossistema de Inovação de Campina Grande)
 
 ## Checklist de Execução
 
 - [x] Confirmar venue com Carlos Rueda (Sebrae CG — confirmado 24/03)
-- [ ] Definir data
+- [x] Definir data (25/04/2026)
+- [x] Apoio institucional E.InovCG confirmado
+- [x] Primeira cobertura de imprensa (Santo Tech — 30/03/2026)
 - [ ] Criar perfis nas redes (@pbuilders)
 - [ ] Montar arte de divulgação
 - [ ] Abrir inscrições (Google Forms ou similar)
