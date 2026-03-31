@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>PBuilders × Carlos Rueda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* POST: 1080x1080 */
+    .post {
+      width: 1080px;
+      height: 1080px;
+      background: #0A0A0A;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 72px 80px;
+    }
+
+    /* Grid sutil de fundo */
+    .post::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+
+    /* Círculo decorativo */
+    .deco-circle {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.06);
+      top: -120px;
+      right: -140px;
+      pointer-events: none;
+    }
+    .deco-circle-2 {
+      position: absolute;
+      width: 380px;
+      height: 380px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.04);
+      bottom: 60px;
+      left: -80px;
+      pointer-events: none;
+    }
+
+    /* HEADER */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #F0F0F0;
+      letter-spacing: -0.03em;
+    }
+
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #888;
+      border: 1px solid #2A2A2A;
+      padding: 8px 18px;
+      border-radius: 999px;
+    }
+
+    /* BODY */
+    .body {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px 0;
+    }
+
+    .label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #555;
+      margin-bottom: 32px;
+    }
+
+    .x-mark {
+      font-size: 96px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.08);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .name {
+      font-size: 96px;
+      font-weight: 700;
+      color: #F0F0F0;
+      letter-spacing: -0.04em;
+      line-height: 0.92;
+      margin-bottom: 20px;
+    }
+
+    .name .highlight {
+      color: #ffffff;
+    }
+
+    .role {
+      font-size: 24px;
+      font-weight: 400;
+      color: #666;
+      letter-spacing: -0.01em;
+      margin-bottom: 56px;
+    }
+
+    .role strong {
+      color: #999;
+      font-weight: 600;
+    }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: #ffffff;
+      margin-bottom: 48px;
+    }
+
+    .description {
+      font-size: 26px;
+      font-weight: 400;
+      color: #888;
+      line-height: 1.5;
+      max-width: 640px;
+    }
+
+    .description strong {
+      color: #F0F0F0;
+      font-weight: 600;
+    }
+
+    /* FOOTER */
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid #1E1E1E;
+      padding-top: 36px;
+    }
+
+    .footer-url {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      color: #444;
+      letter-spacing: 0.02em;
+    }
+
+    .footer-cg {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="post">
+    <div class="deco-circle"></div>
+    <div class="deco-circle-2"></div>
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="logo">PBuilders</div>
+      <div class="tag">Parceria</div>
+    </div>
+
+    <!-- BODY -->
+    <div class="body">
+      <div class="label">Novo parceiro</div>
+      <div class="x-mark">×</div>
+      <div class="name">Carlos<br>Rueda</div>
+      <div class="role"><strong>Head de Inovação</strong> — Sebrae CG</div>
+      <div class="divider"></div>
+      <div class="description">
+        Levando a <strong>PBuilders</strong> pra dentro do<br>
+        ecossistema de inovação de<br>
+        <strong>Campina Grande.</strong>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-cg">Campina Grande, PB</div>
+    </div>
+  </div>
+</body>
+</html>
