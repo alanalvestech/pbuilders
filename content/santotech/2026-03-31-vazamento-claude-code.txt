@@ -1,0 +1,72 @@
+A empresa por trás do Claude vazou por acidente seus planos secretos para a IA — e o que estava escondido é surpreendente
+
+Um erro simples expôs funcionalidades que a Anthropic ainda não tinha anunciado ao mundo, incluindo um modo que esconde o uso de IA em projetos públicos
+
+---
+
+A Anthropic, empresa americana responsável pela inteligência artificial Claude — uma das mais usadas no mundo — cometeu um erro que expôs seus planos mais sigilosos para qualquer pessoa com acesso à internet. Nesta semana, ao lançar uma atualização do Claude Code (sua ferramenta voltada para programadores), a empresa acidentalmente incluiu um arquivo que revelava o código-fonte completo do programa — incluindo funcionalidades que ainda nem tinham sido anunciadas ao público.
+
+Um pesquisador de segurança foi o primeiro a perceber. Em minutos, o conteúdo se espalhou pela internet e foi salvo em múltiplos lugares antes que a Anthropic conseguisse remover o arquivo. O estrago estava feito.
+
+
+O que é o Claude Code?
+
+Para quem não conhece: o Claude Code é uma ferramenta da Anthropic que ajuda programadores a escrever e revisar código usando inteligência artificial. Pense nele como um assistente inteligente que fica dentro do ambiente de trabalho do desenvolvedor, respondendo perguntas e sugerindo soluções em tempo real.
+
+O que o vazamento revelou é que a versão atual — aquela que as pessoas usam hoje — é apenas uma fração do que a empresa está construindo nos bastidores.
+
+
+O que estava escondido
+
+No arquivo exposto, pesquisadores encontraram 44 funcionalidades completas que a Anthropic havia desenvolvido mas ainda não tinha liberado para o público. As mais impactantes:
+
+
+O assistente que trabalha enquanto você dorme
+
+Batizada internamente de Kairos (palavra grega para "o momento certo"), essa funcionalidade transforma o Claude em um assistente que fica ativo o tempo todo — mesmo quando o usuário não está no computador. Em vez de esperar ser acionado, ele trabalha em segundo plano: organiza informações, resolve tarefas pendentes e aprende mais sobre os seus projetos enquanto você descansa.
+
+É uma mudança grande. Hoje, ferramentas de IA só respondem quando você pergunta. Com o Kairos, a IA passa a agir por conta própria, de forma contínua.
+
+
+Uma IA que coordena outras IAs
+
+Outro recurso encontrado no código mostra que a Anthropic está desenvolvendo um modo onde o Claude não apenas executa tarefas, mas divide o trabalho entre vários assistentes de IA ao mesmo tempo. Um "Claude chefe" distribui as tarefas para "Claudes assistentes", cada um especializado em uma parte do problema. O resultado chega mais rápido e mais completo.
+
+
+Sem mais pedidos de permissão
+
+Quem usa o Claude hoje sabe que ele costuma perguntar antes de fazer qualquer coisa: "Posso acessar esse arquivo?", "Posso executar esse comando?". Um dos recursos encontrados no vazamento elimina essas perguntas — a IA passaria a tomar decisões sozinha, sem precisar de aprovação a cada passo.
+
+
+O modo que esconde o uso de IA — e esse é o mais polêmico
+
+A descoberta que mais gerou reação foi o chamado Undercover Mode. Esse modo, encontrado no código e aparentemente voltado para uso interno pelos próprios funcionários da Anthropic, faz com que qualquer contribuição feita com ajuda da IA não deixe rastro de que foi gerada por uma máquina.
+
+Em outras palavras: quando um funcionário da Anthropic usa o Claude para contribuir com projetos públicos na internet, o sistema automaticamente apaga qualquer indicação de que a IA participou. E o mais grave: essa função não pode ser desligada pelos próprios funcionários.
+
+O trecho encontrado no código é direto: "Você está operando disfarçado... Suas mensagens não devem conter nenhuma informação interna da Anthropic. Não revele sua identidade."
+
+A ironia não passou despercebida: a mesma empresa que prega o uso ético e transparente da inteligência artificial tem, no próprio código, um mecanismo para ocultar esse uso quando é conveniente.
+
+
+E até um bichinho virtual
+
+Entre as surpresas mais inusitadas estava o Buddy System: um sistema completo de pet virtual — estilo Tamagotchi — integrado à ferramenta, com 18 espécies diferentes, raridades e variações. Ninguém esperava por isso.
+
+
+O que a Anthropic disse
+
+A empresa removeu o arquivo assim que o problema foi identificado, mas não emitiu um comunicado detalhado sobre o ocorrido até o momento de publicação desta matéria.
+
+
+Por que isso importa para você
+
+Mesmo que você nunca tenha ouvido falar em Claude Code, esse episódio revela algo sobre o momento que estamos vivendo com a inteligência artificial.
+
+As ferramentas de IA que existem hoje ainda pedem permissão, ainda esperam o usuário dar o primeiro passo. O que o vazamento mostrou é que as empresas do setor já estão construindo a próxima geração: assistentes que agem sozinhos, que nunca "desligam", que gerenciam outros assistentes — e que, em alguns casos, operam de forma invisível.
+
+A pergunta que fica não é técnica. É sobre confiança: quando a empresa mais vocal sobre o uso responsável de IA tem um modo "disfarçado" no próprio código, o que podemos esperar das demais?
+
+---
+
+Fontes: VentureBeat, The AI Corner, DEV Community, PiunikaWeb

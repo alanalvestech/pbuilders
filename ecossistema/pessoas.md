@@ -6,7 +6,7 @@ Stakeholders, potenciais speakers, apoiadores e pessoas importantes pro ecossist
 
 | Nome | Papel | Contexto |
 |---|---|---|
-| **Carlos Rueda** | Head de Inovação, Sebrae/CG | Reunião 24/03 — **confirmou apoio total** à comunidade PBuilders. Quer fazer encontro no Sebrae e divulgar em todo o ecossistema. Parceiro ativo. |
+| **Carlos Rueda** | CEO, Núcleo de Inteligência Competitiva do E.InovCG | Reunião 24/03 — **confirmou apoio total** à comunidade PBuilders. Quer fazer encontro no E.InovCG e divulgar em todo o ecossistema. Parceiro ativo. |
 
 ## Poder Público / Institucional
 

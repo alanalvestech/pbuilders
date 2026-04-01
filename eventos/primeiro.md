@@ -41,9 +41,9 @@ Workshop mão na massa de 4 horas. Cada participante sai com a ferramenta instal
 - Já tem relação via palestra (06/04)
 - Carlos Rueda pode facilitar
 
-### Opção 2: Sebrae CG ← **CONFIRMADO por Carlos Rueda (24/03)**
-- Espaço de eventos do Sebrae
-- Carlos Rueda é Head de Inovação lá
+### Opção 2: E.InovCG ← **CONFIRMADO por Carlos Rueda (24/03)**
+- Espaço de eventos do E.InovCG
+- Carlos Rueda é CEO do Núcleo de Inteligência Competitiva lá
 - Infraestrutura pronta (projetor, cadeiras, internet)
 - Rueda vai divulgar em todo o ecossistema
 
@@ -60,7 +60,7 @@ Apoio institucional confirmado: E.InovCG (Ecossistema de Inovação de Campina G
 
 ## Checklist de Execução
 
-- [x] Confirmar venue com Carlos Rueda (Sebrae CG — confirmado 24/03)
+- [x] Confirmar venue com Carlos Rueda (E.InovCG — confirmado 24/03)
 - [x] Definir data (25/04/2026)
 - [x] Apoio institucional E.InovCG confirmado
 - [x] Primeira cobertura de imprensa (Santo Tech — 30/03/2026)
