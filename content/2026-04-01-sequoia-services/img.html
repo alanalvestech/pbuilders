@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>PBuilders — Serviço é o novo software</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .card {
+      width: 1080px;
+      height: 1080px;
+      background: #0A0A0A;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 72px 80px 64px;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-pb {
+      font-size: 28px;
+      font-weight: 700;
+      color: #F0F0F0;
+      letter-spacing: -0.03em;
+    }
+
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #555;
+      border: 1px solid #2A2A2A;
+      padding: 8px 20px;
+      border-radius: 999px;
+    }
+
+    .body {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #333;
+      margin-bottom: 56px;
+    }
+
+    .headline {
+      font-size: 100px;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      line-height: 0.92;
+      color: #F0F0F0;
+      margin-bottom: 64px;
+    }
+
+    .headline .dim {
+      color: #252525;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: #1A1A1A;
+      margin-bottom: 52px;
+    }
+
+    .stats {
+      display: flex;
+      gap: 0;
+    }
+
+    .stat {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-right: 48px;
+      border-right: 1px solid #1A1A1A;
+      margin-right: 48px;
+    }
+
+    .stat:last-child {
+      border-right: none;
+      padding-right: 0;
+      margin-right: 0;
+    }
+
+    .stat-number {
+      font-size: 56px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: #E0E0E0;
+      line-height: 1;
+    }
+
+    .stat-desc {
+      font-size: 19px;
+      color: #444;
+      line-height: 1.4;
+    }
+
+    .stat-desc strong {
+      color: #888;
+      font-weight: 600;
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid #1C1C1C;
+      padding-top: 28px;
+    }
+
+    .footer-url {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 16px;
+      color: #2E2E2E;
+    }
+
+    .footer-right {
+      font-size: 15px;
+      color: #2E2E2E;
+    }
+
+    .deco {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.03);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="deco" style="width:700px;height:700px;bottom:-250px;right:-250px;"></div>
+
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Sequoia Capital</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">Onde está o dinheiro de verdade?</div>
+
+      <div class="headline">
+        Serviço é<br>
+        o novo<br>
+        software.
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-number">$1T+</div>
+          <div class="stat-desc">em serviços no caminho<br>dos <strong>agentes de IA</strong></div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">6×</div>
+          <div class="stat-desc">o mercado de serviços<br>em relação ao de <strong>software</strong></div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">Agora.</div>
+          <div class="stat-desc">Não no futuro.<br><strong>A janela tá aberta.</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-right">Paraíba, Brasil</div>
+    </div>
+  </div>
+</body>
+</html>

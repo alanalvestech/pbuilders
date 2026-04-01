@@ -1,6 +1,4 @@
 ---
-status: draft
-sent_at:
 type: carrossel
 canal: instagram
 ---

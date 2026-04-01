@@ -15,15 +15,14 @@ pbuilders/
 │       └── scripts/             # Scripts bash modulares
 ├── brand.md                     # Identidade, voz, tom, visual
 ├── content/
-│   ├── whatsapp/                # Posts do grupo WhatsApp
-│   │   ├── README.md            # Guia de conteúdo WhatsApp
-│   │   └── YYYY-MM-DD.md        # Um arquivo por dia (vários posts no mesmo .md)
-│   └── instagram/               # Posts do Instagram
-│       ├── README.md            # Guia de conteúdo Instagram
-│       ├── templates/           # Templates HTML reutilizáveis
-│       └── YYYY-MM-DD/          # Pasta por dia de publicação
-│           ├── carousel.html    # Carrossel do dia
-│           └── caption.md       # Caption + hashtags
+│   ├── README.md                # Guia unificado de conteúdo (WhatsApp + Instagram)
+│   ├── render.py                # Converte img.html → img.png (1080x1080)
+│   └── YYYY-MM-DD-slug/         # Uma pasta por tema/assunto
+│       ├── whatsapp.md          # Post WhatsApp
+│       ├── instagram-caption.md # Caption Instagram
+│       ├── instagram-carousel.html  # Carrossel Instagram
+│       ├── img.html             # Imagem compartilhada (fonte)
+│       └── img.png              # Imagem renderizada
 ├── ecosistema/
 │   ├── comunidades.md           # Mapeamento de comunidades na PB
 │   └── pessoas.md               # Stakeholders e pessoas-chave
@@ -89,6 +88,5 @@ Credenciais no macOS Keychain com Touch ID. Scripts usam `playwright-cli -s=inst
 - Antes de escrever qualquer texto público (posts, bio, copy), consultar `brand.md` e invocar a Bia (`.claude/agents/copywriter.md`)
 - Antes de planejar eventos, consultar `eventos/`
 - Antes de mapear ecossistema, consultar `ecosistema/`
-- Antes de criar conteúdo WhatsApp, consultar `content/whatsapp/README.md`
-- Antes de criar conteúdo Instagram, consultar `content/instagram/README.md`
-- Posts salvos em `content/whatsapp/` ou `content/instagram/` conforme o canal
+- Antes de criar conteúdo (WhatsApp ou Instagram), consultar `content/README.md`
+- Posts salvos em `content/YYYY-MM-DD-slug/` com prefixo do canal no nome do arquivo
