@@ -157,10 +157,36 @@ canal: instagram
 
 ---
 
+## Especificações de Imagem por Formato
+
+Referência para evitar imagens com dimensões erradas.
+
+| Formato | Dimensões | Proporção | Obs |
+|---|---|---|---|
+| Feed quadrado | 1080 × 1080 px | 1:1 | Menor alcance |
+| Feed retrato ✅ | 1080 × 1350 px | 4:5 | Recomendado pelo Instagram em 2026 |
+| Feed paisagem | 1080 × 566 px | 1.91:1 | Evitar — corta no grid |
+| Carrossel (cada slide) | 1080 × 1350 px | 4:5 | Primeiro slide define proporção dos demais |
+| Stories / Reels | 1080 × 1920 px | 9:16 | Safe zone: margem de 250px top/bottom pra UI |
+| Foto de perfil | 320 × 320 px | 1:1 | |
+
+**Regra geral:** sempre exportar com 1080px de largura. Instagram comprime se for maior, degrada se for menor.
+
+**Stories:** manter texto e elementos interativos dentro do safe zone (y: 250px → 1670px).
+
+---
+
 ## render.py
 
-Converte `img.html` de uma pasta em `img.png` (1080x1080px):
+Converte HTML com slides `.slide` em PNG(s). Passa o arquivo HTML diretamente:
 
 ```bash
-python3 content/render.py content/2026-04-01-sequoia-services
+# Imagem única (img.html → img.png)
+python3 content/render.py content/2026-04-01-sequoia-services/img.html
+
+# Carrossel (7 slides → instagram-carousel-01.png ... 07.png)
+python3 content/render.py content/2026-04-01-sequoia-services/instagram-carousel.html
+
+# Stories (4 slides → instagram-stories-01.png ... 04.png)
+python3 content/render.py content/2026-04-01-sequoia-services/instagram-stories.html
 ```
