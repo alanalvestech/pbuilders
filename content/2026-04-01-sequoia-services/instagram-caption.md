@@ -23,11 +23,11 @@ E o dado que prende: para cada $1 gasto em software, $6 são gastos em serviços
 
 A janela tá aberta — e não precisa estar no Vale pra pegar.
 
-→ Swipe pra entender o modelo e o que isso significa pra quem tá construindo em CG agora.
+→ Swipe pra entender o modelo e o que isso significa pra quem tá construindo na PB agora.
 
 —
 
-PBuilders é a comunidade presencial de builders de IA em Campina Grande. Se você constrói (ou quer construir) com IA, é aqui.
+PBuilders é a comunidade presencial de builders de IA na Paraíba. Se você constrói (ou quer construir) com IA, é aqui.
 
 🔗 pbuilders.ai
 
