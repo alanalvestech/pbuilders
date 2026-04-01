@@ -148,6 +148,7 @@ O slide de CTA deve conter:
 - Handle: `@pbuilders`
 - URL: `pbuilders.ai`
 - Chamada para ação clara ("Venha construir.", "É aqui.", etc.)
+- Direcionamento explícito para a comunidade no WhatsApp: **"Entre na comunidade — link na bio"**
 
 Nunca terminar num slide de conteúdo. O último contato visual do usuário com o post é o CTA.
 
