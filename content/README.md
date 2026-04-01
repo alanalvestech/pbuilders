@@ -174,6 +174,19 @@ Referência para evitar imagens com dimensões erradas.
 
 **Stories:** manter texto e elementos interativos dentro do safe zone (y: 250px → 1670px).
 
+### Tamanhos mínimos de fonte para legibilidade no mobile
+
+Instagram exibe a imagem em ~390px de largura no iPhone (escala ~0.36×). Uma fonte de 13px na imagem aparece como ~5px na tela — ilegível.
+
+| Uso | Tamanho mínimo na imagem |
+|---|---|
+| Eyebrows / labels / tags | 17–20px |
+| Texto de apoio (secundário) | 24–28px |
+| Corpo principal | 28–32px |
+| Títulos / headlines | livre (já são grandes) |
+
+Regra prática: **nada abaixo de 17px** nos HTMLs. Se parecer pequeno no browser em 1080px, vai ser ilegível no celular.
+
 ---
 
 ## render.py
