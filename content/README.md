@@ -140,6 +140,17 @@ Seguir `brand.md` como base. No Instagram:
 Templates HTML na pasta do tema. Exportar como PNG antes de publicar usando `render.py`.
 Usar a skill `/insta post` para publicar.
 
+### Regra obrigatória: último slide sempre é CTA
+
+Todo carrossel e toda sequência de stories **deve terminar com um slide de CTA** direcionando para a comunidade. Sem exceção.
+
+O slide de CTA deve conter:
+- Handle: `@pbuilders`
+- URL: `pbuilders.ai`
+- Chamada para ação clara ("Venha construir.", "É aqui.", etc.)
+
+Nunca terminar num slide de conteúdo. O último contato visual do usuário com o post é o CTA.
+
 ### Frequência
 
 - 3-5 posts/semana no feed
