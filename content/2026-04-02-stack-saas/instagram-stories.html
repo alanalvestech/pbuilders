@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>PBuilders Stories — 26 ferramentas para rodar um SaaS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      padding: 48px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .slide-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: #444;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      align-self: flex-start;
+      margin-left: 4px;
+      margin-bottom: -28px;
+    }
+
+    /* ─── BASE SLIDE ─── */
+    /* 1080x1920 — safe zone: padding 300px top/bottom */
+    .slide {
+      width: 1080px;
+      height: 1920px;
+      background: #0A0A0A;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 300px 80px 300px;
+    }
+
+    /* Grid sutil */
+    .slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none;
+    }
+
+    /* ─── HEADER ─── */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-pb {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #F0F0F0;
+      letter-spacing: -0.03em;
+    }
+
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 17px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #555;
+      border: 1px solid #2A2A2A;
+      padding: 8px 20px;
+      border-radius: 999px;
+    }
+
+    /* ─── BODY ─── */
+    .body {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #1C1C1C;
+      padding-top: 32px;
+    }
+
+    .footer-url {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      color: #3A3A3A;
+    }
+
+    .footer-handle {
+      font-size: 18px;
+      font-weight: 600;
+      color: #3A3A3A;
+    }
+
+    /* Círculos decorativos */
+    .deco-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.035);
+      pointer-events: none;
+    }
+
+    /* ─── STORY 1 — HOOK ─── */
+    #s1 .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 21px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #444;
+      margin-bottom: 56px;
+    }
+
+    #s1 .headline {
+      font-size: 112px;
+      font-weight: 700;
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+      color: #F0F0F0;
+      margin-bottom: 64px;
+    }
+
+    #s1 .headline em {
+      font-style: normal;
+      display: block;
+    }
+
+    #s1 .accent-line {
+      width: 64px;
+      height: 3px;
+      background: #fff;
+      margin-bottom: 52px;
+    }
+
+    #s1 .subline {
+      font-size: 30px;
+      font-weight: 400;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    #s1 .subline strong {
+      color: #A0A0A0;
+      font-weight: 600;
+    }
+
+    /* ─── STORY 2 — TEASE ─── */
+    #s2 .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 21px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #3A3A3A;
+      margin-bottom: 72px;
+    }
+
+    #s2 .tease-title {
+      font-size: 68px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      color: #F0F0F0;
+      margin-bottom: 64px;
+    }
+
+    #s2 .category-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    #s2 .cat-item {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    #s2 .cat-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 28px;
+      font-weight: 700;
+      color: #D0D0D0;
+      min-width: 48px;
+    }
+
+    #s2 .cat-label {
+      font-size: 30px;
+      color: #555;
+    }
+
+    #s2 .cat-sub {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 21px;
+      color: #2A2A2A;
+      margin-left: auto;
+    }
+
+    /* ─── STORY 3 — DADO ─── */
+    #s3 .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 21px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #3A3A3A;
+      margin-bottom: 72px;
+    }
+
+    #s3 .big-num {
+      font-size: 56px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.0;
+      color: #F8F8F8;
+      margin-bottom: 24px;
+    }
+
+    #s3 .big-num span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 120px;
+      letter-spacing: -0.05em;
+      display: block;
+      line-height: 0.88;
+      margin-bottom: 20px;
+    }
+
+    #s3 .big-label {
+      font-size: 30px;
+      color: #555;
+      margin-bottom: 72px;
+      line-height: 1.4;
+    }
+
+    #s3 .big-label strong {
+      color: #CCC;
+    }
+
+    #s3 .context {
+      font-size: 26px;
+      color: #444;
+      line-height: 1.6;
+      border-left: 2px solid #222;
+      padding-left: 32px;
+    }
+
+    /* ─── STORY 4 — CTA ─── */
+    #s4 .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 21px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #3A3A3A;
+      margin-bottom: 72px;
+    }
+
+    #s4 .cta-headline {
+      font-size: 100px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 0.93;
+      color: #F0F0F0;
+      margin-bottom: 56px;
+    }
+
+    #s4 .cta-body {
+      font-size: 30px;
+      color: #4A4A4A;
+      line-height: 1.6;
+      margin-bottom: 80px;
+      max-width: 800px;
+    }
+
+    #s4 .handle-block {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    #s4 .handle {
+      font-size: 44px;
+      font-weight: 700;
+      color: #E0E0E0;
+      letter-spacing: -0.02em;
+    }
+
+    #s4 .handle-url {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 22px;
+      color: #3A3A3A;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- STORY 1 — HOOK -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="slide-label">Story 1 / 4</div>
+  <div class="slide" id="s1">
+    <div class="deco-circle" style="width:1000px;height:1000px;bottom:-400px;right:-350px;"></div>
+
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Stack SaaS</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">Curadoria · 2025</div>
+      <div class="headline">
+        <em>26</em>
+        <em>ferramentas</em>
+        <em>para rodar</em>
+        <em>um SaaS.</em>
+      </div>
+      <div class="accent-line"></div>
+      <div class="subline">
+        Com <strong>preços reais em BRL.</strong>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-handle">@pbuilders</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- STORY 2 — TEASE -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="slide-label">Story 2 / 4</div>
+  <div class="slide" id="s2">
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">A stack</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">4 categorias</div>
+      <div class="tease-title">Infra, clientes,<br>backoffice<br>e marketing.</div>
+
+      <div class="category-list">
+        <div class="cat-item">
+          <span class="cat-num">9</span>
+          <span class="cat-label">Infraestrutura</span>
+          <span class="cat-sub">ferramentas</span>
+        </div>
+        <div class="cat-item">
+          <span class="cat-num">5</span>
+          <span class="cat-label">Gestão de clientes</span>
+          <span class="cat-sub">ferramentas</span>
+        </div>
+        <div class="cat-item">
+          <span class="cat-num">5</span>
+          <span class="cat-label">Backoffice</span>
+          <span class="cat-sub">ferramentas</span>
+        </div>
+        <div class="cat-item">
+          <span class="cat-num">7</span>
+          <span class="cat-label">Marketing</span>
+          <span class="cat-sub">ferramentas</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-handle">@pbuilders</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- STORY 3 — DADO -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="slide-label">Story 3 / 4</div>
+  <div class="slide" id="s3">
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">O custo</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">Operação completa</div>
+      <div class="big-num">
+        <span>~R$<br>2.320</span>
+        por mês
+      </div>
+      <div class="big-label">
+        pra rodar as <strong>26 ferramentas</strong><br>
+        de infra até marketing.
+      </div>
+      <div class="context">
+        Sem contar % do Stripe por transação.<br>
+        Veja o detalhamento no carrossel.
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-handle">@pbuilders</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- STORY 4 — CTA -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="slide-label">Story 4 / 4</div>
+  <div class="slide" id="s4">
+    <div class="deco-circle" style="width:800px;height:800px;bottom:-300px;left:-300px;opacity:0.6;"></div>
+    <div class="deco-circle" style="width:500px;height:500px;bottom:-150px;left:-150px;opacity:0.4;"></div>
+
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Comunidade</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">Veja o carrossel completo</div>
+
+      <div class="cta-headline">
+        Venha<br>construir.
+      </div>
+
+      <div class="cta-body">
+        PBuilders é a comunidade presencial
+        de builders de IA na Paraíba.
+        Encontros, demos, projetos reais.
+      </div>
+
+      <div class="handle-block">
+        <div class="handle">@pbuilders</div>
+        <div class="handle-url">Entre na comunidade — link na bio</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-handle">@pbuilders</div>
+    </div>
+  </div>
+
+</body>
+</html>
