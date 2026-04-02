@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>PBuilders — Marketing · Stack SaaS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      padding: 48px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .slide-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: #444;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      align-self: flex-start;
+      margin-left: 4px;
+      margin-bottom: -20px;
+    }
+
+    .slide {
+      width: 1080px;
+      height: 1350px;
+      background: #0A0A0A;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 88px 80px 80px;
+    }
+
+    .slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-pb {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #F0F0F0;
+      letter-spacing: -0.03em;
+    }
+
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 17px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #555;
+      border: 1px solid #2A2A2A;
+      padding: 8px 20px;
+      border-radius: 999px;
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid #1C1C1C;
+      padding-top: 28px;
+    }
+
+    .footer-url {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      color: #3A3A3A;
+    }
+
+    .footer-loc {
+      font-size: 20px;
+      color: #2E2E2E;
+    }
+
+    .body {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .deco-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.035);
+      pointer-events: none;
+    }
+
+    .cat-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 17px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #2E2E2E;
+      margin-bottom: 32px;
+    }
+
+    .tool-pair {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .tool-card {
+      padding: 44px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border-top: 1px solid #1C1C1C;
+    }
+
+    .tool-card:last-child {
+      border-bottom: 1px solid #1C1C1C;
+    }
+
+    .tool-header-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .tool-name-main {
+      font-size: 38px;
+      font-weight: 700;
+      color: #F0F0F0;
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .tool-emoji {
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .tool-price-main {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      color: #444;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .tool-desc-main {
+      font-size: 22px;
+      color: #5A5A5A;
+      line-height: 1.4;
+      padding-left: 46px;
+    }
+
+    .tool-example-main {
+      font-size: 19px;
+      color: #333;
+      padding-left: 46px;
+    }
+
+    .tool-example-main::before {
+      content: 'Ex: ';
+      color: #2A2A2A;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 17px;
+    }
+
+    .slide-hook .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #444;
+      margin-bottom: 40px;
+    }
+
+    .slide-hook .headline {
+      font-size: 84px;
+      font-weight: 700;
+      line-height: 0.93;
+      letter-spacing: -0.04em;
+      color: #F0F0F0;
+      margin-bottom: 48px;
+    }
+
+    .slide-hook .headline em {
+      font-style: normal;
+      display: block;
+    }
+
+    .slide-hook .accent-line {
+      width: 56px;
+      height: 3px;
+      background: #fff;
+      margin-bottom: 44px;
+    }
+
+    .slide-hook .subline {
+      font-size: 27px;
+      font-weight: 400;
+      color: #555;
+      line-height: 1.55;
+      max-width: 680px;
+    }
+
+    .slide-hook .subline strong {
+      color: #888;
+      font-weight: 600;
+    }
+
+    .slide-sub .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #3A3A3A;
+      margin-bottom: 48px;
+    }
+
+    .slide-sub .sub-headline {
+      font-size: 52px;
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      color: #F0F0F0;
+      margin-bottom: 16px;
+      line-height: 1.05;
+    }
+
+    .slide-sub .sub-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 80px;
+      font-weight: 700;
+      color: #F0F0F0;
+      letter-spacing: -0.04em;
+      margin-bottom: 56px;
+      line-height: 1;
+    }
+
+    .slide-sub .tease-label {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 24px;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .slide-sub .tease-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .slide-sub .tease-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 18px 0;
+      border-bottom: 1px solid #141414;
+    }
+
+    .slide-sub .tease-row:first-child {
+      border-top: 1px solid #141414;
+    }
+
+    .slide-sub .tease-cat {
+      font-size: 24px;
+      color: #444;
+    }
+
+    .slide-sub .tease-cost {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 22px;
+      color: #2E2E2E;
+    }
+
+    .slide-sub .total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-top: 28px;
+      margin-top: 8px;
+    }
+
+    .slide-sub .total-label {
+      font-size: 26px;
+      font-weight: 600;
+      color: #666;
+    }
+
+    .slide-sub .total-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 32px;
+      font-weight: 700;
+      color: #888;
+      letter-spacing: -0.02em;
+    }
+
+    .slide-cta .cta-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #3A3A3A;
+      margin-bottom: 52px;
+    }
+
+    .slide-cta .cta-headline {
+      font-size: 80px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      color: #F0F0F0;
+      margin-bottom: 48px;
+    }
+
+    .slide-cta .cta-sub {
+      font-size: 28px;
+      color: #3A3A3A;
+      line-height: 1.6;
+      max-width: 680px;
+      margin-bottom: 64px;
+    }
+
+    .slide-cta .handle-block {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .slide-cta .handle {
+      font-size: 32px;
+      font-weight: 700;
+      color: #E0E0E0;
+      letter-spacing: -0.02em;
+    }
+
+    .slide-cta .handle-desc {
+      font-size: 22px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slide-label">Slide 1 / 7</div>
+  <div class="slide slide-hook">
+    <div class="deco-circle" style="width:900px;height:900px;bottom:-300px;right:-300px;"></div>
+
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Stack SaaS</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">Curadoria · 2026</div>
+      <div class="headline">
+        <em>Marketing</em>
+        <em>— 7 ferramentas</em>
+        <em>para rodar</em>
+        <em>o seu SaaS.</em>
+      </div>
+      <div class="accent-line"></div>
+      <div class="subline">
+        Blog, vídeo, landing page e design.<br>
+        Com <strong>preços reais em BRL.</strong>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-loc">Paraíba</div>
+    </div>
+  </div>
+
+  <div class="slide-label">Slide 2 / 7</div>
+  <div class="slide">
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Marketing</div>
+    </div>
+
+    <div class="body">
+      <div class="cat-label">1 — 2 de 7</div>
+      <div class="tool-pair">
+        <div class="tool-card">
+          <div class="tool-header-row">
+            <div class="tool-name-main"><span class="tool-emoji">📝</span> Automarticles</div>
+            <div class="tool-price-main">R$ 120/mês</div>
+          </div>
+          <div class="tool-desc-main">Blog com IA — artigos SEO no piloto automático.</div>
+          <div class="tool-example-main">Gerar artigos SEO do seu nicho</div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-header-row">
+            <div class="tool-name-main"><span class="tool-emoji">📱</span> Conty App</div>
+            <div class="tool-price-main">R$ 80/mês</div>
+          </div>
+          <div class="tool-desc-main">Gestão e agendamento de redes sociais.</div>
+          <div class="tool-example-main">Agendar posts do Instagram</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-loc">Paraíba</div>
+    </div>
+  </div>
+
+  <div class="slide-label">Slide 3 / 7</div>
+  <div class="slide">
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Marketing</div>
+    </div>
+
+    <div class="body">
+      <div class="cat-label">3 — 4 de 7</div>
+      <div class="tool-pair">
+        <div class="tool-card">
+          <div class="tool-header-row">
+            <div class="tool-name-main"><span class="tool-emoji">🎬</span> Panda Video</div>
+            <div class="tool-price-main">R$ 100/mês</div>
+          </div>
+          <div class="tool-desc-main">Hospedagem de vídeo com player próprio.</div>
+          <div class="tool-example-main">Demos e tutoriais do produto</div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-header-row">
+            <div class="tool-name-main"><span class="tool-emoji">🎥</span> Tella</div>
+            <div class="tool-price-main">R$ 80/mês</div>
+          </div>
+          <div class="tool-desc-main">Gravação de tela com edição simples.</div>
+          <div class="tool-example-main">Gravar walkthrough pra leads</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-loc">Paraíba</div>
+    </div>
+  </div>
+
+  <div class="slide-label">Slide 4 / 7</div>
+  <div class="slide">
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Marketing</div>
+    </div>
+
+    <div class="body">
+      <div class="cat-label">5 — 6 de 7</div>
+      <div class="tool-pair">
+        <div class="tool-card">
+          <div class="tool-header-row">
+            <div class="tool-name-main"><span class="tool-emoji">🚀</span> GreatPages</div>
+            <div class="tool-price-main">R$ 150/mês</div>
+          </div>
+          <div class="tool-desc-main">Landing pages que convertem, sem dev.</div>
+          <div class="tool-example-main">Página de vendas do produto</div>
+        </div>
+        <div class="tool-card">
+          <div class="tool-header-row">
+            <div class="tool-name-main"><span class="tool-emoji">🖼️</span> Freepik</div>
+            <div class="tool-price-main">R$ 80/mês</div>
+          </div>
+          <div class="tool-desc-main">Banco de imagens, ícones e vetores.</div>
+          <div class="tool-example-main">Criativos pra anúncios</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-loc">Paraíba</div>
+    </div>
+  </div>
+
+  <div class="slide-label">Slide 5 / 7</div>
+  <div class="slide">
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Marketing</div>
+    </div>
+
+    <div class="body">
+      <div class="cat-label">7 de 7</div>
+      <div class="tool-pair">
+        <div class="tool-card" style="padding: 64px 0;">
+          <div class="tool-header-row">
+            <div class="tool-name-main" style="font-size:48px;"><span class="tool-emoji" style="font-size:40px;">🎨</span> Figma</div>
+            <div class="tool-price-main" style="font-size:24px;">Grátis</div>
+          </div>
+          <div class="tool-desc-main" style="font-size:26px;margin-top:8px;">Design de interfaces e prototipagem colaborativa.</div>
+          <div class="tool-example-main" style="font-size:22px;margin-top:8px;">Prototipar novas features</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-loc">Paraíba</div>
+    </div>
+  </div>
+
+  <div class="slide-label">Slide 6 / 7</div>
+  <div class="slide slide-sub">
+    <div class="deco-circle" style="width:700px;height:700px;top:-200px;right:-200px;opacity:0.5;"></div>
+
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">O custo</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">Marketing / mês</div>
+      <div class="sub-headline">7 ferramentas por</div>
+      <div class="sub-value">~R$ 610</div>
+
+      <div class="tease-label">Veja as outras categorias</div>
+      <div class="tease-list">
+        <div class="tease-row">
+          <span class="tease-cat">Infraestrutura</span>
+          <span class="tease-cost">~R$ 680/mês</span>
+        </div>
+        <div class="tease-row">
+          <span class="tease-cat">Gestão de clientes</span>
+          <span class="tease-cost">~R$ 460/mês</span>
+        </div>
+        <div class="tease-row">
+          <span class="tease-cat">Backoffice</span>
+          <span class="tease-cost">~R$ 570/mês</span>
+        </div>
+      </div>
+      <div class="total-row">
+        <span class="total-label">Total geral</span>
+        <span class="total-value">~R$ 2.320/mês</span>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-loc">Paraíba</div>
+    </div>
+  </div>
+
+  <div class="slide-label">Slide 7 / 7</div>
+  <div class="slide slide-cta">
+    <div class="deco-circle" style="width:700px;height:700px;bottom:-250px;left:-250px;opacity:0.5;"></div>
+    <div class="deco-circle" style="width:400px;height:400px;bottom:-100px;left:-100px;opacity:0.4;"></div>
+
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Comunidade</div>
+    </div>
+
+    <div class="body">
+      <div class="cta-eyebrow">É aqui que a conversa acontece</div>
+
+      <div class="cta-headline">
+        Venha<br>construir.
+      </div>
+
+      <div class="cta-sub">
+        PBuilders é a comunidade presencial de builders de IA<br>
+        na Paraíba. Encontros, demos, projetos reais.
+      </div>
+
+      <div class="handle-block">
+        <div class="handle">@pbuilders</div>
+        <div class="handle-desc">Entre na comunidade — link na bio</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-loc">Paraíba</div>
+    </div>
+  </div>
+
+</body>
+</html>
