@@ -1,5 +1,11 @@
 # PBuilders Content — Guia Unificado
 
+## Regras Gerais
+
+**Nunca usar em dash (—) em nenhum conteúdo.** Nem em captions, nem em copy, nem em slides, nem em textos de WhatsApp. Usar vírgula, ponto ou reescrever a frase.
+
+---
+
 ## Estrutura
 
 Cada tema/assunto tem uma pasta `YYYY-MM-DD-slug/`. O mesmo conteúdo que gera posts para múltiplos canais fica junto na mesma pasta.
