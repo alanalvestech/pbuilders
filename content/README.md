@@ -4,6 +4,8 @@
 
 **Nunca usar em dash (—) em nenhum conteúdo.** Nem em captions, nem em copy, nem em slides, nem em textos de WhatsApp. Usar vírgula, ponto ou reescrever a frase.
 
+**Nunca usar `<br>` em textos de parágrafo nos HTMLs.** Quebras forçadas criam layouts quebrados dependendo do tamanho do texto. Deixar o texto fluir naturalmente e ajustar o tamanho da fonte ou o `max-width` do container se necessário.
+
 ---
 
 ## Estrutura
