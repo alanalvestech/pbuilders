@@ -126,6 +126,7 @@ canal: whatsapp
 - [ ] Tom tá natural? (não parece newsletter)
 - [ ] Não tem palavra banida?
 - [ ] Mídia anexada se necessário?
+- [ ] Link do Instagram formatado como `Saiba mais: (link)` — nunca link solto
 
 ---
 
