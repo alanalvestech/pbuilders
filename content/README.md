@@ -8,6 +8,8 @@
 
 **Títulos e headlines sempre em branco (`#F0F0F0` ou `#FFFFFF`).** Nunca usar cinza escuro em texto de headline — dificulta a leitura. Cinza só para textos de apoio, labels e eyebrows.
 
+**Headlines de carrossel não levam ponto final.** Títulos grandes não precisam de pontuação — o peso visual já encerra a frase.
+
 ---
 
 ## Estrutura
