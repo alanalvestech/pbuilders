@@ -132,7 +132,7 @@ canal: whatsapp
 Instagram é feed público. Diferente do WhatsApp:
 - Sem limite de caracteres visível, mas atenção cai após 3 linhas
 - Imagem/carrossel > texto puro
-- Stories: efêmero, mais pessoal e direto
+- Stories: efêmero, mais pessoal e direto. Seguir a mesma lógica narrativa do carrossel — cada slide tem headline contextual + corpo explicativo. Nunca slides com frases ou números soltos sem contexto. Cada slide deve fazer sentido sozinho.
 - Caption serve de complemento, não de conteúdo principal
 
 ### Tom e Voz
