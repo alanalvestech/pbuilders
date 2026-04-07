@@ -10,6 +10,8 @@
 
 **Headlines de carrossel não levam ponto final.** Títulos grandes não precisam de pontuação — o peso visual já encerra a frase.
 
+**Todo tema com carrossel deve ter um `whatsapp-cover.png`.** É a imagem enviada junto com o post no WhatsApp. Por padrão, é uma cópia do primeiro slide do carrossel (`instagram-carousel-01.png`). Se o conteúdo justificar uma imagem diferente, criar `whatsapp-cover.html` e exportar separado. Gerar com: `cp instagram-carousel-01.png whatsapp-cover.png`.
+
 ---
 
 ## Estrutura
