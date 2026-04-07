@@ -68,6 +68,7 @@ Apoio institucional confirmado: E.InovCG (Ecossistema de Inovação de Campina G
 - [ ] Montar arte de divulgação
 - [ ] Abrir inscrições (Google Forms ou similar)
 - [ ] Confirmar speakers (2 talks + lightning talks abertas)
+  - Candidato: **Danubio Costa Lagoa** (Engenheiro Civil, Fortaleza/CE) — palestra pronta sobre Claude Code e Vibe Coding, prospectando mercado PB. Contato via proposta SINDUSCON-PB (abril/2026).
 - [ ] Logística: projetor, internet, café/lanche
 - [ ] Divulgar: redes pessoais, grupos de dev de CG, universidades (UFCG, UEPB)
 - [ ] Gravar recaps curtos pro Instagram/X
