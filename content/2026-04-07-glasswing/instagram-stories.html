@@ -20,7 +20,6 @@
       font-family: 'Space Grotesk', sans-serif;
     }
 
-    /* Preview wrapper */
     .preview-wrap {
       width: 200px;
       height: 356px;
@@ -33,7 +32,7 @@
       transform-origin: top left;
     }
 
-    /* BASE SLIDE — 1080x1920, conteúdo na safe zone (250px–1670px) */
+    /* BASE SLIDE — 1080x1920, safe zone 250px–1670px */
     .slide {
       width: 1080px;
       height: 1920px;
@@ -100,6 +99,42 @@
       justify-content: center;
     }
 
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #3A3A3A;
+      margin-bottom: 44px;
+    }
+
+    .headline {
+      font-size: 84px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 0.93;
+      color: #F0F0F0;
+      margin-bottom: 44px;
+    }
+
+    .accent-line {
+      width: 56px;
+      height: 4px;
+      background: #fff;
+      margin-bottom: 44px;
+    }
+
+    .body-text {
+      font-size: 36px;
+      color: #4A4A4A;
+      line-height: 1.65;
+    }
+
+    .body-text strong {
+      color: #909090;
+      font-weight: 600;
+    }
+
     .footer {
       display: flex;
       align-items: center;
@@ -121,94 +156,64 @@
       color: #2E2E2E;
     }
 
-    /* ── SLIDE 1 — O FATO ── */
-    #s1 .number {
-      font-size: 240px;
-      font-weight: 700;
-      letter-spacing: -0.06em;
-      line-height: 0.85;
-      color: #F0F0F0;
-      margin-bottom: 24px;
+    /* ── SLIDE 2 — lista de falhas ── */
+    #s2 .fault-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 8px;
     }
 
-    #s1 .unit {
-      font-size: 64px;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      color: #F0F0F0;
-      margin-bottom: 52px;
+    #s2 .fault-item {
+      display: flex;
+      align-items: baseline;
+      gap: 28px;
+      padding: 28px 0;
+      border-bottom: 1px solid #141414;
     }
 
-    #s1 .desc {
-      font-size: 38px;
-      color: #555;
-      line-height: 1.55;
-      max-width: 840px;
+    #s2 .fault-item:first-child {
+      border-top: 1px solid #141414;
     }
 
-    #s1 .desc strong {
-      color: #A0A0A0;
-      font-weight: 600;
-    }
-
-    /* ── SLIDE 2 — O CONTEXTO ── */
-    #s2 .eyebrow {
+    #s2 .fault-num {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 24px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #3A3A3A;
-      margin-bottom: 56px;
-    }
-
-    #s2 .headline {
-      font-size: 88px;
+      font-size: 28px;
       font-weight: 700;
-      letter-spacing: -0.04em;
-      line-height: 0.93;
-      color: #F0F0F0;
-      margin-bottom: 56px;
+      color: #3A3A3A;
+      min-width: 160px;
+      flex-shrink: 0;
     }
 
-    #s2 .body-text {
-      font-size: 36px;
+    #s2 .fault-desc {
+      font-size: 34px;
       color: #4A4A4A;
-      line-height: 1.6;
-      max-width: 860px;
+      line-height: 1.4;
     }
 
-    #s2 .body-text strong {
+    #s2 .fault-desc strong {
       color: #888;
       font-weight: 600;
     }
 
-    /* ── SLIDE 3 — CTA ── */
-    #s3 .eyebrow {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 24px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #3A3A3A;
-      margin-bottom: 56px;
-    }
-
-    #s3 .headline {
+    /* ── SLIDE 4 — CTA ── */
+    #s4 .cta-headline {
       font-size: 108px;
       font-weight: 700;
       letter-spacing: -0.04em;
       line-height: 0.92;
       color: #F0F0F0;
-      margin-bottom: 56px;
+      margin-bottom: 52px;
     }
 
-    #s3 .cta-desc {
+    #s4 .cta-sub {
       font-size: 36px;
       color: #4A4A4A;
       line-height: 1.6;
       margin-bottom: 64px;
     }
 
-    #s3 .handle {
+    #s4 .handle {
       font-size: 44px;
       font-weight: 700;
       color: #E0E0E0;
@@ -216,7 +221,7 @@
       margin-bottom: 16px;
     }
 
-    #s3 .handle-desc {
+    #s4 .handle-desc {
       font-size: 30px;
       color: #333;
     }
@@ -224,7 +229,7 @@
 </head>
 <body>
 
-  <!-- SLIDE 1 — O FATO -->
+  <!-- SLIDE 1 — HOOK -->
   <div class="preview-wrap">
   <div class="slide" id="s1">
     <div class="deco-circle" style="width:1000px;height:1000px;bottom:-300px;right:-400px;"></div>
@@ -235,12 +240,17 @@
     </div>
 
     <div class="body">
-      <div class="number">27</div>
-      <div class="unit">anos escondida</div>
-      <div class="desc">
-        Uma brecha num dos sistemas mais seguros do mundo.
-        <strong>Nenhum especialista tinha visto.</strong>
-        A IA encontrou.
+      <div class="eyebrow">Anthropic, 2026</div>
+      <div class="headline">
+        A IA que encontra
+        o que nenhum
+        especialista viu
+      </div>
+      <div class="accent-line"></div>
+      <div class="body-text">
+        A Anthropic lançou um modelo treinado pra descobrir
+        falhas de segurança em software. O resultado
+        <strong>assustou o mercado.</strong>
       </div>
     </div>
 
@@ -251,7 +261,7 @@
   </div>
   </div>
 
-  <!-- SLIDE 2 — O CONTEXTO -->
+  <!-- SLIDE 2 — O QUE ENCONTROU -->
   <div class="preview-wrap">
   <div class="slide" id="s2">
     <div class="header">
@@ -260,14 +270,25 @@
     </div>
 
     <div class="body">
-      <div class="eyebrow">Por que isso importa</div>
+      <div class="eyebrow">Resultados reais</div>
       <div class="headline">
-        Google, Apple<br>e Microsoft<br>no mesmo lado
+        Falhas com décadas
+        de existência
       </div>
-      <div class="body-text">
-        A Anthropic reuniu <strong>12 organizações</strong> pra usar
-        essa IA de forma defensiva. Quando concorrentes desse tamanho
-        param de competir, o sinal é claro.
+
+      <div class="fault-list">
+        <div class="fault-item">
+          <span class="fault-num">27 anos</span>
+          <span class="fault-desc">Brecha no <strong>OpenBSD</strong> que permitia derrubar máquinas remotamente</span>
+        </div>
+        <div class="fault-item">
+          <span class="fault-num">16 anos</span>
+          <span class="fault-desc">Vulnerabilidade no <strong>FFmpeg</strong>, testada 5 milhões de vezes sem ser detectada</span>
+        </div>
+        <div class="fault-item">
+          <span class="fault-num">Milhares</span>
+          <span class="fault-desc">Em todos os grandes <strong>sistemas operacionais e navegadores</strong></span>
+        </div>
       </div>
     </div>
 
@@ -278,9 +299,40 @@
   </div>
   </div>
 
-  <!-- SLIDE 3 — CTA -->
+  <!-- SLIDE 3 — A COALIZÃO -->
   <div class="preview-wrap">
   <div class="slide" id="s3">
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Glasswing</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">A resposta do mercado</div>
+      <div class="headline">
+        Google, Apple
+        e Microsoft
+        no mesmo projeto
+      </div>
+      <div class="accent-line"></div>
+      <div class="body-text">
+        12 organizações que normalmente competem
+        pararam pra se unir num projeto de defesa.
+        <strong>Quando isso acontece, o sinal é claro:</strong>
+        chegamos num nível que ninguém pode ignorar.
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-cg">Paraíba</div>
+    </div>
+  </div>
+  </div>
+
+  <!-- SLIDE 4 — CTA -->
+  <div class="preview-wrap">
+  <div class="slide" id="s4">
     <div class="deco-circle" style="width:900px;height:900px;bottom:-300px;left:-300px;opacity:0.6;"></div>
 
     <div class="header">
@@ -290,11 +342,12 @@
 
     <div class="body">
       <div class="eyebrow">Carrossel completo no feed</div>
-      <div class="headline">
+      <div class="cta-headline">
         Venha<br>construir
       </div>
-      <div class="cta-desc">
-        PBuilders é a comunidade presencial<br>de builders de IA na Paraíba.
+      <div class="cta-sub">
+        PBuilders é a comunidade presencial
+        de builders de IA na Paraíba.
       </div>
       <div class="handle">@pbuilders</div>
       <div class="handle-desc">Entre na comunidade — link na bio</div>
