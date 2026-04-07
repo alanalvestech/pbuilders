@@ -9,4 +9,4 @@ O Claude Mythos tá em produção. Google, Apple, Microsoft, AWS e NVIDIA entrar
 
 O argumento é simples: esse modelo supera praticamente qualquer humano em achar buracos em software. Ele já encontrou falhas com décadas de existência. Quando isso se disseminar, o lado ofensivo vai usar. Melhor garantir que a defesa chegue primeiro.
 
-anthropic.com/glasswing
+instagram.com/pbuilders.ai
