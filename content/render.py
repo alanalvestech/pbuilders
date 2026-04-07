@@ -40,6 +40,20 @@ with sync_playwright() as p:
     page.goto(f"file://{html.resolve()}")
     page.wait_for_load_state("networkidle")
 
+    # Remove preview transforms (.preview-wrap) so slides são screenshotados
+    # no tamanho real (1080px), não no tamanho visual do browser preview
+    page.evaluate("""
+        document.querySelectorAll('.preview-wrap').forEach(el => {
+            el.style.transform = 'none';
+            el.style.width = 'auto';
+            el.style.height = 'auto';
+            el.style.overflow = 'visible';
+        });
+        document.querySelectorAll('.slide').forEach(el => {
+            el.style.transform = 'none';
+        });
+    """)
+
     slides = page.query_selector_all(".slide")
 
     if len(slides) == 0:
