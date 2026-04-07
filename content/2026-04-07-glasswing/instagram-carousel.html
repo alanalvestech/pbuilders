@@ -10,24 +10,33 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background: #111;
+      background: #0D0D0D;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 32px;
-      padding: 48px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 24px;
       font-family: 'Space Grotesk', sans-serif;
     }
 
+    /* Preview wrapper — escala o slide para ~435px de largura (aprox. Instagram web) */
+    /* O .slide interno continua sendo 1080x1350 — render.py exporta no tamanho correto */
+    .preview-wrap {
+      width: 435px;
+      height: 544px; /* 1350 * 0.403 */
+      overflow: hidden;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .preview-wrap .slide {
+      transform: scale(0.403);
+      transform-origin: top left;
+    }
+
     .slide-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
-      color: #444;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      align-self: flex-start;
-      margin-left: 4px;
-      margin-bottom: -20px;
+      display: none;
     }
 
     /* BASE SLIDE */
@@ -476,7 +485,7 @@
 <body>
 
   <!-- SLIDE 1 - HOOK -->
-  <div class="slide-label">Slide 1 / 7</div>
+  <div class="preview-wrap">
   <div class="slide" id="s1">
     <div class="deco-circle" style="width:900px;height:900px;bottom:-300px;right:-300px;"></div>
 
@@ -505,9 +514,10 @@
       <div class="footer-cg">Paraíba</div>
     </div>
   </div>
+  </div>
 
   <!-- SLIDE 2 - O QUE A IA ENCONTROU -->
-  <div class="slide-label">Slide 2 / 7</div>
+  <div class="preview-wrap">
   <div class="slide" id="s2">
     <div class="header">
       <div class="logo-pb">PBuilders</div>
@@ -545,9 +555,10 @@
       <div class="footer-cg">Paraíba</div>
     </div>
   </div>
+  </div>
 
   <!-- SLIDE 3 - O QUE ELE FAZ -->
-  <div class="slide-label">Slide 3 / 7</div>
+  <div class="preview-wrap">
   <div class="slide" id="s3">
     <div class="header">
       <div class="logo-pb">PBuilders</div>
@@ -584,9 +595,10 @@
       <div class="footer-cg">Paraíba</div>
     </div>
   </div>
+  </div>
 
   <!-- SLIDE 4 - A COALIZAÇÃO -->
-  <div class="slide-label">Slide 4 / 7</div>
+  <div class="preview-wrap">
   <div class="slide" id="s4">
     <div class="header">
       <div class="logo-pb">PBuilders</div>
@@ -628,9 +640,10 @@
       <div class="footer-cg">Paraíba</div>
     </div>
   </div>
+  </div>
 
   <!-- SLIDE 5 - POR QUE IMPORTA -->
-  <div class="slide-label">Slide 5 / 7</div>
+  <div class="preview-wrap">
   <div class="slide" id="s5">
     <div class="header">
       <div class="logo-pb">PBuilders</div>
@@ -661,9 +674,10 @@
       <div class="footer-cg">Paraíba</div>
     </div>
   </div>
+  </div>
 
   <!-- SLIDE 6 - PRA NOS -->
-  <div class="slide-label">Slide 6 / 7</div>
+  <div class="preview-wrap">
   <div class="slide" id="s6">
     <div class="deco-circle" style="width:600px;height:600px;top:-200px;right:-200px;opacity:0.6;"></div>
 
@@ -694,9 +708,10 @@
       <div class="footer-cg">Paraíba</div>
     </div>
   </div>
+  </div>
 
   <!-- SLIDE 7 - CTA -->
-  <div class="slide-label">Slide 7 / 7</div>
+  <div class="preview-wrap">
   <div class="slide" id="s7">
     <div class="deco-circle" style="width:700px;height:700px;bottom:-250px;left:-250px;opacity:0.5;"></div>
     <div class="deco-circle" style="width:400px;height:400px;bottom:-100px;left:-100px;opacity:0.4;"></div>
@@ -728,6 +743,7 @@
       <div class="footer-url">pbuilders.ai</div>
       <div class="footer-cg">Paraíba</div>
     </div>
+  </div>
   </div>
 
 </body>
