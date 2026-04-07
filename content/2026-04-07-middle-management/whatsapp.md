@@ -6,4 +6,4 @@ O criador do Twitter e o sócio-chefe da Sequoia Capital publicaram uma tese: a 
 
 O argumento: gerentes existem pra coordenar. A IA coordena melhor, mais rápido e sem telefone sem fio.
 
-[link do carrossel no Instagram]
+https://www.instagram.com/p/DW2NoEpCSy6/
