@@ -14,8 +14,12 @@ A frase do Botha resume:
 
 Pra quem tá construindo agora: você não precisa crescer em camadas. IA como coordenação desde o dia 1 é vantagem competitiva, não luxo.
 
-Swipe pra ver o argumento completo.
+→ Swipe pra ver o argumento completo.
+
+PBuilders é a comunidade presencial de builders de IA na Paraíba. Se você constrói (ou quer construir) com IA, é aqui.
+
+🔗 pbuilders.ai
 
 ---
 
-#IA #InteligenciaArtificial #Startup #SaaS #Empreendedorismo #Tecnologia #Gestao #FuturoDoTrabalho #JackDorsey #Sequoia #PBuilders #Paraiba #CampinaGrande #Builders
+#IA #InteligenciaArtificial #Startup #Empreendedorismo #Tecnologia #Gestao #FuturoDoTrabalho #JackDorsey #Sequoia #PBuilders #Paraiba #CampinaGrande #Builders
