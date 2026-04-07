@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>PBuilders — Project Glasswing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      padding: 48px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .slide-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: #444;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      align-self: flex-start;
+      margin-left: 4px;
+      margin-bottom: -20px;
+    }
+
+    /* BASE SLIDE */
+    .slide {
+      width: 1080px;
+      height: 1350px;
+      background: #0A0A0A;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 88px 80px 80px;
+    }
+
+    .slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none;
+    }
+
+    /* HEADER */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-pb {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #F0F0F0;
+      letter-spacing: -0.03em;
+    }
+
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 17px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #555;
+      border: 1px solid #2A2A2A;
+      padding: 8px 20px;
+      border-radius: 999px;
+    }
+
+    /* FOOTER */
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid #1C1C1C;
+      padding-top: 28px;
+    }
+
+    .footer-url {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      color: #3A3A3A;
+    }
+
+    .footer-cg {
+      font-size: 20px;
+      color: #2E2E2E;
+    }
+
+    /* BODY */
+    .body {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .deco-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.035);
+      pointer-events: none;
+    }
+
+    /* SLIDE 1 - HOOK */
+    #s1 .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #444;
+      margin-bottom: 40px;
+    }
+
+    #s1 .headline {
+      font-size: 86px;
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      color: #F0F0F0;
+      margin-bottom: 48px;
+    }
+
+    #s1 .headline em {
+      font-style: normal;
+      color: #ffffff;
+      display: block;
+    }
+
+    #s1 .accent-line {
+      width: 56px;
+      height: 3px;
+      background: #fff;
+      margin-bottom: 44px;
+    }
+
+    #s1 .subline {
+      font-size: 28px;
+      font-weight: 400;
+      color: #666;
+      line-height: 1.5;
+      max-width: 680px;
+    }
+
+    #s1 .subline strong {
+      color: #A0A0A0;
+      font-weight: 600;
+    }
+
+    /* SLIDE 2 - O QUE A IA ENCONTROU */
+    #s2 .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #3A3A3A;
+      margin-bottom: 52px;
+    }
+
+    #s2 .big-number {
+      font-size: 140px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 0.85;
+      color: #F8F8F8;
+      margin-bottom: 12px;
+    }
+
+    #s2 .big-label {
+      font-size: 32px;
+      font-weight: 400;
+      color: #555;
+      margin-bottom: 52px;
+      line-height: 1.4;
+    }
+
+    #s2 .big-label strong {
+      color: #B0B0B0;
+      font-weight: 600;
+    }
+
+    #s2 .examples {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    #s2 .example-item {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid #141414;
+    }
+
+    #s2 .example-item:first-child {
+      border-top: 1px solid #141414;
+    }
+
+    #s2 .example-years {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 22px;
+      font-weight: 700;
+      color: #3A3A3A;
+      min-width: 140px;
+      flex-shrink: 0;
+    }
+
+    #s2 .example-desc {
+      font-size: 26px;
+      color: #4A4A4A;
+      line-height: 1.4;
+    }
+
+    #s2 .example-desc strong {
+      color: #888;
+      font-weight: 600;
+    }
+
+    /* SLIDE 3 - O QUE ELE FAZ */
+    #s3 .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #3A3A3A;
+      margin-bottom: 52px;
+    }
+
+    #s3 .main-headline {
+      font-size: 62px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.0;
+      color: #F0F0F0;
+      margin-bottom: 52px;
+    }
+
+    #s3 .main-headline span {
+      color: #F0F0F0;
+    }
+
+    #s3 .feat-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    #s3 .feat-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 24px 0;
+      border-bottom: 1px solid #141414;
+    }
+
+    #s3 .feat-item:first-child {
+      border-top: 1px solid #141414;
+    }
+
+    #s3 .feat-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      color: #2E2E2E;
+      min-width: 28px;
+      margin-top: 3px;
+    }
+
+    #s3 .feat-text {
+      font-size: 28px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    #s3 .feat-text strong {
+      color: #B0B0B0;
+      font-weight: 600;
+    }
+
+    /* SLIDE 4 - A COALIZAÇÃO */
+    #s4 .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #3A3A3A;
+      margin-bottom: 48px;
+    }
+
+    #s4 .coalition-title {
+      font-size: 52px;
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      color: #F0F0F0;
+      margin-bottom: 52px;
+      line-height: 1.05;
+    }
+
+    #s4 .company-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 48px;
+    }
+
+    #s4 .company-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid #141414;
+    }
+
+    #s4 .company-item:first-child {
+      border-top: 1px solid #141414;
+    }
+
+    #s4 .company-name {
+      font-size: 30px;
+      font-weight: 600;
+      color: #CCC;
+      min-width: 200px;
+    }
+
+    #s4 .company-role {
+      font-size: 24px;
+      color: #3A3A3A;
+    }
+
+    #s4 .investment-note {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 22px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* SLIDE 5 - POR QUE IMPORTA */
+    #s5 .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #3A3A3A;
+      margin-bottom: 52px;
+    }
+
+    #s5 .main-quote {
+      font-size: 54px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+      color: #F0F0F0;
+      margin-bottom: 52px;
+      max-width: 880px;
+    }
+
+    #s5 .main-quote span {
+      color: #3A3A3A;
+    }
+
+    #s5 .reasoning {
+      font-size: 28px;
+      color: #4A4A4A;
+      line-height: 1.65;
+      max-width: 820px;
+    }
+
+    #s5 .reasoning strong {
+      color: #909090;
+      font-weight: 600;
+    }
+
+    /* SLIDE 6 - PRA NOS */
+    #s6 .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #3A3A3A;
+      margin-bottom: 52px;
+    }
+
+    #s6 .local-headline {
+      font-size: 64px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.0;
+      color: #F0F0F0;
+      margin-bottom: 48px;
+    }
+
+    #s6 .local-headline span {
+      color: #3A3A3A;
+    }
+
+    #s6 .local-body {
+      font-size: 30px;
+      color: #555;
+      line-height: 1.65;
+      max-width: 820px;
+    }
+
+    #s6 .local-body strong {
+      color: #C0C0C0;
+      font-weight: 600;
+    }
+
+    /* SLIDE 7 - CTA */
+    #s7 .cta-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #3A3A3A;
+      margin-bottom: 52px;
+    }
+
+    #s7 .cta-headline {
+      font-size: 80px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      color: #F0F0F0;
+      margin-bottom: 48px;
+    }
+
+    #s7 .cta-sub {
+      font-size: 30px;
+      color: #4A4A4A;
+      line-height: 1.5;
+      max-width: 680px;
+      margin-bottom: 56px;
+    }
+
+    #s7 .handle-block {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    #s7 .handle {
+      font-size: 32px;
+      font-weight: 700;
+      color: #E0E0E0;
+      letter-spacing: -0.02em;
+    }
+
+    #s7 .handle-desc {
+      font-size: 22px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SLIDE 1 - HOOK -->
+  <div class="slide-label">Slide 1 / 7</div>
+  <div class="slide" id="s1">
+    <div class="deco-circle" style="width:900px;height:900px;bottom:-300px;right:-300px;"></div>
+
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Curadoria</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">Anthropic, 2026</div>
+      <div class="headline">
+        <em>A IA que acha</em>
+        <em>falhas melhor</em>
+        <em>que humanos.</em>
+      </div>
+      <div class="accent-line"></div>
+      <div class="subline">
+        Google, Apple, Microsoft, AWS e NVIDIA
+        entraram juntos num projeto.
+        Por que isso é diferente de tudo que veio antes.
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-cg">Paraíba</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 2 - O QUE A IA ENCONTROU -->
+  <div class="slide-label">Slide 2 / 7</div>
+  <div class="slide" id="s2">
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Glasswing</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">O que a IA encontrou</div>
+
+      <div class="big-number">27 anos.</div>
+      <div class="big-label">
+        Uma brecha de segurança escondida no OpenBSD por
+        <strong>27 anos.</strong> Nenhum especialista tinha visto.
+        A IA encontrou.
+      </div>
+
+      <div class="examples">
+        <div class="example-item">
+          <span class="example-years">16 anos</span>
+          <span class="example-desc">Falha no <strong>FFmpeg</strong>, descoberta após 5 milhões de testes automatizados</span>
+        </div>
+        <div class="example-item">
+          <span class="example-years">Milhares</span>
+          <span class="example-desc">de vulnerabilidades em todos os grandes <strong>sistemas operacionais e navegadores</strong></span>
+        </div>
+        <div class="example-item">
+          <span class="example-years">12</span>
+          <span class="example-desc">Empresas como Google, Apple e Microsoft unidas para consertar isso</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-cg">Paraíba</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 3 - O QUE ELE FAZ -->
+  <div class="slide-label">Slide 3 / 7</div>
+  <div class="slide" id="s3">
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">O que muda</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">Antes levava anos. Agora leva horas.</div>
+
+      <div class="main-headline">
+        Segurança de software<br>
+        <span>nunca mais vai ser</span><br>
+        manual.
+      </div>
+
+      <div class="feat-list">
+        <div class="feat-item">
+          <span class="feat-num">01</span>
+          <span class="feat-text"><strong>Analisa código em escala</strong> que nenhum time humano consegue cobrir sozinho.</span>
+        </div>
+        <div class="feat-item">
+          <span class="feat-num">02</span>
+          <span class="feat-text"><strong>Encontra padrões de vulnerabilidade</strong> que especialistas levavam anos pra descobrir.</span>
+        </div>
+        <div class="feat-item">
+          <span class="feat-num">03</span>
+          <span class="feat-text"><strong>Corrige antes do ataque,</strong> não depois do incidente.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-cg">Paraíba</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 4 - A COALIZAÇÃO -->
+  <div class="slide-label">Slide 4 / 7</div>
+  <div class="slide" id="s4">
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">A coalizão</div>
+    </div>
+
+    <div class="body" style="justify-content: flex-start; padding-top: 24px;">
+      <div class="eyebrow">12 organizações. Um objetivo.</div>
+      <div class="coalition-title">Concorrentes<br>no mesmo lado.</div>
+
+      <ul class="company-list">
+        <li class="company-item">
+          <span class="company-name">AWS</span>
+          <span class="company-role">Infraestrutura e distribuição</span>
+        </li>
+        <li class="company-item">
+          <span class="company-name">Apple</span>
+          <span class="company-role">Sistemas operacionais</span>
+        </li>
+        <li class="company-item">
+          <span class="company-name">Google</span>
+          <span class="company-role">Navegadores e open source</span>
+        </li>
+        <li class="company-item">
+          <span class="company-name">Microsoft</span>
+          <span class="company-role">Plataformas e cloud</span>
+        </li>
+        <li class="company-item">
+          <span class="company-name">NVIDIA</span>
+          <span class="company-role">Hardware e aceleração</span>
+        </li>
+      </ul>
+
+      <div class="investment-note">+ $100M em creditos de modelo + $4M em doações diretas</div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-cg">Paraíba</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 5 - POR QUE IMPORTA -->
+  <div class="slide-label">Slide 5 / 7</div>
+  <div class="slide" id="s5">
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">O argumento</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">Por que isso existe</div>
+
+      <div class="main-quote">
+        A mesma IA que<br>
+        <span>ataca pode</span><br>
+        defender.
+      </div>
+
+      <div class="reasoning">
+        Essa capacidade vai se disseminar. Quando qualquer ator mal-intencionado tiver acesso a modelos assim,
+        o cenário de ataques muda completamente.<br><br>
+        A aposta da Anthropic: criar uma <strong>vantagem defensiva agora,</strong>
+        antes que o lado ofensivo tome a dianteira.
+        O custo de cibercrime global é de <strong>$500B por ano.</strong>
+        A janela de ação é pequena.
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-cg">Paraíba</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 6 - PRA NOS -->
+  <div class="slide-label">Slide 6 / 7</div>
+  <div class="slide" id="s6">
+    <div class="deco-circle" style="width:600px;height:600px;top:-200px;right:-200px;opacity:0.6;"></div>
+
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Pra nós</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">O que isso diz sobre o momento</div>
+
+      <div class="local-headline">
+        IA boa o suficiente<br>
+        <span>pra assustar</span><br>
+        as gigantes.
+      </div>
+
+      <div class="local-body">
+        Quando Google, Apple e Microsoft param de competir pra se juntar num projeto de defesa,
+        o sinal é claro: <strong>a capacidade da IA chegou num nível que ninguém pode ignorar.</strong><br><br>
+        Quem tá construindo com IA agora tá dentro dessa onda,
+        não olhando de fora.
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-cg">Paraíba</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 7 - CTA -->
+  <div class="slide-label">Slide 7 / 7</div>
+  <div class="slide" id="s7">
+    <div class="deco-circle" style="width:700px;height:700px;bottom:-250px;left:-250px;opacity:0.5;"></div>
+    <div class="deco-circle" style="width:400px;height:400px;bottom:-100px;left:-100px;opacity:0.4;"></div>
+
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Comunidade</div>
+    </div>
+
+    <div class="body">
+      <div class="cta-eyebrow">É aqui que a conversa acontece</div>
+
+      <div class="cta-headline">
+        Venha<br>construir.
+      </div>
+
+      <div class="cta-sub">
+        PBuilders é a comunidade presencial de builders de IA<br>
+        na Paraíba. Encontros, demos, projetos reais.
+      </div>
+
+      <div class="handle-block">
+        <div class="handle">@pbuilders</div>
+        <div class="handle-desc">Entre na comunidade — link na bio</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-cg">Paraíba</div>
+    </div>
+  </div>
+
+</body>
+</html>

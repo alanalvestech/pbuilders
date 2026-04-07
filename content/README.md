@@ -6,6 +6,8 @@
 
 **Nunca usar `<br>` em textos de parágrafo nos HTMLs.** Quebras forçadas criam layouts quebrados dependendo do tamanho do texto. Deixar o texto fluir naturalmente e ajustar o tamanho da fonte ou o `max-width` do container se necessário.
 
+**Títulos e headlines sempre em branco (`#F0F0F0` ou `#FFFFFF`).** Nunca usar cinza escuro em texto de headline — dificulta a leitura. Cinza só para textos de apoio, labels e eyebrows.
+
 ---
 
 ## Estrutura
