@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>PBuilders — Glasswing Stories</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0D0D0D;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 24px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* Preview wrapper — escala para ~245px de largura no browser */
+    .preview-wrap {
+      width: 245px;
+      height: 435px;
+      overflow: hidden;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .preview-wrap .slide {
+      transform: scale(0.227);
+      transform-origin: top left;
+    }
+
+    /* BASE SLIDE — 1080x1920 */
+    .slide {
+      width: 1080px;
+      height: 1920px;
+      background: #0A0A0A;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      /* safe zone: conteúdo entre 250px e 1670px */
+      padding: 300px 80px 330px;
+    }
+
+    .slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none;
+    }
+
+    .deco-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.04);
+      pointer-events: none;
+    }
+
+    /* HEADER */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-pb {
+      font-size: 32px;
+      font-weight: 700;
+      color: #F0F0F0;
+      letter-spacing: -0.03em;
+    }
+
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #555;
+      border: 1px solid #2A2A2A;
+      padding: 10px 24px;
+      border-radius: 999px;
+    }
+
+    /* BODY */
+    .body {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* FOOTER */
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid #1C1C1C;
+      padding-top: 32px;
+    }
+
+    .footer-url {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 24px;
+      color: #3A3A3A;
+    }
+
+    .footer-cg {
+      font-size: 24px;
+      color: #2E2E2E;
+    }
+
+    /* SLIDE 1 - HOOK */
+    #s1 .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 24px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #444;
+      margin-bottom: 52px;
+    }
+
+    #s1 .headline {
+      font-size: 108px;
+      font-weight: 700;
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+      color: #F0F0F0;
+      margin-bottom: 52px;
+    }
+
+    #s1 .accent-line {
+      width: 64px;
+      height: 4px;
+      background: #fff;
+      margin-bottom: 48px;
+    }
+
+    #s1 .subline {
+      font-size: 36px;
+      color: #555;
+      line-height: 1.5;
+      max-width: 820px;
+    }
+
+    #s1 .subline strong {
+      color: #909090;
+      font-weight: 600;
+    }
+
+    /* SLIDE 2 - O FATO */
+    #s2 .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #3A3A3A;
+      margin-bottom: 60px;
+    }
+
+    #s2 .big-number {
+      font-size: 200px;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      line-height: 0.85;
+      color: #F8F8F8;
+      margin-bottom: 32px;
+    }
+
+    #s2 .big-unit {
+      font-size: 52px;
+      font-weight: 400;
+      color: #444;
+      margin-bottom: 52px;
+    }
+
+    #s2 .description {
+      font-size: 38px;
+      color: #555;
+      line-height: 1.5;
+      max-width: 840px;
+    }
+
+    #s2 .description strong {
+      color: #B0B0B0;
+      font-weight: 600;
+    }
+
+    /* SLIDE 3 - COALIZAÇÃO */
+    #s3 .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #3A3A3A;
+      margin-bottom: 56px;
+    }
+
+    #s3 .headline {
+      font-size: 88px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 0.93;
+      color: #F0F0F0;
+      margin-bottom: 56px;
+    }
+
+    #s3 .companies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 52px;
+    }
+
+    #s3 .company-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 26px;
+      font-weight: 700;
+      color: #555;
+      border: 1px solid #222;
+      padding: 12px 28px;
+      border-radius: 999px;
+    }
+
+    #s3 .more {
+      font-size: 32px;
+      color: #3A3A3A;
+    }
+
+    /* SLIDE 4 - CTA */
+    #s4 .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #3A3A3A;
+      margin-bottom: 60px;
+    }
+
+    #s4 .cta-headline {
+      font-size: 108px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 0.92;
+      color: #F0F0F0;
+      margin-bottom: 52px;
+    }
+
+    #s4 .cta-sub {
+      font-size: 36px;
+      color: #4A4A4A;
+      line-height: 1.55;
+      max-width: 820px;
+      margin-bottom: 64px;
+    }
+
+    #s4 .handle-block {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    #s4 .handle {
+      font-size: 40px;
+      font-weight: 700;
+      color: #E0E0E0;
+      letter-spacing: -0.02em;
+    }
+
+    #s4 .handle-desc {
+      font-size: 28px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SLIDE 1 - HOOK -->
+  <div class="preview-wrap">
+  <div class="slide" id="s1">
+    <div class="deco-circle" style="width:1200px;height:1200px;bottom:-400px;right:-400px;"></div>
+
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Glasswing</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">Anthropic, 2026</div>
+      <div class="headline">
+        O que a IA<br>encontrou<br>que ninguém<br>viu
+      </div>
+      <div class="accent-line"></div>
+      <div class="subline">
+        Google, Apple e Microsoft<br>
+        <strong>no mesmo projeto.</strong>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-cg">Paraíba</div>
+    </div>
+  </div>
+  </div>
+
+  <!-- SLIDE 2 - O FATO -->
+  <div class="preview-wrap">
+  <div class="slide" id="s2">
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Glasswing</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">A falha que ninguém tinha visto</div>
+      <div class="big-number">27</div>
+      <div class="big-unit">anos escondida</div>
+      <div class="description">
+        Uma brecha no OpenBSD que permitia
+        <strong>derrubar máquinas remotamente.</strong>
+        A IA encontrou de forma autônoma.
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-cg">Paraíba</div>
+    </div>
+  </div>
+  </div>
+
+  <!-- SLIDE 3 - COALIZAO -->
+  <div class="preview-wrap">
+  <div class="slide" id="s3">
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Glasswing</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">12 organizações. Um objetivo.</div>
+      <div class="headline">
+        Concorrentes<br>no mesmo<br>lado
+      </div>
+      <div class="companies">
+        <span class="company-pill">Google</span>
+        <span class="company-pill">Apple</span>
+        <span class="company-pill">Microsoft</span>
+        <span class="company-pill">AWS</span>
+        <span class="company-pill">NVIDIA</span>
+        <span class="company-pill">Cisco</span>
+      </div>
+      <div class="more">+ 6 organizações</div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-cg">Paraíba</div>
+    </div>
+  </div>
+  </div>
+
+  <!-- SLIDE 4 - CTA -->
+  <div class="preview-wrap">
+  <div class="slide" id="s4">
+    <div class="deco-circle" style="width:1000px;height:1000px;bottom:-350px;left:-350px;opacity:0.5;"></div>
+
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Comunidade</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">É aqui que a conversa acontece</div>
+      <div class="cta-headline">
+        Venha<br>construir
+      </div>
+      <div class="cta-sub">
+        PBuilders é a comunidade presencial
+        de builders de IA na Paraíba.
+      </div>
+      <div class="handle-block">
+        <div class="handle">@pbuilders</div>
+        <div class="handle-desc">Entre na comunidade — link na bio</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-cg">Paraíba</div>
+    </div>
+  </div>
+  </div>
+
+</body>
+</html>
