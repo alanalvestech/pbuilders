@@ -6,4 +6,4 @@ A tese: a Anthropic não quer só ter o melhor modelo. Quer ser a AWS dos agente
 
 Public beta agora. A barreira de infra acabou.
 
-👉 [(link do carrossel no Instagram)]
+👉 https://www.instagram.com/p/DW4o_rtCaCp/
