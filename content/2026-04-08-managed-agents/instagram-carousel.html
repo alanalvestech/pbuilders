@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>PBuilders — Claude Managed Agents</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0D0D0D;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 24px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* Preview wrapper — escala o slide para ~435px de largura */
+    .preview-wrap {
+      width: 435px;
+      height: 544px;
+      overflow: hidden;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .preview-wrap .slide {
+      transform: scale(0.403);
+      transform-origin: top left;
+    }
+
+    /* BASE SLIDE */
+    .slide {
+      width: 1080px;
+      height: 1350px;
+      background: #0A0A0A;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 88px 80px 80px;
+    }
+
+    .slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none;
+    }
+
+    .deco-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.035);
+      pointer-events: none;
+    }
+
+    /* HEADER */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-pb {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #F0F0F0;
+      letter-spacing: -0.03em;
+    }
+
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 17px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #555;
+      border: 1px solid #2A2A2A;
+      padding: 8px 20px;
+      border-radius: 999px;
+    }
+
+    /* FOOTER */
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid #1C1C1C;
+      padding-top: 28px;
+    }
+
+    .footer-url {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      color: #3A3A3A;
+    }
+
+    .footer-cg {
+      font-size: 20px;
+      color: #2E2E2E;
+    }
+
+    /* BODY */
+    .body {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* FEAT LIST — compartilhado S3 e S4 */
+    .feat-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .feat-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 26px 0;
+      border-bottom: 1px solid #141414;
+    }
+
+    .feat-item:first-child {
+      border-top: 1px solid #141414;
+    }
+
+    .feat-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      color: #2E2E2E;
+      min-width: 28px;
+      margin-top: 4px;
+    }
+
+    .feat-text {
+      font-size: 28px;
+      color: #888;
+      line-height: 1.5;
+    }
+
+    .feat-text strong {
+      color: #D0D0D0;
+      font-weight: 600;
+    }
+
+    /* ── SLIDE 1 — HOOK ── */
+    #s1 .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #444;
+      margin-bottom: 40px;
+    }
+
+    #s1 .headline {
+      font-size: 86px;
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      color: #F0F0F0;
+      margin-bottom: 48px;
+    }
+
+    #s1 .accent-line {
+      width: 56px;
+      height: 3px;
+      background: #fff;
+      margin-bottom: 44px;
+    }
+
+    #s1 .subline {
+      font-size: 28px;
+      font-weight: 400;
+      color: #888;
+      line-height: 1.5;
+      max-width: 760px;
+    }
+
+    /* ── SLIDE 2 — O QUE É ── */
+    #s2 .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #3A3A3A;
+      margin-bottom: 52px;
+    }
+
+    #s2 .main-headline {
+      font-size: 72px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      color: #F0F0F0;
+      margin-bottom: 52px;
+    }
+
+    #s2 .body-text {
+      font-size: 30px;
+      color: #888;
+      line-height: 1.65;
+      max-width: 860px;
+    }
+
+    #s2 .body-text strong {
+      color: #C8C8C8;
+      font-weight: 600;
+    }
+
+    /* ── SLIDE 3 — ARQUITETURA ── */
+    #s3 .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #3A3A3A;
+      margin-bottom: 52px;
+    }
+
+    #s3 .main-headline {
+      font-size: 62px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.0;
+      color: #F0F0F0;
+      margin-bottom: 52px;
+    }
+
+    /* ── SLIDE 4 — EARLY ADOPTERS ── */
+    #s4 .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #3A3A3A;
+      margin-bottom: 52px;
+    }
+
+    #s4 .main-headline {
+      font-size: 62px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.0;
+      color: #F0F0F0;
+      margin-bottom: 52px;
+    }
+
+    /* ── SLIDE 5 — O IMPACTO ── */
+    #s5 .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #3A3A3A;
+      margin-bottom: 52px;
+    }
+
+    #s5 .main-headline {
+      font-size: 60px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.0;
+      color: #F0F0F0;
+      margin-bottom: 52px;
+    }
+
+    #s5 .body-text {
+      font-size: 30px;
+      color: #888;
+      line-height: 1.65;
+      max-width: 860px;
+    }
+
+    #s5 .body-text strong {
+      color: #C8C8C8;
+      font-weight: 600;
+    }
+
+    /* ── SLIDE 6 — PRA NÓS ── */
+    #s6 .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #3A3A3A;
+      margin-bottom: 52px;
+    }
+
+    #s6 .local-headline {
+      font-size: 64px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.0;
+      color: #F0F0F0;
+      margin-bottom: 48px;
+    }
+
+    #s6 .local-body {
+      font-size: 29px;
+      color: #888;
+      line-height: 1.65;
+      max-width: 820px;
+    }
+
+    #s6 .local-body strong {
+      color: #C0C0C0;
+      font-weight: 600;
+    }
+
+    /* ── SLIDE 7 — CTA ── */
+    #s7 .cta-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #3A3A3A;
+      margin-bottom: 52px;
+    }
+
+    #s7 .cta-headline {
+      font-size: 80px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+      color: #F0F0F0;
+      margin-bottom: 48px;
+    }
+
+    #s7 .cta-sub {
+      font-size: 30px;
+      color: #888;
+      line-height: 1.5;
+      max-width: 680px;
+      margin-bottom: 56px;
+    }
+
+    #s7 .handle-block {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    #s7 .handle {
+      font-size: 32px;
+      font-weight: 700;
+      color: #E0E0E0;
+      letter-spacing: -0.02em;
+    }
+
+    #s7 .handle-desc {
+      font-size: 22px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SLIDE 1 — HOOK -->
+  <div class="preview-wrap">
+  <div class="slide" id="s1">
+    <div class="deco-circle" style="width:900px;height:900px;bottom:-300px;right:-300px;"></div>
+    <div class="deco-circle" style="width:500px;height:500px;top:-200px;right:-200px;opacity:0.5;"></div>
+
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Análise</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">Claude Managed Agents, 2026</div>
+      <div class="headline">
+        A Anthropic quer ser<br>a AWS dos<br>agentes
+      </div>
+      <div class="accent-line"></div>
+      <div class="subline">
+        Plataforma managed pra construir, orquestrar e rodar agentes de IA em escala
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-cg">Paraíba</div>
+    </div>
+  </div>
+  </div>
+
+  <!-- SLIDE 2 — O QUE É -->
+  <div class="preview-wrap">
+  <div class="slide" id="s2">
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Plataforma</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">O que a Anthropic lançou</div>
+
+      <div class="main-headline">
+        Você descreve<br>o agente.<br>Eles cuidam<br>do resto
+      </div>
+
+      <div class="body-text">
+        Define em linguagem natural, configura segurança, aperta play.
+        A Anthropic cuida de <strong>sessão, sandbox, orquestração e ferramentas.</strong>
+        Public beta agora.
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-cg">Paraíba</div>
+    </div>
+  </div>
+  </div>
+
+  <!-- SLIDE 3 — ARQUITETURA -->
+  <div class="preview-wrap">
+  <div class="slide" id="s3">
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Arquitetura</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">Como funciona por dentro</div>
+
+      <div class="main-headline">
+        Stack vertical<br>completo
+      </div>
+
+      <div class="feat-list">
+        <div class="feat-item">
+          <span class="feat-num">01</span>
+          <span class="feat-text"><strong>Harness</strong> — framework que orquestra agentes e sub-agentes</span>
+        </div>
+        <div class="feat-item">
+          <span class="feat-num">02</span>
+          <span class="feat-text"><strong>Tools + MCP</strong> — acesso nativo a ferramentas e Model Context Protocol</span>
+        </div>
+        <div class="feat-item">
+          <span class="feat-num">03</span>
+          <span class="feat-text"><strong>Session + Sandbox</strong> — estado persistente e execução segura e isolada</span>
+        </div>
+        <div class="feat-item">
+          <span class="feat-num">04</span>
+          <span class="feat-text"><strong>Orchestration</strong> — roteamento, retry e escalabilidade gerenciados pela Anthropic</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-cg">Paraíba</div>
+    </div>
+  </div>
+  </div>
+
+  <!-- SLIDE 4 — EARLY ADOPTERS -->
+  <div class="preview-wrap">
+  <div class="slide" id="s4">
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Early Adopters</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">Quem já está usando</div>
+
+      <div class="main-headline">
+        De Notion a Sentry,<br>em produção
+      </div>
+
+      <div class="feat-list">
+        <div class="feat-item">
+          <span class="feat-num">01</span>
+          <span class="feat-text"><strong>Notion</strong> — agente de automação de workflows dentro do produto</span>
+        </div>
+        <div class="feat-item">
+          <span class="feat-num">02</span>
+          <span class="feat-text"><strong>Asana</strong> — agente de gestão de tarefas e projetos end-to-end</span>
+        </div>
+        <div class="feat-item">
+          <span class="feat-num">03</span>
+          <span class="feat-text"><strong>Sentry</strong> — agente de análise e triagem automática de bugs</span>
+        </div>
+        <div class="feat-item">
+          <span class="feat-num">04</span>
+          <span class="feat-text"><strong>Rakuten</strong> — agente de suporte e personalização em escala</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-cg">Paraíba</div>
+    </div>
+  </div>
+  </div>
+
+  <!-- SLIDE 5 — O IMPACTO -->
+  <div class="preview-wrap">
+  <div class="slide" id="s5">
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">O impacto</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">O que isso significa</div>
+
+      <div class="main-headline">
+        Modelo + infra +<br>orquestração +<br>distribuição
+      </div>
+
+      <div class="body-text">
+        Não é mais só o melhor modelo.
+        É <strong>stack vertical completo.</strong>
+        Startups de "infra pra agentes" agora
+        competem direto com a Anthropic.
+        A plataforma virou o produto.
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-cg">Paraíba</div>
+    </div>
+  </div>
+  </div>
+
+  <!-- SLIDE 6 — PRA NÓS -->
+  <div class="preview-wrap">
+  <div class="slide" id="s6">
+    <div class="deco-circle" style="width:600px;height:600px;top:-200px;right:-200px;opacity:0.6;"></div>
+
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Pra nós</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">O que muda pra quem constrói na Paraíba</div>
+
+      <div class="local-headline">
+        A barreira de<br>infra acabou
+      </div>
+
+      <div class="local-body">
+        Antes precisava de time de engenharia
+        só pra orquestrar agentes.
+        Agora <strong>descreve o que quer e roda em escala.</strong>
+        Se você tem uma boa ideia,
+        você pode construir.
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-cg">Paraíba</div>
+    </div>
+  </div>
+  </div>
+
+  <!-- SLIDE 7 — CTA -->
+  <div class="preview-wrap">
+  <div class="slide" id="s7">
+    <div class="deco-circle" style="width:700px;height:700px;bottom:-250px;left:-250px;opacity:0.5;"></div>
+    <div class="deco-circle" style="width:400px;height:400px;bottom:-100px;left:-100px;opacity:0.4;"></div>
+
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Comunidade</div>
+    </div>
+
+    <div class="body">
+      <div class="cta-eyebrow">É aqui que a conversa acontece</div>
+
+      <div class="cta-headline">
+        Venha<br>construir
+      </div>
+
+      <div class="cta-sub">
+        PBuilders é a comunidade presencial de builders de IA
+        na Paraíba. Encontros, demos, projetos reais.
+      </div>
+
+      <div class="handle-block">
+        <div class="handle">@pbuilders</div>
+        <div class="handle-desc">Entre na comunidade — link na bio</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-cg">Paraíba</div>
+    </div>
+  </div>
+  </div>
+
+</body>
+</html>
