@@ -6,6 +6,10 @@
 
 **Nunca usar `<br>` em textos de parágrafo nos HTMLs.** Quebras forçadas criam layouts quebrados dependendo do tamanho do texto. Deixar o texto fluir naturalmente e ajustar o tamanho da fonte ou o `max-width` do container se necessário.
 
+**Headlines com `<br>` devem usar no máximo 2 linhas — nunca criar órfãs.** Ao adicionar quebras manuais em títulos, verificar se a última palavra não ficou sozinha numa terceira linha. Exemplo errado: `a AWS dos<br>agentes` quando "agentes" cabe na linha anterior. Regra: cada linha deve ter peso visual equivalente. Se uma quebra gera uma linha com 1-2 palavras sozinhas que caberiam na linha anterior, remover o `<br>`.
+
+**Sublines e textos de apoio devem ser diretos — no máximo 1 linha.** Subline do hook serve como complemento imediato do título, não como descrição completa. Preferir frases curtas tipo "Nova plataforma da Anthropic" a frases longas que quebram em 2 linhas.
+
 **Títulos e headlines sempre em branco (`#F0F0F0` ou `#FFFFFF`).** Nunca usar cinza escuro em texto de headline — dificulta a leitura. Cinza só para textos de apoio, labels e eyebrows.
 
 **Texto de corpo deve ter contraste legível.** Fundo `#0A0A0A`: usar no mínimo `#888` para parágrafos e `#777` para texto secundário. Cores como `#555` ou `#4A4A4A` são ilegíveis nesse fundo — contraste abaixo de 3:1.
