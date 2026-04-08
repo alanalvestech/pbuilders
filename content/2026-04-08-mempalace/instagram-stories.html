@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>PBuilders — MemPalace Stories</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0D0D0D;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 24px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .preview-wrap {
+      width: 200px;
+      height: 356px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .preview-wrap .slide {
+      transform: scale(0.185);
+      transform-origin: top left;
+    }
+
+    /* BASE SLIDE — 1080x1920, safe zone 250px-1670px */
+    .slide {
+      width: 1080px;
+      height: 1920px;
+      background: #0A0A0A;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 300px 96px 330px;
+    }
+
+    .slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none;
+    }
+
+    .deco-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.04);
+      pointer-events: none;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-pb {
+      font-size: 36px;
+      font-weight: 700;
+      color: #F0F0F0;
+      letter-spacing: -0.03em;
+    }
+
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #555;
+      border: 1px solid #2A2A2A;
+      padding: 10px 28px;
+      border-radius: 999px;
+    }
+
+    .body {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #3A3A3A;
+      margin-bottom: 44px;
+    }
+
+    .headline {
+      font-size: 84px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 0.93;
+      color: #F0F0F0;
+      margin-bottom: 44px;
+    }
+
+    .accent-line {
+      width: 56px;
+      height: 4px;
+      background: #fff;
+      margin-bottom: 44px;
+    }
+
+    .body-text {
+      font-size: 36px;
+      color: #888;
+      line-height: 1.65;
+    }
+
+    .body-text strong {
+      color: #C8C8C8;
+      font-weight: 600;
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid #1C1C1C;
+      padding-top: 32px;
+    }
+
+    .footer-url {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 26px;
+      color: #3A3A3A;
+    }
+
+    .footer-cg {
+      font-size: 26px;
+      color: #2E2E2E;
+    }
+
+    /* ── SLIDE 3 — O RESULTADO ── */
+    #s3 .big-number {
+      font-size: 160px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 0.85;
+      color: #F8F8F8;
+      margin-bottom: 20px;
+    }
+
+    #s3 .big-label {
+      font-size: 38px;
+      color: #888;
+      line-height: 1.4;
+      margin-bottom: 52px;
+    }
+
+    #s3 .big-label strong {
+      color: #D0D0D0;
+      font-weight: 600;
+    }
+
+    /* ── SLIDE 4 — CTA ── */
+    #s4 .cta-headline {
+      font-size: 108px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 0.92;
+      color: #F0F0F0;
+      margin-bottom: 52px;
+    }
+
+    #s4 .cta-sub {
+      font-size: 36px;
+      color: #888;
+      line-height: 1.6;
+      margin-bottom: 64px;
+    }
+
+    #s4 .handle {
+      font-size: 44px;
+      font-weight: 700;
+      color: #E0E0E0;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    #s4 .handle-desc {
+      font-size: 30px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SLIDE 1 — HOOK -->
+  <div class="preview-wrap">
+  <div class="slide" id="s1">
+    <div class="deco-circle" style="width:1000px;height:1000px;bottom:-300px;right:-400px;"></div>
+
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Curadoria</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">MemPalace, 2026</div>
+      <div class="headline">
+        Ela lutou
+        contra IA.
+        Agora constrói
+      </div>
+      <div class="accent-line"></div>
+      <div class="body-text">
+        A atriz de Resident Evil lançou
+        um sistema de memória de IA open source.
+        <strong>7.000+ stars em 48 horas.</strong>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-cg">Paraíba</div>
+    </div>
+  </div>
+  </div>
+
+  <!-- SLIDE 2 — A IDEIA -->
+  <div class="preview-wrap">
+  <div class="slide" id="s2">
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Grécia Antiga</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">De onde veio a ideia</div>
+      <div class="headline">
+        Uma técnica
+        de 2.500 anos
+      </div>
+      <div class="accent-line"></div>
+      <div class="body-text">
+        <strong>Método de Loci</strong> da Grécia Antiga.
+        Milla trouxe o conceito.
+        O engenheiro Ben Sigman transformou em código
+        com <strong>Claude Code.</strong>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-cg">Paraíba</div>
+    </div>
+  </div>
+  </div>
+
+  <!-- SLIDE 3 — O RESULTADO -->
+  <div class="preview-wrap">
+  <div class="slide" id="s3">
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">O resultado</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">LongMemEval benchmark</div>
+
+      <div class="big-number">96.6%</div>
+      <div class="big-label">
+        de recall. <strong>Número real, impressionante.</strong>
+      </div>
+
+      <div class="body-text">
+        O viral diz "100%". A métrica usada
+        não é a mesma do benchmark oficial.
+        <strong>O projeto é bom de verdade.</strong>
+        O marketing exagerou.
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-cg">Paraíba</div>
+    </div>
+  </div>
+  </div>
+
+  <!-- SLIDE 4 — CTA -->
+  <div class="preview-wrap">
+  <div class="slide" id="s4">
+    <div class="deco-circle" style="width:900px;height:900px;bottom:-300px;left:-300px;opacity:0.6;"></div>
+
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">Comunidade</div>
+    </div>
+
+    <div class="body">
+      <div class="eyebrow">Carrossel completo no feed</div>
+      <div class="cta-headline">
+        Venha<br>construir
+      </div>
+      <div class="cta-sub">
+        PBuilders é a comunidade presencial
+        de builders de IA na Paraíba.
+      </div>
+      <div class="handle">@pbuilders</div>
+      <div class="handle-desc">Entre na comunidade — link na bio</div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-url">pbuilders.ai</div>
+      <div class="footer-cg">Paraíba</div>
+    </div>
+  </div>
+  </div>
+
+</body>
+</html>
