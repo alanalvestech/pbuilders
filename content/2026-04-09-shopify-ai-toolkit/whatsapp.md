@@ -4,4 +4,4 @@ A Shopify lançou o **AI Toolkit** — agora dá pra controlar sua loja com agen
 
 Quem sabe IA + Shopify tem oportunidade real aqui na PB.
 
-👉 https://www.instagram.com/pbuilders
+👉 https://www.instagram.com/p/DW7e2ipibAn
