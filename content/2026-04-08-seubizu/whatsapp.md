@@ -3,11 +3,16 @@ type: build
 canal: whatsapp
 ---
 
-Quanto você pagou no seu último eletrônico? Provavelmente mais do que precisava.
+Fala Builders,
 
-A gente aqui da PB acabou de lançar o SeuBizu (seubizu.ai): manda texto, áudio ou foto de qualquer produto e ele acha o menor preço em +100 lojas brasileiras, direto no WhatsApp.
+Quero compartilhar aqui em primeira mão com vocês.
 
-Feito pelo Alan, Thiago e Leandro. Saindo daqui de Campina Grande pro Brasil.
+Acabou de sair do forno um projeto feito na terra: SeuBizu.
 
-Testa agora e compartilha com quem você conhece 👇
-seubizu.ai
+Pra fazer uma compra hoje, a gente abre o Google, vários sites, compara manualmente. Com o SeuBizu você manda texto, áudio ou imagem (a gente reconhece, pode ser o copo da sua cozinha haha) e a IA busca o menor preço em +100 lojas.
+
+Em breve: alerta de preço também.
+
+Conto com a ajuda de todos vocês pra testar. seubizu.ai
+
+Obrigado!
