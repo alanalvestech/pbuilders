@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  @page { margin: 1.5cm 2cm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 14px;
+    color: #111;
+    background: #fff;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid #111;
+  }
+  header .logos {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  header .logos img.main-logo {
+    height: 48px;
+  }
+  header .logos .divider {
+    width: 1px;
+    height: 36px;
+    background: #ccc;
+  }
+  header .logos .support-label {
+    font-size: 10px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  header .logos .support-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  header .logos img.support-logo {
+    height: 32px;
+    opacity: 0.75;
+  }
+  header .meta {
+    text-align: right;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+  }
+  h1 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    letter-spacing: -0.3px;
+  }
+  h2 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 36px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #ddd;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #111;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+  h3 {
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  p {
+    line-height: 1.7;
+    margin-bottom: 10px;
+    color: #222;
+  }
+  ul {
+    padding-left: 20px;
+    margin-bottom: 12px;
+  }
+  ul li {
+    line-height: 1.7;
+    margin-bottom: 4px;
+    color: #222;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 13px;
+    page-break-inside: avoid;
+  }
+  th {
+    background: #111;
+    color: #fff;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+  }
+  tr {
+    page-break-inside: avoid;
+  }
+  tr:nth-child(even) td {
+    background: #f9f9f9;
+  }
+  .page-break {
+    page-break-before: always;
+  }
+  .checklist li {
+    list-style: none;
+    padding-left: 4px;
+  }
+  .checklist li::before {
+    content: "☐ ";
+    font-size: 14px;
+  }
+  strong {
+    font-weight: 700;
+  }
+  .section-intro {
+    color: #444;
+    margin-bottom: 16px;
+    line-height: 1.7;
+  }
+  footer {
+    margin-top: 16px;
+    padding-top: 0;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.8;
+  }
+  footer strong {
+    color: #111;
+    font-size: 14px;
+  }
+  .tag {
+    display: inline-block;
+    background: #111;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+    margin-right: 6px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logos">
+    <img src="../site/logo-pb.png" alt="PBuilders" class="main-logo">
+    <span class="divider"></span>
+    <div class="support-wrapper">
+      <span class="support-label">Apoio institucional</span>
+      <img src="../site/logo-einovcg.png" alt="E.InovCG" class="support-logo">
+    </div>
+  </div>
+  <div class="meta">
+    <strong>1º Encontro PBuilders</strong><br>
+    25 de abril de 2026
+  </div>
+</header>
+
+<h1>Proposta de Parceria — PBuilders × Sebrae</h1>
+
+<h2>1. Sobre a PBuilders</h2>
+<p class="section-intro">
+  PBuilders é uma comunidade para quem constrói com inteligência artificial na Paraíba — com encontros presenciais em Campina Grande e presença online. O "PB" no nome carrega a identidade: somos daqui, para quem está aqui.
+</p>
+<p><strong>Missão:</strong> reunir pessoas que usam IA para fazer coisas de verdade — não para falar sobre IA, mas para construir com ela.</p>
+<p><strong>Público:</strong> pessoas que trabalham ou desejam trabalhar com IA, profissionais de diferentes áreas, como desenvolvimento, empreendedorismo, direito, saúde, educação e estudantes. Sem restrição de área.</p>
+<p><strong>Formato dos encontros:</strong></p>
+<ul>
+  <li>Palestras curtas (15–20 min) com demonstração ao vivo</li>
+  <li>Espaço aberto para mostrar o que cada um está construindo</li>
+  <li>Networking presencial — a essência da comunidade</li>
+  <li>Sem slides de 50 páginas, sem papo corporativo</li>
+</ul>
+<p><strong>Presença digital:</strong> pbuilders.ai · Instagram @pbuilders.ai</p>
+
+<h2 class="page-break">2. Ementa do 1º Encontro</h2>
+<p><strong>Duração total:</strong> 4 horas</p>
+<table>
+  <thead>
+    <tr>
+      <th>Bloco</th>
+      <th>Conteúdo</th>
+      <th>Duração</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>1 — Contexto</strong></td>
+      <td>IA em 2026: o que mudou · Demonstração ao vivo com Claude Code</td>
+      <td>30 min</td>
+    </tr>
+    <tr>
+      <td><strong>2 — Configuração</strong></td>
+      <td>Instalação do Claude Code ou OpenCode · Configuração da API key · Primeiro comando</td>
+      <td>30 min</td>
+    </tr>
+    <tr>
+      <td><strong>3 — Mão na massa</strong></td>
+      <td>Desafio guiado: cada participante escolhe 1 projeto (landing page, automação ou análise de dados)</td>
+      <td>90 min</td>
+    </tr>
+    <tr>
+      <td><strong>4 — Apresentação e Demonstração</strong></td>
+      <td>5–6 pessoas apresentam o que construíram · Votação do melhor projeto</td>
+      <td>30 min</td>
+    </tr>
+    <tr>
+      <td><strong>5 — Networking</strong></td>
+      <td>Café, troca de contato, grupo do WhatsApp da comunidade</td>
+      <td>60 min</td>
+    </tr>
+  </tbody>
+</table>
+<p><strong>Meta:</strong> cada participante sai com a ferramenta instalada e um projeto feito.</p>
+<p><strong>Capacidade esperada:</strong> 20–30 pessoas (público inicial de Campina Grande).</p>
+
+<h2>3. O que solicitamos ao Sebrae</h2>
+<p class="section-intro">Para viabilizar o 1º Encontro PBuilders, solicitamos o apoio do Sebrae nos seguintes itens:</p>
+
+<h3>Infraestrutura</h3>
+<ul class="checklist">
+  <li><strong>Auditório / sala de evento</strong> com capacidade para 30 pessoas</li>
+  <li><strong>Internet</strong> com boa banda (participantes usarão ferramentas de IA online)</li>
+  <li><strong>Pontos de energia / extensões</strong> suficientes para os participantes com notebook</li>
+</ul>
+
+<h3>Hospitalidade</h3>
+<ul class="checklist">
+  <li><strong>Água e café</strong> para os participantes durante o evento</li>
+</ul>
+
+<h3>Licença de IA</h3>
+<ul class="checklist">
+  <li><strong>Créditos OpenRouter</strong> — R$ 300 para uso das ferramentas de IA durante o workshop (30 pessoas)</li>
+</ul>
+
+<h2>4. Staff do Evento</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Função</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Alan Alves</strong></td>
+      <td>Instrutor</td>
+    </tr>
+    <tr>
+      <td><strong>Danúbio Lagoa</strong></td>
+      <td>Instrutor</td>
+    </tr>
+    <tr>
+      <td><strong>Talita Alves</strong></td>
+      <td>Cobertura do Evento</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>5. O que a PBuilders oferece em troca</h2>
+<ul>
+  <li>Divulgação do Sebrae como apoiador oficial em todos os materiais do evento</li>
+  <li>Menção ao Sebrae nas redes sociais (@pbuilders.ai) antes e após o evento</li>
+  <li>Posicionamento do Sebrae como parceiro de referência para a comunidade de builders de Campina Grande</li>
+  <li>Recaps do evento (foto, vídeo curto) publicados nas redes com crédito ao apoio</li>
+  <li>Comunidade ativa no ecossistema de Campina Grande — cada encontro traz novos empreendedores e builders para o radar do Sebrae</li>
+</ul>
+
+<h2>6. Contato</h2>
+<footer>
+  <strong>Alan</strong> — Fundador, PBuilders<br>
+  pbuildersai@gmail.com · Instagram @pbuilders.ai
+</footer>
+
+</body>
+</html>
