@@ -21,34 +21,8 @@
     padding-bottom: 24px;
     border-bottom: 2px solid #111;
   }
-  header .logos {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  header .logos img.main-logo {
+  header img {
     height: 48px;
-  }
-  header .logos .divider {
-    width: 1px;
-    height: 36px;
-    background: #ccc;
-  }
-  header .logos .support-label {
-    font-size: 10px;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 4px;
-  }
-  header .logos .support-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  header .logos img.support-logo {
-    height: 32px;
-    opacity: 0.75;
   }
   header .meta {
     text-align: right;
@@ -151,6 +125,30 @@
     color: #111;
     font-size: 14px;
   }
+  .apoio {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .apoio-label {
+    font-size: 11px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  .apoio-logos {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .apoio-logos img {
+    height: 32px;
+    opacity: 0.7;
+  }
   .tag {
     display: inline-block;
     background: #111;
@@ -167,14 +165,7 @@
 <body>
 
 <header>
-  <div class="logos">
-    <img src="../site/logo-pb.png" alt="PBuilders" class="main-logo">
-    <span class="divider"></span>
-    <div class="support-wrapper">
-      <span class="support-label">Apoio institucional</span>
-      <img src="../site/logo-einovcg.png" alt="E.InovCG" class="support-logo">
-    </div>
-  </div>
+  <img src="../site/logo-pb.png" alt="PBuilders">
   <div class="meta">
     <strong>1º Encontro PBuilders</strong><br>
     25 de abril de 2026
@@ -297,6 +288,13 @@
   <strong>Alan</strong> — Fundador, PBuilders<br>
   pbuildersai@gmail.com · Instagram @pbuilders.ai
 </footer>
+
+<div class="apoio">
+  <span class="apoio-label">Apoio institucional</span>
+  <div class="apoio-logos">
+    <img src="../site/logo-einovcg.png" alt="E.InovCG">
+  </div>
+</div>
 
 </body>
 </html>
