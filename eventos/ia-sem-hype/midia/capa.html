@@ -116,10 +116,27 @@
       margin-bottom: 32px;
     }
 
-    .subline {
-      font-size: 28px;
+    .topics {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .topic {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 24px;
       font-weight: 400;
       color: #555;
+    }
+
+    .topic-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #333;
+      flex-shrink: 0;
     }
 
     .footer {
@@ -183,7 +200,12 @@
         IA sem<br><span class="hype">Hype</span>
       </div>
       <div class="accent-line"></div>
-      <div class="subline">Você sai com algo feito.</div>
+      <div class="topics">
+        <div class="topic"><span class="topic-dot"></span>Demo ao vivo com Claude Code</div>
+        <div class="topic"><span class="topic-dot"></span>Mão na massa: construa seu projeto</div>
+        <div class="topic"><span class="topic-dot"></span>Apresente o que você fez</div>
+        <div class="topic"><span class="topic-dot"></span>Networking</div>
+      </div>
     </div>
 
     <div class="footer">
