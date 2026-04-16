@@ -55,6 +55,11 @@
       letter-spacing: -0.03em;
     }
 
+    .tags {
+      display: flex;
+      gap: 10px;
+    }
+
     .tag {
       font-family: 'JetBrains Mono', monospace;
       font-size: 17px;
@@ -65,6 +70,11 @@
       border: 1px solid #2A2A2A;
       padding: 8px 20px;
       border-radius: 999px;
+    }
+
+    .tag.free {
+      color: #F0F0F0;
+      border-color: #444;
     }
 
     .body {
@@ -190,11 +200,14 @@
 
     <div class="header">
       <div class="logo-pb">PBuilders</div>
-      <div class="tag">1º Encontro</div>
+      <div class="tags">
+        <div class="tag free">Grátis</div>
+        <div class="tag">1º Encontro</div>
+      </div>
     </div>
 
     <div class="body">
-      <div class="eyebrow">Sebrae · Campina Grande · 25 abr 2026</div>
+      <div class="eyebrow">Sebrae · Campina Grande · sáb. 25 abr · 08h</div>
       <div class="address">R. Cônsul Joseph Noujaim Habib, 800 · Catolé</div>
       <div class="headline">
         IA sem<br><span class="hype">Hype</span>
@@ -205,6 +218,7 @@
         <div class="topic"><span class="topic-dot"></span>Mão na massa: construa seu projeto</div>
         <div class="topic"><span class="topic-dot"></span>Apresente o que você fez</div>
         <div class="topic"><span class="topic-dot"></span>Networking</div>
+        <div class="topic" style="margin-top:6px;color:#333;font-size:20px;"><span class="topic-dot" style="background:#222;"></span>Sem certificado</div>
       </div>
     </div>
 
