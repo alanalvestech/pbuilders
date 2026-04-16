@@ -24,7 +24,9 @@
       position: relative;
       overflow: hidden;
       display: flex;
-      gap: 0;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 60px 90px;
     }
 
     .slide::before {
@@ -32,20 +34,17 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
       background-size: 80px 80px;
       pointer-events: none;
     }
 
-    /* ── Coluna esquerda: headline domina ── */
-    .left {
-      flex: 1;
+    /* ── Header ── */
+    .header {
       display: flex;
-      flex-direction: column;
+      align-items: center;
       justify-content: space-between;
-      padding: 56px 60px 56px 80px;
-      border-right: 1px solid #181818;
       position: relative;
       z-index: 1;
     }
@@ -57,10 +56,33 @@
       letter-spacing: -0.03em;
     }
 
-    .headline {
-      font-size: 185px;
+    .free-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 60px;
       font-weight: 700;
-      line-height: 0.86;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #0A0A0A;
+      background: #F0F0F0;
+      padding: 10px 44px;
+      border-radius: 999px;
+      line-height: 1;
+    }
+
+    /* ── Headline ── */
+    .body {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .headline {
+      font-size: 205px;
+      font-weight: 700;
+      line-height: 0.87;
       letter-spacing: -0.04em;
       color: #F0F0F0;
     }
@@ -68,70 +90,32 @@
     .headline .hype {
       color: #555;
       text-decoration: line-through;
-      text-decoration-thickness: 8px;
+      text-decoration-thickness: 9px;
       text-decoration-color: #F0F0F0;
     }
 
-    .left-footer {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 18px;
-      color: #252525;
-    }
-
-    /* ── Coluna direita: info em dois níveis ── */
-    .right {
-      width: 480px;
+    /* ── Footer ── */
+    .footer {
       display: flex;
-      flex-direction: column;
+      align-items: center;
       justify-content: space-between;
-      padding: 56px 80px 56px 60px;
       position: relative;
       z-index: 1;
     }
 
-    /* Nível 1 — visível no thumbnail */
-    .info-primary {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .free-badge {
+    .date {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 72px;
+      font-size: 38px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: -0.02em;
-      color: #F0F0F0;
-      line-height: 1;
-      margin-bottom: 20px;
-    }
-
-    .date-big {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 52px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: -0.01em;
+      letter-spacing: 0.06em;
       color: #555;
-      line-height: 1.1;
-    }
-
-    .time-big {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 52px;
-      font-weight: 700;
-      color: #444;
-      line-height: 1.1;
     }
 
     .location {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 22px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #333;
+      font-size: 28px;
+      color: #2E2E2E;
     }
   </style>
 </head>
@@ -139,18 +123,19 @@
 
   <div class="slide">
 
-    <div class="left">
+    <div class="header">
       <div class="logo-pb">PBuilders</div>
-      <div class="headline">IA sem<br><span class="hype">Hype</span></div>
-      <div class="left-footer">pbuilders.ai</div>
+      <div class="free-badge">Grátis</div>
     </div>
 
-    <div class="right">
-      <div class="info-primary">
-        <div class="free-badge">Grátis</div>
-        <div class="date-big">Sáb 25 Abr</div>
-        <div class="time-big">08h00</div>
+    <div class="body">
+      <div class="headline">
+        IA sem<br><span class="hype">Hype</span>
       </div>
+    </div>
+
+    <div class="footer">
+      <div class="date">Sáb · 25 Abr · 08h</div>
       <div class="location">Campina Grande</div>
     </div>
 
