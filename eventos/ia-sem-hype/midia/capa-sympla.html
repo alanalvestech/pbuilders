@@ -26,7 +26,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 56px 80px;
+      padding: 64px 100px;
     }
 
     .slide::before {
@@ -49,32 +49,22 @@
     }
 
     .logo-pb {
-      font-size: 28px;
+      font-size: 36px;
       font-weight: 700;
       color: #F0F0F0;
       letter-spacing: -0.03em;
     }
 
-    .tags {
-      display: flex;
-      gap: 10px;
-    }
-
-    .tag {
+    .tag-free {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 17px;
+      font-size: 26px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      color: #555;
-      border: 1px solid #2A2A2A;
-      padding: 8px 20px;
-      border-radius: 999px;
-    }
-
-    .tag.free {
       color: #F0F0F0;
-      border-color: #444;
+      border: 2px solid #444;
+      padding: 10px 28px;
+      border-radius: 999px;
     }
 
     .body {
@@ -82,85 +72,23 @@
       z-index: 1;
       flex: 1;
       display: flex;
-      align-items: center;
-      gap: 100px;
-      padding: 24px 0;
-    }
-
-    .left {
-      flex: 1;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .headline {
-      font-size: 140px;
+      font-size: 240px;
       font-weight: 700;
-      line-height: 0.88;
+      line-height: 0.85;
       letter-spacing: -0.04em;
       color: #F0F0F0;
     }
 
     .headline .hype {
-      color: #666;
-      text-decoration: line-through;
-      text-decoration-thickness: 6px;
-      text-decoration-color: #F0F0F0;
-    }
-
-    .right {
-      width: 560px;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
-
-    .info {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .eyebrow {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 18px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #666;
-    }
-
-    .address {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 16px;
-      color: #444;
-    }
-
-    .divider {
-      width: 40px;
-      height: 2px;
-      background: #333;
-    }
-
-    .topics {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .topic {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-size: 22px;
-      font-weight: 400;
       color: #555;
-    }
-
-    .topic-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: #333;
-      flex-shrink: 0;
+      text-decoration: line-through;
+      text-decoration-thickness: 10px;
+      text-decoration-color: #F0F0F0;
     }
 
     .footer {
@@ -169,42 +97,21 @@
       justify-content: space-between;
       position: relative;
       z-index: 1;
-      border-top: 1px solid #1C1C1C;
-      padding-top: 20px;
     }
 
-    .apoio {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .apoio-label {
+    .date {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 15px;
+      font-size: 28px;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.12em;
       color: #555;
-      white-space: nowrap;
-    }
-
-    .apoio-divider {
-      width: 1px;
-      height: 22px;
-      background: #333;
-    }
-
-    .apoio img {
-      height: 36px;
-      opacity: 0.6;
-      filter: grayscale(100%);
     }
 
     .footer-right {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 18px;
-      color: #555;
+      font-size: 24px;
+      color: #333;
     }
   </style>
 </head>
@@ -214,39 +121,15 @@
 
     <div class="header">
       <div class="logo-pb">PBuilders</div>
-      <div class="tags">
-        <div class="tag free">Grátis</div>
-        <div class="tag">1º Encontro</div>
-      </div>
+      <div class="tag-free">Grátis</div>
     </div>
 
     <div class="body">
-      <div class="left">
-        <div class="headline">IA sem<br><span class="hype">Hype</span></div>
-      </div>
-      <div class="right">
-        <div class="info">
-          <div class="eyebrow">Sebrae · Campina Grande · sáb. 25 abr · 08h</div>
-          <div class="address">R. Cônsul Joseph Noujaim Habib, 800 · Catolé</div>
-        </div>
-        <div class="divider"></div>
-        <div class="topics">
-          <div class="topic"><span class="topic-dot"></span>Demo ao vivo com Claude Code</div>
-          <div class="topic"><span class="topic-dot"></span>Mão na massa: construa seu projeto</div>
-          <div class="topic"><span class="topic-dot"></span>Apresente o que você fez</div>
-          <div class="topic"><span class="topic-dot"></span>Networking</div>
-          <div class="topic" style="margin-top:4px;color:#333;font-size:19px;"><span class="topic-dot" style="background:#222;"></span>Sem certificado</div>
-        </div>
-      </div>
+      <div class="headline">IA sem <span class="hype">Hype</span></div>
     </div>
 
     <div class="footer">
-      <div class="apoio">
-        <span class="apoio-label">Apoio</span>
-        <span class="apoio-divider"></span>
-        <img src="../../../site/logo-einovcg.png" alt="E.InovCG">
-        <img src="../../../site/logo-cgcriativa.jpg" alt="Campina Grande Criativa">
-      </div>
+      <div class="date">Sáb. 25 abr 2026 · 08h · Sebrae CG</div>
       <div class="footer-right">pbuilders.ai</div>
     </div>
 
