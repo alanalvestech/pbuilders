@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .slide {
+      width: 1600px;
+      height: 838px;
+      background: #0A0A0A;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 56px 80px;
+    }
+
+    .slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logo-pb {
+      font-size: 28px;
+      font-weight: 700;
+      color: #F0F0F0;
+      letter-spacing: -0.03em;
+    }
+
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 17px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #555;
+      border: 1px solid #2A2A2A;
+      padding: 8px 20px;
+      border-radius: 999px;
+    }
+
+    .body {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 100px;
+      padding: 24px 0;
+    }
+
+    .left {
+      flex: 1;
+    }
+
+    .headline {
+      font-size: 140px;
+      font-weight: 700;
+      line-height: 0.88;
+      letter-spacing: -0.04em;
+      color: #F0F0F0;
+    }
+
+    .headline .hype {
+      color: #666;
+      text-decoration: line-through;
+      text-decoration-thickness: 6px;
+      text-decoration-color: #F0F0F0;
+    }
+
+    .right {
+      width: 560px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #666;
+    }
+
+    .address {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 16px;
+      color: #444;
+    }
+
+    .divider {
+      width: 40px;
+      height: 2px;
+      background: #333;
+    }
+
+    .topics {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .topic {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 22px;
+      font-weight: 400;
+      color: #555;
+    }
+
+    .topic-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #333;
+      flex-shrink: 0;
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid #1C1C1C;
+      padding-top: 20px;
+    }
+
+    .apoio {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .apoio-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #555;
+      white-space: nowrap;
+    }
+
+    .apoio-divider {
+      width: 1px;
+      height: 22px;
+      background: #333;
+    }
+
+    .apoio img {
+      height: 36px;
+      opacity: 0.6;
+      filter: grayscale(100%);
+    }
+
+    .footer-right {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slide">
+
+    <div class="header">
+      <div class="logo-pb">PBuilders</div>
+      <div class="tag">1º Encontro</div>
+    </div>
+
+    <div class="body">
+      <div class="left">
+        <div class="headline">IA sem<br><span class="hype">Hype</span></div>
+      </div>
+      <div class="right">
+        <div class="info">
+          <div class="eyebrow">Sebrae · Campina Grande · 25 abr 2026</div>
+          <div class="address">R. Cônsul Joseph Noujaim Habib, 800 · Catolé</div>
+        </div>
+        <div class="divider"></div>
+        <div class="topics">
+          <div class="topic"><span class="topic-dot"></span>Demo ao vivo com Claude Code</div>
+          <div class="topic"><span class="topic-dot"></span>Mão na massa: construa seu projeto</div>
+          <div class="topic"><span class="topic-dot"></span>Apresente o que você fez</div>
+          <div class="topic"><span class="topic-dot"></span>Networking</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="apoio">
+        <span class="apoio-label">Apoio</span>
+        <span class="apoio-divider"></span>
+        <img src="../../../site/logo-einovcg.png" alt="E.InovCG">
+        <img src="../../../site/logo-cgcriativa.jpg" alt="Campina Grande Criativa">
+      </div>
+      <div class="footer-right">pbuilders.ai</div>
+    </div>
+
+  </div>
+
+</body>
+</html>
