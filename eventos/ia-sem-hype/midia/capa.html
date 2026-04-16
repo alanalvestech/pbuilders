@@ -125,16 +125,38 @@
       padding-top: 24px;
     }
 
-    .footer-left {
+    .apoio {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .apoio-label {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 20px;
-      color: #444;
+      font-size: 17px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #2A2A2A;
+      white-space: nowrap;
+    }
+
+    .apoio-divider {
+      width: 1px;
+      height: 24px;
+      background: #222;
+    }
+
+    .apoio img {
+      height: 28px;
+      opacity: 0.45;
+      filter: grayscale(100%);
     }
 
     .footer-right {
       font-family: 'JetBrains Mono', monospace;
       font-size: 20px;
-      color: #2E2E2E;
+      color: #2A2A2A;
     }
   </style>
 </head>
@@ -157,7 +179,12 @@
     </div>
 
     <div class="footer">
-      <div class="footer-left">Sebrae CG</div>
+      <div class="apoio">
+        <span class="apoio-label">Apoio</span>
+        <span class="apoio-divider"></span>
+        <img src="../../../site/logo-einovcg.png" alt="E.InovCG">
+        <img src="../../../site/logo-cgcriativa.jpg" alt="Campina Grande Criativa">
+      </div>
       <div class="footer-right">pbuilders.ai</div>
     </div>
 
