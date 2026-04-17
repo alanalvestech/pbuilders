@@ -68,7 +68,7 @@ A PBuilders é uma comunidade para quem quer transformar ideias em projetos e so
 
 Organização: PBuilders • pbuilders.ai
 
-Apoio: E.InovCG • CG Criativa • Sebrae
+Apoio: E.InovCG • CG Criativa • Sebrae • Santo Tech
 
 ---
 
